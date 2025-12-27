@@ -574,6 +574,8 @@ function initMusicPlayer() {
     // Attempt autoplay
     function tryPlay() {
         audio.volume = 0.3; // Set nice background volume
+
+        // We handle the promise to avoid uncaught exceptions in console
         const playPromise = audio.play();
 
         if (playPromise !== undefined) {
@@ -584,6 +586,12 @@ function initMusicPlayer() {
                 // Auto-play was prevented.
                 console.log("Autoplay prevented by browser, waiting for interaction.");
                 updateUI(false);
+
+                // OPTIONAL: Show a toast or small hint
+                if (typeof showToast === 'function') {
+                    // showToast('Klik ergens om muziek te starten 🎵'); 
+                    // Kept commented to avoid annoyance, but logic is here
+                }
 
                 // Add one-time listener to start on first interaction
                 const validEvents = ['click', 'touchstart', 'scroll', 'keydown'];
