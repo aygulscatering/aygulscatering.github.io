@@ -47,19 +47,19 @@ let config = {
     PRESSURE: 0.8,
     PRESSURE_ITERATIONS: 20,
     CURL: 30,
-    SPLAT_RADIUS: 0.25,
+    SPLAT_RADIUS: 0.35,
     SPLAT_FORCE: 6000,
     SHADING: true,
     COLORFUL: true,
     COLOR_UPDATE_SPEED: 10,
     PAUSED: false,
-    BACK_COLOR: { r: 0, g: 0, b: 0 },
-    TRANSPARENT: true,
+    BACK_COLOR: { r: 8, g: 0, b: 15 },
+    TRANSPARENT: false,
     BLOOM: true,
     BLOOM_ITERATIONS: 8,
     BLOOM_RESOLUTION: 256,
-    BLOOM_INTENSITY: 0.8,
-    BLOOM_THRESHOLD: 0.6,
+    BLOOM_INTENSITY: 2.0,
+    BLOOM_THRESHOLD: 0.3,
     BLOOM_SOFT_KNEE: 0.7,
     SUNRAYS: true,
     SUNRAYS_RESOLUTION: 196,
@@ -1547,11 +1547,13 @@ function correctDeltaY(delta) {
 }
 
 function generateColor() {
-    let c = HSVtoRGB(Math.random(), 1.0, 1.0);
-    c.r *= 0.4;
-    c.g *= 0.4;
-    c.b *= 0.4;
-    return c;
+    // Neon Purples, Pinks, and Blues palette
+    const colors = [
+        { r: 0.66, g: 0.33, b: 0.97 }, // #A855F7 (Purple)
+        { r: 0.93, g: 0.28, b: 0.60 }, // #EC4899 (Pink)
+        { r: 0.23, g: 0.51, b: 0.96 }  // #3B82F6 (Blue)
+    ];
+    return colors[Math.floor(Math.random() * colors.length)];
 }
 
 function HSVtoRGB(h, s, v) {
