@@ -197,89 +197,136 @@
         <!-- Main Content -->
         <main class="flex-1">
             <!-- New Split Hero Section -->
-            <div class="relative w-full overflow-hidden bg-[#FAFAFA] dark:bg-[#111921]">
-                <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[90vh]">
-                    <!-- Left Content -->
-                    <div
-                        class="flex flex-col justify-center px-6 md:px-20 py-12 lg:py-0 order-2 lg:order-1 z-10 relative">
-                        <!-- Decorative Blob -->
-                        <div
-                            class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl mix-blend-multiply dark:bg-primary/10">
-                        </div>
+            <div
+                class="relative w-full overflow-hidden bg-gradient-to-br from-orange-50 via-white to-orange-50/30 dark:from-[#111921] dark:via-[#1a2632] dark:to-[#111921]">
+                <!-- Decorative Blobs -->
+                <div
+                    class="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 mix-blend-multiply dark:bg-primary/10 dark:mix-blend-normal">
+                </div>
+                <div
+                    class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3 mix-blend-multiply dark:bg-secondary/5 dark:mix-blend-normal">
+                </div>
 
+                <div
+                    class="max-w-[1400px] mx-auto px-4 md:px-10 min-h-[90vh] grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                    <!-- Left Content -->
+                    <div class="flex flex-col justify-center py-12 lg:py-0 order-2 lg:order-1">
                         <div
-                            class="inline-flex items-center gap-2 self-start bg-orange-50 dark:bg-orange-900/20 text-primary border border-orange-100 dark:border-orange-800/30 px-4 py-2 rounded-full mb-8 reveal-on-scroll">
+                            class="inline-flex items-center gap-2 self-start bg-white dark:bg-white/5 border border-orange-100 dark:border-white/10 px-4 py-2 rounded-full mb-8 shadow-sm reveal-on-scroll backdrop-blur-sm">
                             <span class="relative flex h-2 w-2">
                                 <span
                                     class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                             </span>
-                            <span class="text-xs font-bold uppercase tracking-wider">Top Beoordeeld in Rotterdam</span>
+                            <span class="text-xs font-bold uppercase tracking-wider text-primary">Top Beoordeeld in
+                                Rotterdam</span>
                         </div>
 
                         <h1
-                            class="text-[#1F2937] dark:text-white text-5xl md:text-7xl font-black leading-[1.1] tracking-tight mb-6 reveal-on-scroll">
-                            Smaak van Thuis, <br><span class="text-primary relative inline-block">
-                                Met Liefde Bezorgd
-                                <svg class="absolute w-full h-3 -bottom-1 left-0 text-primary/20" viewBox="0 0 100 10"
+                            class="text-[#1F2937] dark:text-white text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight mb-8 reveal-on-scroll">
+                            Smaak <br>
+                            <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#ff8f26] relative inline-block">
+                                van Thuis
+                                <svg class="absolute w-full h-4 -bottom-2 left-0 text-primary/30" viewBox="0 0 100 10"
                                     preserveAspectRatio="none">
                                     <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="8" fill="none" />
                                 </svg>
                             </span>
                         </h1>
 
-                        <p class="text-[#6B7280] dark:text-gray-400 text-lg md:text-xl font-medium leading-relaxed max-w-lg mb-10 reveal-on-scroll"
+                        <p class="text-[#6B7280] dark:text-gray-400 text-lg md:text-2xl font-medium leading-relaxed max-w-xl mb-12 reveal-on-scroll"
                             style="transition-delay: 100ms;">
-                            Ambachtelijke familie-catering in Rotterdam. Van gezonde schoollunches tot elegante
-                            bedrijfsevenementen, wij brengen warmte op elke tafel.
+                            Ambachtelijke familie-catering. Van gezonde schoollunches tot elegante bedrijfsevenementen,
+                            wij brengen warmte op elke tafel.
                         </p>
 
                         <div class="flex flex-col sm:flex-row gap-4 reveal-on-scroll" style="transition-delay: 200ms;">
                             <button
-                                class="flex cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-primary hover:bg-[#ff8f26] text-white text-base font-bold shadow-xl shadow-primary/25 transition-all transform hover:-translate-y-1 open-quote-modal">
+                                class="flex cursor-pointer items-center justify-center rounded-full h-16 px-10 bg-primary hover:bg-[#ff8f26] text-white text-lg font-bold shadow-xl shadow-primary/30 transition-all transform hover:-translate-y-1 hover:shadow-2xl open-quote-modal group">
                                 Offerte Aanvragen
+                                <span
+                                    class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
                             </button>
                             <button
-                                class="flex cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-white dark:bg-[#1f2937] border-2 border-gray-100 dark:border-gray-700 hover:border-primary/30 text-[#1F2937] dark:text-white text-base font-bold transition-all hover:bg-gray-50 dark:hover:bg-gray-800"
+                                class="flex cursor-pointer items-center justify-center rounded-full h-16 px-10 bg-white/80 dark:bg-[#1f2937]/80 backdrop-blur border-2 border-gray-100 dark:border-gray-700 hover:border-primary/50 text-[#1F2937] dark:text-white text-lg font-bold transition-all hover:bg-white dark:hover:bg-[#1f2937] hover:shadow-lg"
                                 onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">
                                 Bekijk Menu's
                             </button>
                         </div>
 
-                        <div class="mt-12 flex items-center gap-4 text-sm font-semibold text-[#6B7280] dark:text-gray-500 reveal-on-scroll"
-                            style="transition-delay: 300ms;">
-                            <div class="flex -space-x-3">
+                        <div class="mt-16 flex items-center gap-4 reveal-on-scroll" style="transition-delay: 300ms;">
+                            <div class="flex -space-x-4">
                                 <img src="https://i.pravatar.cc/100?img=1"
-                                    class="w-10 h-10 rounded-full border-2 border-white dark:border-[#111921]"
+                                    class="w-12 h-12 rounded-full border-4 border-white dark:border-[#111921] shadow-md"
                                     alt="User">
                                 <img src="https://i.pravatar.cc/100?img=5"
-                                    class="w-10 h-10 rounded-full border-2 border-white dark:border-[#111921]"
+                                    class="w-12 h-12 rounded-full border-4 border-white dark:border-[#111921] shadow-md"
                                     alt="User">
                                 <img src="https://i.pravatar.cc/100?img=8"
-                                    class="w-10 h-10 rounded-full border-2 border-white dark:border-[#111921]"
+                                    class="w-12 h-12 rounded-full border-4 border-white dark:border-[#111921] shadow-md"
                                     alt="User">
+                                <div
+                                    class="w-12 h-12 rounded-full border-4 border-white dark:border-[#111921] bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-xs font-bold text-gray-600 dark:text-gray-300 shadow-md">
+                                    50+</div>
                             </div>
-                            <p>Vertrouwd door 50+ Scholen & Bedrijven</p>
+                            <div>
+                                <div class="flex gap-0.5 text-yellow-500 mb-0.5">
+                                    <span class="material-symbols-outlined text-sm"
+                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined text-sm"
+                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined text-sm"
+                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined text-sm"
+                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined text-sm"
+                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                </div>
+                                <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Vertrouwd door Scholen
+                                    & Bedrijven</p>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Right Image -->
-                    <div
-                        class="relative h-[50vh] lg:h-auto order-1 lg:order-2 overflow-hidden rounded-b-[3rem] lg:rounded-bl-[4rem] lg:rounded-br-none lg:rounded-tr-none shadow-2xl lg:shadow-none">
-                        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1600&q=80"
-                            alt="Fresh gourmet catering spread"
-                            class="absolute inset-0 w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-[2s]">
-
-                        <!-- Floating Badge -->
+                    <!-- Right Image - Floating Organic -->
+                    <div class="relative h-[500px] lg:h-[700px] order-1 lg:order-2 flex items-center justify-center">
                         <div
-                            class="absolute bottom-10 left-10 bg-white/90 dark:bg-black/80 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/50 max-w-[200px] hidden md:block animate-bounce-slow">
-                            <div class="flex items-center gap-3 mb-2">
-                                <div class="bg-primary/20 p-2 rounded-full text-primary">
-                                    <span class="material-symbols-outlined">verified</span>
+                            class="relative w-full h-[85%] rounded-[3rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-[1.5s] ease-in-out group">
+                            <img src="assets/images/hero-banquet.jpg" alt="Fresh gourmet catering spread"
+                                class="absolute inset-0 w-full h-full object-cover object-center transform scale-105 group-hover:scale-110 transition-transform duration-[2s]">
+
+                            <!-- Overlay Gradient for Text readability if needed, kept subtle -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+
+                        <!-- Floating Badge 1 -->
+                        <div class="absolute top-10 right-0 md:right-10 bg-white/90 dark:bg-[#1a2632]/90 backdrop-blur-md p-4 rounded-2xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white/50 dark:border-white/10 animate-bounce-slow"
+                            style="animation-delay: 0s;">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="bg-green-100 dark:bg-green-900/30 p-2.5 rounded-full text-green-600 dark:text-green-400">
+                                    <span class="material-symbols-outlined text-xl">verified</span>
                                 </div>
-                                <span class="font-bold text-sm">Vers & Lokaal</span>
+                                <div>
+                                    <p class="font-bold text-[#1F2937] dark:text-white leading-tight">100% Vers</p>
+                                    <p class="text-xs text-gray-500">Gegarandeerd</p>
+                                </div>
                             </div>
-                            <p class="text-xs text-gray-500">Dagelijks lokaal ingekocht.</p>
+                        </div>
+
+                        <!-- Floating Badge 2 -->
+                        <div class="absolute bottom-10 left-0 md:left-10 bg-white/90 dark:bg-[#1a2632]/90 backdrop-blur-md p-4 rounded-2xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white/50 dark:border-white/10 animate-bounce-slow"
+                            style="animation-delay: 1.5s;">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-orange-100 dark:bg-orange-900/30 p-2.5 rounded-full text-primary">
+                                    <span class="material-symbols-outlined text-xl">workspace_premium</span>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-[#1F2937] dark:text-white leading-tight">Top Service</p>
+                                    <p class="text-xs text-gray-500">5 Sterren</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -904,7 +951,7 @@
 
     <!-- Back to Top Button -->
     <button id="back-to-top"
-        class="fixed bottom-24 right-4 md:bottom-8 md:right-8 z-40 bg-white/80 dark:bg-black/80 backdrop-blur text-primary p-3 rounded-full shadow-lg translate-y-20 opacity-0 transition-all duration-300 hover:bg-white hover:scale-110 border border-primary/20">
+        class="fixed bottom-24 right-4 md:bottom-24 md:right-8 z-40 bg-white/80 dark:bg-black/80 backdrop-blur text-primary p-3 rounded-full shadow-lg translate-y-20 opacity-0 transition-all duration-300 hover:bg-white hover:scale-110 border border-primary/20">
         <span class="material-symbols-outlined">arrow_upward</span>
     </button>
 
