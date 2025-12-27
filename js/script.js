@@ -2,40 +2,25 @@
  * Main Application Logic
  */
 document.addEventListener('DOMContentLoaded', () => {
-    // 10. Page Preloader
+    // Core Features
     initPreloader();
-
-    // Core Logic
     initMobileMenu();
     initLightbox();
-
-    // New Features
-    initSmoothScroll();         // 1. Smooth Scrolling
-    initBackToTop();            // 2. Back to Top
-    initDarkMode();             // 3. Dark Mode
-    initTestimonialSlider();    // 4. Testimonial Slider
+    initSmoothScroll();
+    initBackToTop();
+    initDarkMode();
     initTestimonialSlider();
-
-    // 5. FAQ Accordion
     initFAQ();
-
-    // 6. Quote Modal & Connects to buttons
     initModals();
-
-    // 7. Newsletter
     initNewsletter();
-
-    // 8. Cookie Banner
     initCookieConsent();
-
-    // 11. Scroll Animations
     initScrollReveal();
 
-    // --- Phase 4 New Features ---
-    initTranslations();     // 1. Multilingual
-    initStatusBadge();      // 3. Opening Hours
-    initCounters();         // 6. Stats Counters
-    initFilters();          // 4. Gallery Filters
+    // Expansion Features
+    initTranslations();
+    initStatusBadge();
+    initCounters();
+    initFilters();
 });
 
 function initScrollReveal() {
@@ -230,59 +215,56 @@ function initFAQ() {
 }
 
 function initModals() {
-    // Quote Modal
     const modal = document.getElementById('quote-modal');
-    const modalContent = modal?.querySelector('div');
+    if (!modal) return;
+
+    const modalContent = modal.querySelector('div');
     const openBtns = document.querySelectorAll('.open-quote-modal');
-    const closeBtn = modal?.querySelector('.close-modal');
+    const closeBtn = modal.querySelector('.close-modal');
     const form = document.getElementById('quote-form');
 
-    if (modal && openBtns.length > 0) {
+    function openModal() {
+        modal.classList.remove('hidden');
+        // Trigger reflow for animation
+        void modal.offsetWidth;
+        modalContent.classList.remove('scale-95', 'opacity-0');
+        modalContent.classList.add('scale-100', 'opacity-100');
+        document.body.style.overflow = 'hidden';
+    }
 
-        function openModal() {
-            modal.classList.remove('hidden');
-            // Trigger reflow
-            void modal.offsetWidth;
-            modalContent.classList.remove('scale-95', 'opacity-0');
-            modalContent.classList.add('scale-100', 'opacity-100');
-            document.body.style.overflow = 'hidden';
-        }
+    function closeModal() {
+        modalContent.classList.remove('scale-100', 'opacity-100');
+        modalContent.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }, 300);
+    }
 
-        function closeModal() {
-            modalContent.classList.remove('scale-100', 'opacity-100');
-            modalContent.classList.add('scale-95', 'opacity-0');
+    openBtns.forEach(btn => btn.addEventListener('click', openModal));
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
             setTimeout(() => {
-                modal.classList.add('hidden');
-                document.body.style.overflow = '';
-            }, 300);
-        }
-
-        openBtns.forEach(btn => btn.addEventListener('click', openModal));
-        if (closeBtn) closeBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
+                showToast('Quote request sent successfully!');
+                closeModal();
+                form.reset();
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }, 1500);
         });
-
-        // Handle Form
-        if (form) {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const btn = form.querySelector('button[type="submit"]');
-                const originalText = btn.textContent;
-
-                btn.textContent = 'Sending...';
-                btn.disabled = true;
-
-                // Simulate API
-                setTimeout(() => {
-                    showToast('Quote request sent successfully!');
-                    closeModal();
-                    form.reset();
-                    btn.textContent = originalText;
-                    btn.disabled = false;
-                }, 1500);
-            });
-        }
     }
 }
 
