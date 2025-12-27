@@ -14,11 +14,28 @@ document.addEventListener('DOMContentLoaded', () => {
     initBackToTop();            // 2. Back to Top
     initDarkMode();             // 3. Dark Mode
     initTestimonialSlider();    // 4. Testimonial Slider
-    initFAQ();                  // 5. FAQ Accordion
-    initModals();               // 6. Quote Modal & Connects to buttons
-    initNewsletter();           // 7. Newsletter
-    initCookieConsent();        // 8. Cookie Banner
-    initScrollReveal();         // 11. Scroll Animations
+    initTestimonialSlider();
+
+    // 5. FAQ Accordion
+    initFAQ();
+
+    // 6. Quote Modal & Connects to buttons
+    initModals();
+
+    // 7. Newsletter
+    initNewsletter();
+
+    // 8. Cookie Banner
+    initCookieConsent();
+
+    // 11. Scroll Animations
+    initScrollReveal();
+
+    // --- Phase 4 New Features ---
+    initTranslations();     // 1. Multilingual
+    initStatusBadge();      // 3. Opening Hours
+    initCounters();         // 6. Stats Counters
+    initFilters();          // 4. Gallery Filters
 });
 
 function initScrollReveal() {
@@ -258,7 +275,7 @@ function initModals() {
 
                 // Simulate API
                 setTimeout(() => {
-                    alert('Thank you! Your quote request has been sent. We will contact you shortly.');
+                    showToast('Quote request sent successfully!');
                     closeModal();
                     form.reset();
                     btn.textContent = originalText;
