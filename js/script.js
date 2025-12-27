@@ -569,12 +569,19 @@ function initMusicPlayer() {
         event.target.playVideo();
 
         // Browser Autoplay Policy Fallback:
-        // formatting: automatically try to play on the first click anywhere on the page
-        document.body.addEventListener('click', function () {
-            if (!isPlaying) {
+        // formatting: automatically try to play on any first interaction
+        const validEvents = ['click', 'touchstart', 'scroll', 'keydown'];
+        const tryPlay = () => {
+            if (!isPlaying && player && typeof player.playVideo === 'function') {
                 player.playVideo();
+                // We don't remove immediately just in case; 
+                // the playerStateChange will eventually confirm it's playing
             }
-        }, { once: true });
+        };
+
+        validEvents.forEach(evt => {
+            document.body.addEventListener(evt, tryPlay, { once: true, passive: true });
+        });
 
         if (toggleBtn) {
             toggleBtn.addEventListener('click', togglePlay);
