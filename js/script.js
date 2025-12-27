@@ -553,22 +553,77 @@ function initMusicPlayer() {
     const musicInfo = document.getElementById('music-info');
     const controls = document.getElementById('music-player-controls');
 
-    // Make function global so API can call it
-    // Define BEFORE injecting script to avoid race conditions
-    window.onYouTubeIframeAPIReady = function () {
+    // Helper to update UI
+    function updateUI(playing) {
+        isPlaying = playing;
+        if (musicIcon) {
+            musicIcon.textContent = playing ? 'pause' : 'music_note';
+            if (playing) {
+                musicIcon.parentElement.classList.add('animate-spin-slow');
+                toggleBtn.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
+                musicInfo?.classList.remove('translate-y-10', 'opacity-0');
+            } else {
+                musicIcon.parentElement.classList.remove('animate-spin-slow');
+                toggleBtn.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
+            }
+        }
+    }
+
+    function onPlayerReady(event) {
+        console.log("Player ready");
+        // Attempt immediate play
+        event.target.playVideo();
+        event.target.setVolume(20);
+
+        // Fallback: Play on FIRST interaction
+        const validEvents = ['click', 'touchstart', 'scroll', 'keydown'];
+        const tryPlay = () => {
+            if (player && typeof player.playVideo === 'function') {
+                // If not playing, or buffering, or cued
+                const state = player.getPlayerState();
+                if (state !== YT.PlayerState.PLAYING && state !== YT.PlayerState.BUFFERING) {
+                    player.playVideo();
+                }
+            }
+        };
+
+        validEvents.forEach(evt => {
+            document.body.addEventListener(evt, tryPlay, { once: true, passive: true });
+        });
+    }
+
+    function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.PLAYING) {
+            updateUI(true);
+        } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+            updateUI(false);
+        }
+    }
+
+    function onPlayerError(event) {
+        console.error('YouTube Player Error:', event.data);
+        // Error 150/101 = restricted from embed. 
+        // We can try to hide controls but keep them if it's a temporary network error
+        if (event.data === 150 || event.data === 101) {
+            if (controls) controls.style.display = 'none';
+        }
+    }
+
+    function initPlayer() {
         player = new YT.Player('youtube-player', {
-            height: '0',
-            width: '0',
-            videoId: 'tyoQZc3wkzN', // Aytaç Doğan - Alışamadım
+            height: '1', // MUST be > 0 for some browsers
+            width: '1',
+            videoId: 'tyoQZc3wkzN',
             playerVars: {
                 'playsinline': 1,
                 'controls': 0,
                 'disablekb': 1,
                 'fs': 0,
                 'loop': 1,
-                'playlist': 'tyoQZc3wkzN', // Required for loop to work in iframe
-                'autoplay': 1, // Attempt autoplay
-                'modestbranding': 1
+                'playlist': 'tyoQZc3wkzN',
+                'autoplay': 1,
+                'origin': window.location.origin, // Critical for GitHub Pages
+                'enablejsapi': 1
             },
             events: {
                 'onReady': onPlayerReady,
@@ -576,67 +631,25 @@ function initMusicPlayer() {
                 'onError': onPlayerError
             }
         });
-    };
+    }
 
-    // Load YouTube API
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    function onPlayerReady(event) {
-        event.target.playVideo();
-        // Set volume to reasonable level (optional)
-        event.target.setVolume(25);
-
-        // Browser Autoplay Policy Fallback:
-        // automatically try to play on any first interaction
-        const validEvents = ['click', 'touchstart', 'scroll', 'keydown'];
-        const tryPlay = () => {
-            if (!isPlaying && player && typeof player.playVideo === 'function') {
-                player.playVideo();
-            }
-        };
-
-        validEvents.forEach(evt => {
-            document.body.addEventListener(evt, tryPlay, { once: true, passive: true });
+    // Toggle Button Logic
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            if (!player) return;
+            if (isPlaying) player.pauseVideo();
+            else player.playVideo();
         });
-
-        if (toggleBtn) {
-            toggleBtn.addEventListener('click', togglePlay);
-        }
     }
 
-    function onPlayerStateChange(event) {
-        if (event.data === YT.PlayerState.PLAYING) {
-            isPlaying = true;
-            if (musicIcon) {
-                musicIcon.textContent = 'pause';
-                musicIcon.parentElement.classList.add('animate-spin-slow');
-            }
-            if (toggleBtn) toggleBtn.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
-            if (musicInfo) musicInfo.classList.remove('translate-y-10', 'opacity-0');
-        } else {
-            isPlaying = false;
-            if (musicIcon) {
-                musicIcon.textContent = 'music_note';
-                musicIcon.parentElement.classList.remove('animate-spin-slow');
-            }
-            if (toggleBtn) toggleBtn.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
-        }
-    }
-
-    function onPlayerError(event) {
-        console.error('YouTube Player Error:', event.data);
-        if (controls) controls.style.display = 'none';
-    }
-
-    function togglePlay() {
-        if (!player) return;
-        if (isPlaying) {
-            player.pauseVideo();
-        } else {
-            player.playVideo();
-        }
+    // Initialize API
+    if (typeof YT !== 'undefined' && YT.Player) {
+        initPlayer();
+    } else {
+        window.onYouTubeIframeAPIReady = initPlayer;
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     }
 }
