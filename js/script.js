@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
 
     // Expansion Features
-    initTranslations();
+    // initTranslations(); // Removed
     initStatusBadge();
     initCounters();
     initFilters();
@@ -252,19 +252,42 @@ function initModals() {
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+
+            // Get values
+            const name = form.querySelector('input[type="text"]').value;
+            const email = form.querySelector('input[type="email"]').value;
+            const type = form.querySelector('select').value;
+            const date = form.querySelector('input[type="date"]').value;
+            const time = form.querySelector('input[type="time"]').value;
+
+            // Construct Mailto
+            // Since I don't have the exact email, I'll use a placeholder that matches the domain or instructions
+            const recipient = "aygulscatering@gmail.com"; // Common fallback, or user can update
+            const subject = encodeURIComponent(`Offerte Aanvraag: ${type} - ${name}`);
+            const body = encodeURIComponent(
+                `Naam: ${name}\n` +
+                `Email: ${email}\n` +
+                `Type Evenement: ${type}\n` +
+                `Datum: ${date}\n` +
+                `Tijd: ${time}\n\n` +
+                `--- Verstuurd via Aygül's Catering Website ---`
+            );
+
+            window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+
             const btn = form.querySelector('button[type="submit"]');
             const originalText = btn.textContent;
 
-            btn.textContent = 'Sending...';
+            btn.textContent = 'Email Client Geopend...';
             btn.disabled = true;
 
             setTimeout(() => {
-                showToast('Quote request sent successfully!');
+                showToast('Email concept aangemaakt!');
                 closeModal();
                 form.reset();
                 btn.textContent = originalText;
                 btn.disabled = false;
-            }, 1500);
+            }, 1000);
         });
     }
 }
@@ -394,15 +417,7 @@ function initLightbox() {
     });
 }
 
-function initTranslations() {
-    const langToggle = document.getElementById('lang-toggle');
-    if (langToggle) {
-        langToggle.addEventListener('click', () => {
-            const currentLang = langToggle.textContent.trim();
-            langToggle.textContent = currentLang === 'NL' ? 'EN' : 'NL';
-        });
-    }
-}
+// initTranslations removed
 
 function initStatusBadge() {
     const badge = document.getElementById('status-badge');
@@ -421,7 +436,7 @@ function initStatusBadge() {
             <span class="relative flex h-2 w-2">
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
             </span>
-            <span data-i18n="closed_now">Closed</span>
+            <span data-i18n="closed_now">Gesloten</span>
         `;
     }
 }
