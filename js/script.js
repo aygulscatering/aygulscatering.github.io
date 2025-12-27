@@ -54,15 +54,21 @@ function initScrollReveal() {
 function initPreloader() {
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        window.addEventListener('load', () => {
+        const fadeOut = () => {
             setTimeout(() => {
                 preloader.style.opacity = '0';
                 setTimeout(() => {
                     preloader.style.display = 'none';
                     document.body.classList.remove('overflow-hidden');
                 }, 500);
-            }, 500); // Min display time
-        });
+            }, 500);
+        };
+
+        if (document.readyState === 'complete') {
+            fadeOut();
+        } else {
+            window.addEventListener('load', fadeOut);
+        }
     }
 }
 

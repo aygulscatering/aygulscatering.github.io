@@ -29,7 +29,11 @@ SOFTWARE.
 // Simulation section
 
 const canvas = document.getElementById('fluid-canvas');
-resizeCanvas();
+if (!canvas) {
+    console.warn('Fluid canvas not found, skipping fluid simulation.');
+} else {
+    resizeCanvas();
+}
 
 let config = {
     SIM_RESOLUTION: 128,
@@ -76,16 +80,20 @@ let pointers = [];
 let splatStack = [];
 pointers.push(new pointerPrototype());
 
-const { gl, ext } = getWebGLContext(canvas);
+let gl, ext;
 
-if (isMobile()) {
-    config.DYE_RESOLUTION = 512;
-}
-if (!ext.supportLinearFiltering) {
-    config.DYE_RESOLUTION = 512;
-    config.SHADING = false;
-    config.BLOOM = false;
-    config.SUNRAYS = false;
+if (canvas) {
+    ({ gl, ext } = getWebGLContext(canvas));
+
+    if (isMobile()) {
+        config.DYE_RESOLUTION = 512;
+    }
+    if (!ext.supportLinearFiltering) {
+        config.DYE_RESOLUTION = 512;
+        config.SHADING = false;
+        config.BLOOM = false;
+        config.SUNRAYS = false;
+    }
 }
 
 // startGUI();
