@@ -65,7 +65,8 @@
     <script src="js/script.js" defer></script>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display overflow-hidden">
+<body
+    class="bg-[#FAFAFA] text-[#1F2937] dark:text-gray-100 font-display overflow-x-hidden antialiased selection:bg-primary/20 selection:text-primary">
     <!-- Preloader -->
     <div id="preloader"
         class="fixed inset-0 z-[100] bg-white dark:bg-[#111921] flex items-center justify-center transition-opacity duration-500">
@@ -74,16 +75,16 @@
     <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
         <!-- Navbar -->
         <header
-            class="sticky top-0 z-50 flex items-center justify-between border-b border-solid border-b-[#f0f2f4] dark:border-b-[#2a3441] bg-white dark:bg-[#111921] px-4 py-3 md:px-10">
-            <div class="flex items-center gap-4 text-[#111418] dark:text-white">
-                <div class="size-8 text-primary">
-                    <span class="material-symbols-outlined text-3xl">restaurant_menu</span>
+            class="sticky top-0 z-50 flex items-center justify-between border-b border-gray-100 dark:border-gray-800 bg-white/80 dark:bg-[#111921]/90 backdrop-blur-md px-4 py-3 md:px-10 transition-all duration-300">
+            <div class="flex items-center gap-4 text-[#1F2937] dark:text-white">
+                <div class="size-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-2xl">restaurant_menu</span>
                 </div>
-                <h2 class="text-[#111418] dark:text-white text-2xl font-extrabold leading-tight tracking-tight">Aygül’s
+                <h2 class="text-[#1F2937] dark:text-white text-2xl font-black tracking-tight">Aygül’s
                     <span class="text-primary">Catering</span>
                 </h2>
                 <div id="status-badge"
-                    class="hidden sm:flex items-center gap-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs px-2 py-1 rounded-full font-bold">
+                    class="hidden sm:flex items-center gap-1.5 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 text-[11px] uppercase tracking-wide px-2.5 py-1 rounded-full font-bold border border-green-200 dark:border-green-800">
                     <span class="relative flex h-2 w-2">
                         <span
                             class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -94,17 +95,17 @@
             </div>
             <!-- Dark Mode Toggle -->
             <button id="theme-toggle"
-                class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors mr-2 text-[#111418] dark:text-white">
+                class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors mr-2 text-[#1F2937] dark:text-white">
                 <span class="material-symbols-outlined dark:hidden">dark_mode</span>
                 <span class="material-symbols-outlined hidden dark:block">light_mode</span>
             </button>
             <!-- Language Toggle & Mobile Menu -->
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-3">
                 <button id="lang-toggle"
-                    class="px-2 py-1 text-sm font-bold text-[#111418] dark:text-white border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    class="px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#1F2937] dark:text-white border border-gray-200 dark:border-gray-700 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
                     NL
                 </button>
-                <button id="mobile-menu-btn" class="md:hidden text-[#111418] dark:text-white p-2">
+                <button id="mobile-menu-btn" class="md:hidden text-[#1F2937] dark:text-white p-2">
                     <span class="material-symbols-outlined">menu</span>
                 </button>
             </div>
@@ -112,77 +113,132 @@
             <!-- Mobile Menu Overlay -->
             <div id="mobile-menu"
                 class="hidden fixed inset-0 z-[100] bg-white dark:bg-[#111921] px-4 py-3 flex flex-col gap-6 overflow-y-auto">
-                <div class="flex items-center justify-between border-b border-[#f0f2f4] dark:border-[#2a3441] pb-4">
-                    <div class="flex items-center gap-4 text-[#111418] dark:text-white">
+                <div class="flex items-center justify-between border-b border-gray-100 dark:border-gray-800 pb-4">
+                    <div class="flex items-center gap-4 text-[#1F2937] dark:text-white">
                         <div class="size-8 text-primary">
                             <span class="material-symbols-outlined text-3xl">restaurant_menu</span>
                         </div>
-                        <h2 class="text-2xl font-extrabold">Aygül’s</h2>
+                        <h2 class="text-2xl font-black">Aygül’s</h2>
                     </div>
-                    <button id="mobile-menu-close" class="text-[#111418] dark:text-white p-2">
+                    <button id="mobile-menu-close" class="text-[#1F2937] dark:text-white p-2">
                         <span class="material-symbols-outlined">close</span>
                     </button>
                 </div>
                 <div class="flex flex-col gap-6 text-lg font-medium">
-                    <a class="text-[#111418] dark:text-white hover:text-primary transition-colors" href="#">Services</a>
-                    <a class="text-[#111418] dark:text-white hover:text-primary transition-colors" href="#">Menu</a>
-                    <a class="text-[#111418] dark:text-white hover:text-primary transition-colors" href="#">About</a>
-                    <a class="text-[#111418] dark:text-white hover:text-primary transition-colors" href="#">Contact</a>
+                    <a class="text-[#1F2937] dark:text-white hover:text-primary transition-colors" href="#">Services</a>
+                    <a class="text-[#1F2937] dark:text-white hover:text-primary transition-colors" href="#">Menu</a>
+                    <a class="text-[#1F2937] dark:text-white hover:text-primary transition-colors" href="#">About</a>
+                    <a class="text-[#1F2937] dark:text-white hover:text-primary transition-colors" href="#">Contact</a>
                 </div>
                 <button
-                    class="flex w-full cursor-pointer items-center justify-center rounded-lg h-12 bg-primary hover:bg-primary/90 text-white font-bold transition-colors">
+                    class="flex w-full cursor-pointer items-center justify-center rounded-xl h-14 bg-primary text-white font-bold text-lg shadow-lg shadow-primary/20 transition-transform active:scale-95">
                     Request a Quote
                 </button>
             </div>
             <!-- Desktop Nav -->
             <div class="hidden md:flex flex-1 justify-end gap-8">
-                <div class="flex items-center gap-9">
-                    <a class="text-[#111418] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                <div class="flex items-center gap-8">
+                    <a class="text-[#4B5563] dark:text-gray-300 text-sm font-semibold hover:text-primary transition-colors"
                         href="#services">Services</a>
-                    <a class="text-[#111418] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                    <a class="text-[#4B5563] dark:text-gray-300 text-sm font-semibold hover:text-primary transition-colors"
                         href="#menu">Menu</a>
-                    <a class="text-[#111418] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                    <a class="text-[#4B5563] dark:text-gray-300 text-sm font-semibold hover:text-primary transition-colors"
                         href="#about">About</a>
-                    <a class="text-[#111418] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                    <a class="text-[#4B5563] dark:text-gray-300 text-sm font-semibold hover:text-primary transition-colors"
                         href="#contact">Contact</a>
                 </div>
                 <button
-                    class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-primary/90 transition-colors text-white text-sm font-bold leading-normal tracking-[0.015em] open-quote-modal">
-                    <span class="truncate">Request a Quote</span>
+                    class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-11 px-6 bg-[#1F2937] hover:bg-black dark:bg-white dark:hover:bg-gray-100 dark:text-black transition-all text-white text-sm font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 open-quote-modal">
+                    <span class="truncate">Request Quote</span>
                 </button>
             </div>
         </header>
         <!-- Main Content -->
         <main class="flex-1">
-            <!-- Hero Section -->
-            <div class="w-full">
-                <div class="@container">
-                    <div class="relative w-full">
-                        <div class="flex min-h-[560px] flex-col gap-6 bg-cover bg-center bg-no-repeat items-center justify-center p-4 relative"
-                            data-alt="Gourmet food catering spread with fresh ingredients"
-                            style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAIeWjzXCGuiuTk8qsRUcLD3gT-hs9oSLp7_mixw7AGfSYeGCwu94Rt-1UiyKimaJdwylyyZ-C_Y6MDi6pESg_pL9lBQhJWkezXtSGB7Ksbg6yhRBbjZbicndhz6OBOUugMA3el5KK5ZS-FG3UJpHc0fVqw56vQsxtF-Tr7_OjPe1q4OZce_FJe9MhUu6XKfXUlxbFBU36mAr40v-5YzcfY-4aEMRCcZ_TxDhEn8_SPVxIyVxG2B45steI2yQJkBtm8QH3yiby_-xrZ");'>
-                            <div class="flex flex-col gap-4 text-center max-w-[800px] z-10 px-4">
-                                <h1
-                                    class="text-white text-5xl font-black leading-tight tracking-tight md:text-7xl drop-shadow-xl reveal-on-scroll">
-                                    Taste of Home, <br><span class="text-primary">Delivered with Love</span>
-                                </h1>
-                                <h2 class="text-gray-50 text-xl font-medium leading-relaxed md:text-2xl max-w-[600px] mx-auto drop-shadow-md reveal-on-scroll"
-                                    style="transition-delay: 100ms;">
-                                    Family-owned catering in Rotterdam. Start your day with our premium breakfast &
-                                    lunch delivery for schools and offices.
-                                </h2>
+            <!-- New Split Hero Section -->
+            <div class="relative w-full overflow-hidden bg-[#FAFAFA] dark:bg-[#111921]">
+                <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[90vh]">
+                    <!-- Left Content -->
+                    <div
+                        class="flex flex-col justify-center px-6 md:px-20 py-12 lg:py-0 order-2 lg:order-1 z-10 relative">
+                        <!-- Decorative Blob -->
+                        <div
+                            class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl mix-blend-multiply dark:bg-primary/10">
+                        </div>
+
+                        <div
+                            class="inline-flex items-center gap-2 self-start bg-orange-50 dark:bg-orange-900/20 text-primary border border-orange-100 dark:border-orange-800/30 px-4 py-2 rounded-full mb-8 reveal-on-scroll">
+                            <span class="relative flex h-2 w-2">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                            </span>
+                            <span class="text-xs font-bold uppercase tracking-wider">Top Rated in Rotterdam</span>
+                        </div>
+
+                        <h1
+                            class="text-[#1F2937] dark:text-white text-5xl md:text-7xl font-black leading-[1.1] tracking-tight mb-6 reveal-on-scroll">
+                            Taste of Home, <br><span class="text-primary relative inline-block">
+                                Delivered
+                                <svg class="absolute w-full h-3 -bottom-1 left-0 text-primary/20" viewBox="0 0 100 10"
+                                    preserveAspectRatio="none">
+                                    <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="8" fill="none" />
+                                </svg>
+                            </span>
+                        </h1>
+
+                        <p class="text-[#6B7280] dark:text-gray-400 text-lg md:text-xl font-medium leading-relaxed max-w-lg mb-10 reveal-on-scroll"
+                            style="transition-delay: 100ms;">
+                            Premium family-owned catering in Rotterdam. From healthy school lunches to elegant corporate
+                            events, we bring warmth to every table.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row gap-4 reveal-on-scroll" style="transition-delay: 200ms;">
+                            <button
+                                class="flex cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-primary hover:bg-[#ff8f26] text-white text-base font-bold shadow-xl shadow-primary/25 transition-all transform hover:-translate-y-1 open-quote-modal">
+                                Request a Quote
+                            </button>
+                            <button
+                                class="flex cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-white dark:bg-[#1f2937] border-2 border-gray-100 dark:border-gray-700 hover:border-primary/30 text-[#1F2937] dark:text-white text-base font-bold transition-all hover:bg-gray-50 dark:hover:bg-gray-800"
+                                onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">
+                                View Menus
+                            </button>
+                        </div>
+
+                        <div class="mt-12 flex items-center gap-4 text-sm font-semibold text-[#6B7280] dark:text-gray-500 reveal-on-scroll"
+                            style="transition-delay: 300ms;">
+                            <div class="flex -space-x-3">
+                                <img src="https://i.pravatar.cc/100?img=1"
+                                    class="w-10 h-10 rounded-full border-2 border-white dark:border-[#111921]"
+                                    alt="User">
+                                <img src="https://i.pravatar.cc/100?img=5"
+                                    class="w-10 h-10 rounded-full border-2 border-white dark:border-[#111921]"
+                                    alt="User">
+                                <img src="https://i.pravatar.cc/100?img=8"
+                                    class="w-10 h-10 rounded-full border-2 border-white dark:border-[#111921]"
+                                    alt="User">
                             </div>
-                            <div class="flex flex-col sm:flex-row gap-4 mt-4 z-10">
-                                <button
-                                    class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-primary hover:bg-primary/90 text-white text-base font-bold leading-normal tracking-[0.015em] transition-all transform hover:scale-105 shadow-lg open-quote-modal">
-                                    <span class="truncate">Request a Quote</span>
-                                </button>
-                                <button
-                                    class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white text-base font-bold leading-normal tracking-[0.015em] transition-all"
-                                    onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">
-                                    <span class="truncate">View Menus</span>
-                                </button>
+                            <p>Trusted by 50+ Schools & Companies</p>
+                        </div>
+                    </div>
+
+                    <!-- Right Image -->
+                    <div
+                        class="relative h-[50vh] lg:h-auto order-1 lg:order-2 overflow-hidden rounded-b-[3rem] lg:rounded-bl-[4rem] lg:rounded-br-none lg:rounded-tr-none shadow-2xl lg:shadow-none">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIeWjzXCGuiuTk8qsRUcLD3gT-hs9oSLp7_mixw7AGfSYeGCwu94Rt-1UiyKimaJdwylyyZ-C_Y6MDi6pESg_pL9lBQhJWkezXtSGB7Ksbg6yhRBbjZbicndhz6OBOUugMA3el5KK5ZS-FG3UJpHc0fVqw56vQsxtF-Tr7_OjPe1q4OZce_FJe9MhUu6XKfXUlxbFBU36mAr40v-5YzcfY-4aEMRCcZ_TxDhEn8_SPVxIyVxG2B45steI2yQJkBtm8QH3yiby_-xrZ"
+                            alt="Fresh gourmet catering spread"
+                            class="absolute inset-0 w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-[2s]">
+
+                        <!-- Floating Badge -->
+                        <div
+                            class="absolute bottom-10 left-10 bg-white/90 dark:bg-black/80 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/50 max-w-[200px] hidden md:block animate-bounce-slow">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="bg-primary/20 p-2 rounded-full text-primary">
+                                    <span class="material-symbols-outlined">verified</span>
+                                </div>
+                                <span class="font-bold text-sm">Certified Fresh</span>
                             </div>
+                            <p class="text-xs text-gray-500">Locally sourced ingredients daily.</p>
                         </div>
                     </div>
                 </div>
@@ -214,77 +270,72 @@
                 </div>
             </section>
             <!-- Features / Services Splitter -->
-            <section id="services" class="py-16 px-4 md:px-20 bg-white dark:bg-[#111921]">
+            <section id="services" class="py-24 px-4 md:px-20 bg-white dark:bg-[#111921]">
                 <div class="max-w-[1200px] mx-auto">
-                    <div class="flex flex-col gap-12">
-                        <div class="flex flex-col gap-4 text-center items-center">
+                    <div class="flex flex-col gap-16">
+                        <div class="flex flex-col gap-6 text-center items-center">
+                            <span
+                                class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/5 px-4 py-2 rounded-full">Our
+                                Expertise</span>
                             <h2
-                                class="text-[#111418] dark:text-white tracking-tight text-[32px] font-bold leading-tight md:text-4xl reveal-on-scroll">
+                                class="text-[#1F2937] dark:text-white tracking-tight text-4xl md:text-5xl font-black leading-tight reveal-on-scroll">
                                 Catering from the Heart
                             </h2>
                             <p
-                                class="text-[#637588] dark:text-gray-400 text-lg font-normal leading-relaxed max-w-[720px] reveal-on-scroll">
+                                class="text-gray-500 dark:text-gray-400 text-lg md:text-xl font-medium leading-relaxed max-w-2xl reveal-on-scroll">
                                 Based in Rotterdam (3086 XR), we bring family warmth to every meal. Specializing in
                                 healthy school lunches and corporate breakfast spreads.
                             </p>
                         </div>
+
+
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <!-- Service 1 -->
                             <div
-                                class="group flex flex-col gap-4 p-6 rounded-xl bg-background-light dark:bg-[#1a2632] hover:shadow-xl transition-shadow duration-300 border border-transparent hover:border-primary/20">
-                                <div class="w-full h-64 bg-center bg-no-repeat bg-cover rounded-lg overflow-hidden relative"
+                                class="group flex flex-col gap-6 p-8 rounded-[2.5rem] bg-gray-50 dark:bg-[#1a2632] transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:-translate-y-2 border border-gray-100 dark:border-gray-800">
+                                <div class="w-full h-72 bg-center bg-no-repeat bg-cover rounded-[1.5rem] overflow-hidden relative shadow-sm"
                                     data-alt="Elegant corporate event buffet setup"
                                     style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBcdjXZMrM1fmDVsovi5eOI9BtVj7prKkusuKxrchkxDh8Gcyqq3QwkpNbAlmOgtLqb4K0mKv89FAknsGJkQoHjObQ4752M5aiQIhQ6glRf1chsC2dkC86Gr6d0STzahbRIufGKuxdgyZ6x73ZHEJmLHmjaLov8v83u_SjxgITifncYEw2RLVw3swqkeB4KWW2r1ioK5fdmZXO57VMMutdiSXIlltCJZIcgTubf5keUCUUp7mFYMAfY14GhlECOMUc_kHCtTFlh-8aI");'>
-                                    <div
-                                        class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-500">
-                                    </div>
                                 </div>
-                                <div class="flex flex-col gap-2">
+                                <div class="flex flex-col gap-3 px-2">
                                     <div class="flex items-center gap-2 text-primary">
-                                        <span class="material-symbols-outlined">camera_alt</span>
-                                        <p class="text-sm font-bold uppercase tracking-wider">Event Catering</p>
+                                        <div class="bg-white dark:bg-black/20 p-2 rounded-full shadow-sm">
+                                            <span class="material-symbols-outlined text-xl">camera_alt</span>
+                                        </div>
+                                        <p class="text-xs font-bold uppercase tracking-wider">Event Catering</p>
                                     </div>
-                                    <h3 class="text-[#111418] dark:text-white text-2xl font-bold leading-tight">
-                                        Corporate &amp; Events</h3>
-                                    <p class="text-[#637588] dark:text-gray-400 text-base font-normal leading-relaxed">
+                                    <h3
+                                        class="text-[#1F2937] dark:text-white text-2xl font-bold leading-tight group-hover:text-primary transition-colors">
+                                        Corporate &amp; Events
+                                    </h3>
+                                    <p class="text-gray-500 dark:text-gray-400 text-base font-medium leading-relaxed">
                                         Fast, reliable service for photography sets, corporate gatherings, and private
-                                        parties. We keep your crew fed, happy, and on schedule with menus designed for
-                                        easy eating.
+                                        parties. We keep your crew fed, happy, and on schedule.
                                     </p>
-                                    <a class="mt-2 text-primary font-bold hover:underline flex items-center gap-1"
-                                        href="#">
-                                        Explore Event Menus <span
-                                            class="material-symbols-outlined text-sm">arrow_forward</span>
-                                    </a>
                                 </div>
                             </div>
                             <!-- Service 2 -->
                             <div
-                                class="group flex flex-col gap-4 p-6 rounded-xl bg-background-light dark:bg-[#1a2632] hover:shadow-xl transition-shadow duration-300 border border-transparent hover:border-primary/20">
-                                <div class="w-full h-64 bg-center bg-no-repeat bg-cover rounded-lg overflow-hidden relative"
+                                class="group flex flex-col gap-6 p-8 rounded-[2.5rem] bg-gray-50 dark:bg-[#1a2632] transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:-translate-y-2 border border-gray-100 dark:border-gray-800">
+                                <div class="w-full h-72 bg-center bg-no-repeat bg-cover rounded-[1.5rem] overflow-hidden relative shadow-sm"
                                     data-alt="Healthy colorful school lunch tray"
                                     style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBGXaZZtn4jxdwVAhnBK4fPZ7ivddZeLOTAme9TJN50JoKWqBNvjU51HVtOK42aB1KCCrzmqqzVBttSFIMcfQOfsshyTNKizSlfXesM4aCwdEPSxPNQrKUJbRVkDlWOuRKBNGF01S6t337My835sdhFc_EXMI4mwkcENkTe5uRV9nEOvwXG422bGEoaSCvmRJEmvOi55xXK-GbM6Xit4VR0xp0SUBS6TZCT8R2Y0uFCSd5dyO3arQ5jWTavSWBjKDoSCJZbi5LRWd_q");'>
-                                    <div
-                                        class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-500">
-                                    </div>
                                 </div>
-                                <div class="flex flex-col gap-2">
+                                <div class="flex flex-col gap-3 px-2">
                                     <div class="flex items-center gap-2 text-primary">
-                                        <span class="material-symbols-outlined">school</span>
-                                        <p class="text-sm font-bold uppercase tracking-wider">School Nutrition</p>
+                                        <div class="bg-white dark:bg-black/20 p-2 rounded-full shadow-sm">
+                                            <span class="material-symbols-outlined text-xl">school</span>
+                                        </div>
+                                        <p class="text-xs font-bold uppercase tracking-wider">School Nutrition</p>
                                     </div>
-                                    <h3 class="text-[#111418] dark:text-white text-2xl font-bold leading-tight">School
-                                        Lunch Programs</h3>
-                                    <p class="text-[#637588] dark:text-gray-400 text-base font-normal leading-relaxed">
+                                    <h3
+                                        class="text-[#1F2937] dark:text-white text-2xl font-bold leading-tight group-hover:text-primary transition-colors">
+                                        School Lunch Programs
+                                    </h3>
+                                    <p class="text-gray-500 dark:text-gray-400 text-base font-medium leading-relaxed">
                                         Healthy, delicious, and compliant lunch solutions for students. We partner with
-                                        local schools to provide balanced meals that kids actually want to eat,
-                                        supporting their growth and learning.
+                                        local schools to provide balanced meals kids actually love.
                                     </p>
-                                    <a class="mt-2 text-primary font-bold hover:underline flex items-center gap-1"
-                                        href="#">
-                                        Learn About Nutrition <span
-                                            class="material-symbols-outlined text-sm">arrow_forward</span>
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -292,328 +343,347 @@
                 </div>
             </section>
             <!-- Gallery Grid -->
-            <section id="menu" class="py-12 bg-background-light dark:bg-[#0d131a]">
+            <section id="menu" class="py-24 bg-[#FAFAFA] dark:bg-[#0d131a]">
                 <div class="layout-content-container max-w-[1200px] mx-auto px-4 md:px-20">
-                    <div class="flex justify-between items-end mb-8">
+                    <div class="flex justify-between items-end mb-12">
                         <div>
-                            <h2
-                                class="text-[#111418] dark:text-white text-[28px] font-bold leading-tight tracking-[-0.015em]">
-                                Recent Creations</h2>
-                            <p class="text-[#637588] dark:text-gray-400 mt-2">A glimpse into our kitchen and events.</p>
+                            <span
+                                class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/5 px-4 py-2 rounded-full">Menu
+                                Showcase</span>
+                            <h2 class="text-[#1F2937] dark:text-white text-4xl font-black leading-tight mt-4">
+                                Recent Creations
+                            </h2>
                         </div>
-                        <button class="hidden md:flex text-primary font-bold items-center gap-1 hover:underline">
-                            View Full Gallery <span class="material-symbols-outlined">arrow_forward</span>
+                        <button
+                            class="hidden md:flex bg-white dark:bg-[#1a2632] text-[#1F2937] dark:text-white border border-gray-200 dark:border-gray-700 font-bold px-6 py-3 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors items-center gap-2 shadow-sm">
+                            View Full Gallery <span class="material-symbols-outlined text-sm">arrow_forward</span>
                         </button>
                     </div>
 
                     <!-- Menu Filters -->
-                    <div class="flex flex-wrap gap-2 mb-6" id="menu-filters">
+                    <div class="flex flex-wrap gap-2 mb-10" id="menu-filters">
                         <button
-                            class="filter-btn active px-4 py-2 rounded-full text-sm font-bold bg-primary text-white transition-all"
+                            class="filter-btn active px-6 py-2.5 rounded-full text-sm font-bold bg-primary text-white shadow-lg shadow-primary/20 transition-all transform hover:scale-105"
                             data-filter="all" data-i18n="all">All</button>
                         <button
-                            class="filter-btn px-4 py-2 rounded-full text-sm font-bold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all"
+                            class="filter-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white dark:bg-[#1a2632] text-gray-500 dark:text-gray-300 border border-gray-100 dark:border-gray-700 hover:border-gray-300 transition-all hover:bg-gray-50"
                             data-filter="breakfast" data-i18n="breakfast">Breakfast</button>
                         <button
-                            class="filter-btn px-4 py-2 rounded-full text-sm font-bold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all"
+                            class="filter-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white dark:bg-[#1a2632] text-gray-500 dark:text-gray-300 border border-gray-100 dark:border-gray-700 hover:border-gray-300 transition-all hover:bg-gray-50"
                             data-filter="lunch" data-i18n="lunch">Lunch</button>
                         <button
-                            class="filter-btn px-4 py-2 rounded-full text-sm font-bold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all"
+                            class="filter-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white dark:bg-[#1a2632] text-gray-500 dark:text-gray-300 border border-gray-100 dark:border-gray-700 hover:border-gray-300 transition-all hover:bg-gray-50"
                             data-filter="events" data-i18n="events">Events</button>
                     </div>
 
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 h-auto md:h-[600px]">
-                        <!-- Large item -->
-                        <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-xl cursor-pointer gallery-img"
-                            data-category="events" data-title="Wedding Canapés"
-                            data-desc="Spring Collection - Exquisite bite-sized delights for your special day.">
-                            <img loading="lazy"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmftwDyjTGARvD80qkhW6yMBbL5vf6xJy7I5tDxkLEsUoOU96B0hkg2EiyZfPNCuA8ldwPEPMw4iqVZWWGhLPRfNRu4-TV6L6ebgvJ7e-ux-4KpCcldkfzQT3Zys07NidBThQ48_qG9io4ubKPRo8TkzSA3k0tdh0a1MjOFjK5NoSKL7v55FIVaMUyAfsCE_kPfVZK4OZ_Rr8x8IoRTIacfUofJLgn8FbInrzukjGt2OsiymxejP3d7nX3sSi5cwObDEr8k49QGnxd"
-                                alt="Close up of gourmet canapes"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                                <p class="text-white font-bold text-lg">Wedding Canapés</p>
-                                <p class="text-gray-200 text-sm">Spring Collection</p>
-                            </div>
-                        </div>
-                        <!-- Small items -->
-                        <div class="relative group overflow-hidden rounded-xl cursor-pointer gallery-img h-[250px] md:h-auto"
-                            data-category="lunch" data-title="Fresh Salad Bowl"
-                            data-desc="Organic, farm-to-table vegetables sourced locally.">
-                            <img loading="lazy"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXnl3ZdPHegs8PdgoA7dtI5Vp8pCsHWDrXc6pD3zNRbiW-eVk-AAjQkiYQy6eU-BDejBMaZN8p_L7WJ3h9vxPRSnjRgRRo3T8TzUMEZLJA3zgLx5PRTR1ggjPyQqBwsdtU3Q8YFx338uUXrxU_WFKRm7Za-CkQfLD4zQCHDJkB6ut0gQdmYaA7LHUNLQMKEZdE36t1500Mcd5759jpcMo_QctWxEWS8HQuqzxtfP5Qa3RD4CS_jg3fYAwJ_WLK1ITVJUsvyTyKpGbj"
-                                alt="Colorful fresh salad bowl"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div
-                                class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-white text-3xl">zoom_in</span>
-                            </div>
-                        </div>
-                        <div class="relative group overflow-hidden rounded-xl cursor-pointer gallery-img h-[250px] md:h-auto"
-                            data-category="events" data-title="Plated Salmon"
-                            data-desc="Pan-seared salmon with asparagus and lemon butter sauce.">
-                            <img loading="lazy"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDalBXB4UKAssB5XbO_wIIkwcMPd3cqcbKRgAx9U11Wk1hHPs0hE7UFVQ-KJjEL6IFtC49WouCwWS2LBhH7qYs1I-E5qgP-frUPPyMymOnc9_uqK-tTj0M2u0oKzlM8KA2EkjrE5V3jEg2rZ2aF8EGWGUr0SqPdkvSkOqvqx416ZS3LFfmdBHjqtLcUeEx1EdrZykKec8SA6PMcD6Cp_VkDS1wU7tXWh6X-JO7-ktgNuvvCTju4nLxPZSseHv68Ux4a5Sg0HrnXXOMK"
-                                alt="Nicely plated salmon dish"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div
-                                class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-white text-3xl">zoom_in</span>
-                            </div>
-                        </div>
-                        <!-- Medium item -->
-                        <div class="col-span-2 row-span-1 relative group overflow-hidden rounded-xl cursor-pointer gallery-img h-[250px] md:h-auto"
-                            data-category="lunch" data-title="School Partnership"
-                            data-desc="Smiling students enjoying our nutritious lunch program.">
-                            <img loading="lazy"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY_AKoJnq-utkM4Sh_aKPrbAMDCRCYZI88ZWbIM0kXp5cORIA8wi9d9yxYbyf2KAULN47jcyC_bQZbyxLmIz6vM4sIRjY_8WgCU3WoovT61ZXGM-zrJ-7qsLBE9KHEbQpSk8QUMyXl-pX2qxDW-OokOBmdnzChNlO77uWo9SzF6b8WZkIj8ApcbAquYt9-GXs5vpYWyo0rVlMHg-doeeo58vL20nDtKtKuE9Rz62ku0ppTqkvka6muRSidT1WjB-jUmiT5NzXeBdS-"
-                                alt="Children eating healthy lunch at school cafeteria"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                                <p class="text-white font-bold text-lg">School Partnership Program</p>
-                                <p class="text-gray-200 text-sm">Serving 500+ students daily</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button
-                        class="md:hidden w-full mt-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg text-[#111418] dark:text-white font-medium flex justify-center items-center gap-2">
-                        View Full Gallery <span class="material-symbols-outlined">arrow_forward</span>
-                    </button>
-                </div>
-            </section>
-            <!-- Testimonials -->
-            <section id="about" class="py-16 bg-white dark:bg-[#111921]">
-                <div class="max-w-[960px] mx-auto px-4 md:px-20 text-center">
-                    <span class="text-primary font-bold tracking-wider text-sm uppercase mb-2 block">Testimonials</span>
-                    <h2 class="text-[#111418] dark:text-white text-3xl font-bold mb-12">Trusted by the Community</h2>
-
-                    <!-- Testimonial Slider Container -->
-                    <div class="relative overflow-hidden group">
-                        <div id="testimonial-slider" class="flex transition-transform duration-500 ease-in-out">
-                            <!-- Testimonial 1 -->
-                            <div class="w-full flex-shrink-0 px-4">
-                                <div
-                                    class="p-8 rounded-2xl bg-background-light dark:bg-[#1a2632] relative max-w-2xl mx-auto">
-                                    <span
-                                        class="material-symbols-outlined text-primary/20 text-6xl absolute top-4 left-4">format_quote</span>
-                                    <div class="relative z-10">
-                                        <p
-                                            class="text-[#111418] dark:text-gray-200 text-lg leading-relaxed mb-6 italic">
-                                            "Aygül’s Catering has transformed our school lunch program. The home-cooked
-                                            quality is unmatched, and the kids love it!"
-                                        </p>
-                                        <div class="flex items-center justify-center gap-4">
-                                            <div class="size-12 bg-gray-300 rounded-full bg-cover bg-center"
-                                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDifXClhvWVLfbgR8KF-gcxfZiZxVn7HsvRZSJYGRf1OeLXICcy2ZOLarQfGaZTRapx_dBxfliyzaLtCbz3rgfNhQ3ih4DsCIUHnzfIE5GH71k6AG5idqHzIDlXEEhQ-oD5zQrWIYEhq3jxE7t68zO9Yw_UVx0WG2V141i-yhwuLCE5kSVgLJ0KV8_t73kWXdhnUsDBfmW3820AFCFVZJFdAhc0dF4Rl1B_rrtyzY-6BZU4PQpKELJ_zNl0RS_CbkD04uiIgCoRwXEm");'>
-                                            </div>
-                                            <div class="text-left">
-                                                <p class="font-bold text-[#111418] dark:text-white">Principal Skinner
-                                                </p>
-                                                <p class="text-sm text-[#637588]">Springfield Elementary</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Item 1 -->
+                        <div class="group cursor-pointer gallery-img" data-category="events"
+                            data-title="Wedding Canapés" data-desc="Spring Collection - Exquisite bite-sized delights.">
+                            <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
+                                <img loading="lazy"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmftwDyjTGARvD80qkhW6yMBbL5vf6xJy7I5tDxkLEsUoOU96B0hkg2EiyZfPNCuA8ldwPEPMw4iqVZWWGhLPRfNRu4-TV6L6ebgvJ7e-ux-4KpCcldkfzQT3Zys07NidBThQ48_qG9io4ubKPRo8TkzSA3k0tdh0a1MjOFjK5NoSKL7v55FIVaMUyAfsCE_kPfVZK4OZ_Rr8x8IoRTIacfUofJLgn8FbInrzukjGt2OsiymxejP3d7nX3sSi5cwObDEr8k49QGnxd"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="Canapes">
+                                <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all">
                                 </div>
                             </div>
-                            <!-- Testimonial 2 -->
-                            <div class="w-full flex-shrink-0 px-4">
-                                <div
-                                    class="p-8 rounded-2xl bg-background-light dark:bg-[#1a2632] relative max-w-2xl mx-auto">
-                                    <span
-                                        class="material-symbols-outlined text-primary/20 text-6xl absolute top-4 left-4">format_quote</span>
-                                    <div class="relative z-10">
-                                        <p
-                                            class="text-[#111418] dark:text-gray-200 text-lg leading-relaxed mb-6 italic">
-                                            "Absolutely seamless service for our production set. They handled dietary
-                                            restrictions effortlessly and the presentation was impeccable. Highly
-                                            recommended."
+                            <h3 class="text-lg font-bold text-[#1F2937] dark:text-white pl-2">Wedding Canapés</h3>
+                            <p class="text-sm text-gray-500 pl-2">Spring Collection</p>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="group cursor-pointer gallery-img" data-category="lunch"
+                            data-title="Fresh Salad Bowl" data-desc="Organic, farm-to-table vegetables.">
+                            <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
+                                <img loading="lazy"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXnl3ZdPHegs8PdgoA7dtI5Vp8pCsHWDrXc6pD3zNRbiW-eVk-AAjQkiYQy6eU-BDejBMaZN8p_L7WJ3h9vxPRSnjRgRRo3T8TzUMEZLJA3zgLx5PRTR1ggjPyQqBwsdtU3Q8YFx338uUXrxU_WFKRm7Za-CkQfLD4zQCHDJkB6ut0gQdmYaA7LHUNLQMKEZdE36t1500Mcd5759jpcMo_QctWxEWS8HQuqzxtfP5Qa3RD4CS_jg3fYAwJ_WLK1ITVJUsvyTyKpGbj"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="Salad">
+                                <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all">
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-[#1F2937] dark:text-white pl-2">Fresh Salad Bowl</h3>
+                            <p class="text-sm text-gray-500 pl-2">Farm-to-Table</p>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="group cursor-pointer gallery-img" data-category="events" data-title="Plated Salmon"
+                            data-desc="Pan-seared salmon with lemon butter sauce.">
+                            <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
+                                <img loading="lazy"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDalBXB4UKAssB5XbO_wIIkwcMPd3cqcbKRgAx9U11Wk1hHPs0hE7UFVQ-KJjEL6IFtC49WouCwWS2LBhH7qYs1I-E5qgP-frUPPyMymOnc9_uqK-tTj0M2u0oKzlM8KA2EkjrE5V3jEg2rZ2aF8EGWGUr0SqPdkvSkOqvqx416ZS3LFfmdBHjqtLcUeEx1EdrZykKec8SA6PMcD6Cp_VkDS1wU7tXWh6X-JO7-ktgNuvvCTju4nLxPZSseHv68Ux4a5Sg0HrnXXOMK"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="Salmon">
+                                <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all">
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-[#1F2937] dark:text-white pl-2">Plated Salmon</h3>
+                            <p class="text-sm text-gray-500 pl-2">Executive Dinner</p>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="group cursor-pointer gallery-img" data-category="lunch"
+                            data-title="School Partnership" data-desc="Nutritious lunch program for students.">
+                            <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
+                                <img loading="lazy"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY_AKoJnq-utkM4Sh_aKPrbAMDCRCYZI88ZWbIM0kXp5cORIA8wi9d9yxYbyf2KAULN47jcyC_bQZbyxLmIz6vM4sIRjY_8WgCU3WoovT61ZXGM-zrJ-7qsLBE9KHEbQpSk8QUMyXl-pX2qxDW-OokOBmdnzChNlO77uWo9SzF6b8WZkIj8ApcbAquYt9-GXs5vpYWyo0rVlMHg-doeeo58vL20nDtKtKuE9Rz62ku0ppTqkvka6muRSidT1WjB-jUmiT5NzXeBdS-"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="School Lunch">
+                                <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all">
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-[#1F2937] dark:text-white pl-2">School Partnership</h3>
+                            <p class="text-sm text-gray-500 pl-2">Healthy Kids Program</p>
+                        </div>
+                    </div>
+                </div>
+            </section> <button
+                class="md:hidden w-full mt-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg text-[#111418] dark:text-white font-medium flex justify-center items-center gap-2">
+                View Full Gallery <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+    </div>
+    </section>
+    <!-- Testimonials -->
+    <section id="about" class="py-24 bg-white dark:bg-[#111921]">
+        <div class="max-w-[960px] mx-auto px-4 md:px-20 text-center">
+            <span
+                class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/5 px-4 py-2 rounded-full mb-8 inline-block">Community
+                Love</span>
+            <h2 class="text-[#1F2937] dark:text-white text-4xl font-black mb-16">Trusted by Rotterdam</h2>
+
+            <!-- Testimonial Slider Container -->
+            <div class="relative overflow-hidden group">
+                <div id="testimonial-slider" class="flex transition-transform duration-500 ease-in-out">
+                    <!-- Testimonial 1 -->
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div
+                            class="p-12 rounded-[2.5rem] bg-[#FAFAFA] dark:bg-[#1a2632] relative max-w-3xl mx-auto border border-gray-100 dark:border-gray-800">
+                            <span
+                                class="material-symbols-outlined text-primary/10 text-8xl absolute top-8 left-8">format_quote</span>
+                            <div class="relative z-10 flex flex-col items-center">
+                                <p
+                                    class="text-[#1F2937] dark:text-gray-200 text-xl md:text-2xl font-medium leading-relaxed mb-8 italic">
+                                    "Aygül’s Catering has transformed our school lunch program. The home-cooked quality
+                                    is unmatched, and the kids actually look forward to lunchtime now!"
+                                </p>
+                                <div class="flex flex-col items-center gap-2">
+                                    <div class="size-16 bg-gray-200 rounded-full bg-cover bg-center shadow-md border-2 border-white dark:border-gray-700"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDifXClhvWVLfbgR8KF-gcxfZiZxVn7HsvRZSJYGRf1OeLXICcy2ZOLarQfGaZTRapx_dBxfliyzaLtCbz3rgfNhQ3ih4DsCIUHnzfIE5GH71k6AG5idqHzIDlXEEhQ-oD5zQrWIYEhq3jxE7t68zO9Yw_UVx0WG2V141i-yhwuLCE5kSVgLJ0KV8_t73kWXdhnUsDBfmW3820AFCFVZJFdAhc0dF4Rl1B_rrtyzY-6BZU4PQpKELJ_zNl0RS_CbkD04uiIgCoRwXEm");'>
+                                    </div>
+                                    <div class="text-center mt-2">
+                                        <p class="font-bold text-[#1F2937] dark:text-white text-lg">Principal Skinner
                                         </p>
-                                        <div class="flex items-center justify-center gap-4">
-                                            <div class="size-12 bg-gray-300 rounded-full bg-cover bg-center"
-                                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDv2UbjlBcoQ66LSoBAviOvSFNdhNDmtKrIVhX4f-ytLjHIwM1WAkEDuNz0gFJedhiHD_QoB4ZsUxQoKNqPD5cQt6KhEKlzwSq-SqFJ2QUYpMN6BBxyK7VRjYeeSGsirVmhBK87DSFbi3_4fTsbYLbDfJtX4kp6MVisi9rw29UIr_PgMX1WjH-4WBhir35BLua2k3gpGdHh8itmS4tsEEixPIpEP1wm5R87pgumJxIwUI_V3VIGlUkbD4KtMAQ7QcjdgZOvjzGeeDFh");'>
-                                            </div>
-                                            <div class="text-left">
-                                                <p class="font-bold text-[#111418] dark:text-white">Sarah Jenkins</p>
-                                                <p class="text-sm text-[#637588]">Event Coordinator, Studio X</p>
-                                            </div>
-                                        </div>
+                                        <p class="text-sm text-primary font-bold tracking-wide uppercase">Springfield
+                                            Elementary</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div
+                            class="p-12 rounded-[2.5rem] bg-[#FAFAFA] dark:bg-[#1a2632] relative max-w-3xl mx-auto border border-gray-100 dark:border-gray-800">
+                            <span
+                                class="material-symbols-outlined text-primary/10 text-8xl absolute top-8 left-8">format_quote</span>
+                            <div class="relative z-10 flex flex-col items-center">
+                                <p
+                                    class="text-[#1F2937] dark:text-gray-200 text-xl md:text-2xl font-medium leading-relaxed mb-8 italic">
+                                    "Absolutely seamless service for our production set. They handled dietary
+                                    restrictions effortlessly and the presentation was impeccable. Highly recommended."
+                                </p>
+                                <div class="flex flex-col items-center gap-2">
+                                    <div class="size-16 bg-gray-200 rounded-full bg-cover bg-center shadow-md border-2 border-white dark:border-gray-700"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDv2UbjlBcoQ66LSoBAviOvSFNdhNDmtKrIVhX4f-ytLjHIwM1WAkEDuNz0gFJedhiHD_QoB4ZsUxQoKNqPD5cQt6KhEKlzwSq-SqFJ2QUYpMN6BBxyK7VRjYeeSGsirVmhBK87DSFbi3_4fTsbYLbDfJtX4kp6MVisi9rw29UIr_PgMX1WjH-4WBhir35BLua2k3gpGdHh8itmS4tsEEixPIpEP1wm5R87pgumJxIwUI_V3VIGlUkbD4KtMAQ7QcjdgZOvjzGeeDFh");'>
+                                    </div>
+                                    <div class="text-center mt-2">
+                                        <p class="font-bold text-[#1F2937] dark:text-white text-lg">Sarah Jenkins</p>
+                                        <p class="text-sm text-primary font-bold tracking-wide uppercase">Event
+                                            Coordinator, Studio X</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                        <!-- Slider Controls -->
-                        <button id="prev-testimonial"
-                            class="absolute left-0 top-1/2 -translate-y-1/2 p-2 bg-white/80 dark:bg-black/50 rounded-full shadow-md text-primary hover:bg-primary hover:text-white transition-colors">
-                            <span class="material-symbols-outlined">chevron_left</span>
-                        </button>
-                        <button id="next-testimonial"
-                            class="absolute right-0 top-1/2 -translate-y-1/2 p-2 bg-white/80 dark:bg-black/50 rounded-full shadow-md text-primary hover:bg-primary hover:text-white transition-colors">
-                            <span class="material-symbols-outlined">chevron_right</span>
-                        </button>
-                    </div>
-                </div>
-            </section>
+                <!-- Slider Controls -->
+                <button id="prev-testimonial"
+                    class="absolute left-0 top-1/2 -translate-y-1/2 p-4 bg-white/80 dark:bg-black/50 rounded-full shadow-lg text-primary hover:bg-primary hover:text-white transition-all hover:scale-110 ml-4 hidden md:block">
+                    <span class="material-symbols-outlined">west</span>
+                </button>
+                <button id="next-testimonial"
+                    class="absolute right-0 top-1/2 -translate-y-1/2 p-4 bg-white/80 dark:bg-black/50 rounded-full shadow-lg text-primary hover:bg-primary hover:text-white transition-all hover:scale-110 mr-4 hidden md:block">
+                    <span class="material-symbols-outlined">east</span>
+                </button>
+            </div>
+        </div>
+    </section>
 
-            <!-- FAQ Section -->
-            <section class="py-16 bg-background-light dark:bg-[#0d131a]">
-                <div class="max-w-[800px] mx-auto px-4">
-                    <div class="text-center mb-12">
-                        <h2 class="text-[#111418] dark:text-white text-3xl font-bold">Frequently Asked Questions</h2>
-                    </div>
-                    <div class="flex flex-col gap-4" id="faq-container">
-                        <!-- FAQ Item 1 -->
-                        <div class="bg-white dark:bg-[#1a2632] rounded-xl overflow-hidden">
-                            <button
-                                class="w-full px-6 py-4 flex items-center justify-between text-left font-bold text-[#111418] dark:text-white hover:bg-gray-50 dark:hover:bg-[#253240] transition-colors faq-toggle">
-                                Do you accommodate dietary restrictions?
-                                <span
-                                    class="material-symbols-outlined transition-transform duration-300">expand_more</span>
-                            </button>
-                            <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                                <div class="px-6 pb-4 text-[#637588] dark:text-gray-400">
-                                    Absolutely! We specialize in creating custom menus that cater to everyone. Whether
-                                    it's gluten-free, vegan, nut-free, or specific allergens, we ensure every guest has
-                                    a delicious meal safe for them.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- FAQ Item 2 -->
-                        <div class="bg-white dark:bg-[#1a2632] rounded-xl overflow-hidden">
-                            <button
-                                class="w-full px-6 py-4 flex items-center justify-between text-left font-bold text-[#111418] dark:text-white hover:bg-gray-50 dark:hover:bg-[#253240] transition-colors faq-toggle">
-                                How far in advance do we need to book?
-                                <span
-                                    class="material-symbols-outlined transition-transform duration-300">expand_more</span>
-                            </button>
-                            <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                                <div class="px-6 pb-4 text-[#637588] dark:text-gray-400">
-                                    For large corporate events, we recommend booking at least 2 weeks in advance. For
-                                    school lunch programs, we typically require 30 days to set up logistics. However,
-                                    don't hesitate to reach out for last-minute requests - we'll do our best!
-                                </div>
-                            </div>
-                        </div>
-                        <!-- FAQ Item 3 -->
-                        <div class="bg-white dark:bg-[#1a2632] rounded-xl overflow-hidden">
-                            <button
-                                class="w-full px-6 py-4 flex items-center justify-between text-left font-bold text-[#111418] dark:text-white hover:bg-gray-50 dark:hover:bg-[#253240] transition-colors faq-toggle">
-                                What is your cancellation policy?
-                                <span
-                                    class="material-symbols-outlined transition-transform duration-300">expand_more</span>
-                            </button>
-                            <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                                <div class="px-6 pb-4 text-[#637588] dark:text-gray-400">
-                                    Cancellations made 72 hours prior to the event are fully refundable. Cancellations
-                                    within 24-72 hours incur a 50% fee to cover food costs.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- CTA Section -->
-            <section id="contact" class="py-20 px-4 md:px-20 bg-primary/5 dark:bg-[#0d131a]">
-                <div class="max-w-[800px] mx-auto text-center flex flex-col items-center gap-6">
-                    <h2
-                        class="text-[#111418] dark:text-white text-3xl md:text-5xl font-black leading-tight tracking-tight reveal-on-scroll">
-                        Ready for a Taste of Aygül’s?
-                    </h2>
-                    <p class="text-[#637588] dark:text-gray-400 text-lg md:text-xl max-w-[600px] reveal-on-scroll">
-                        From Melissantstraat to your table. Let's make your next event delicious.
-                    </p>
-                    <!-- Interactive Map -->
-                    <div
-                        class="w-full h-[300px] rounded-2xl overflow-hidden shadow-lg border-4 border-white dark:border-[#1a2632] reveal-on-scroll">
-                        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0"
-                            marginwidth="0"
-                            src="https://www.openstreetmap.org/export/embed.html?bbox=4.480000%2C51.880000%2C4.520000%2C51.900000&amp;layer=mapnik&amp;marker=51.890000%2C4.500000"
-                            style="border: 1px solid black"></iframe>
-                    </div>
-                    <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full justify-center reveal-on-scroll">
-                        <button
-                            class="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-8 bg-primary hover:bg-primary/90 text-white text-lg font-bold shadow-lg transition-transform hover:-translate-y-1 open-quote-modal">
-                            Get a Custom Quote
-                        </button>
-                        <button
-                            class="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-8 bg-white dark:bg-[#1a2632] border border-gray-200 dark:border-gray-700 text-[#111418] dark:text-white hover:bg-gray-50 dark:hover:bg-[#253240] text-lg font-bold transition-colors">
-                            Contact Us
-                        </button>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <!-- Footer -->
-        <footer
-            class="bg-white dark:bg-[#111921] border-t border-[#f0f2f4] dark:border-[#2a3441] pt-16 pb-8 px-4 md:px-20">
-            <div class="max-w-[1200px] mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-                    <div class="flex flex-col gap-4">
-                        <div class="flex items-center gap-2 text-[#111418] dark:text-white font-bold text-xl">
-                            <span class="material-symbols-outlined text-primary">restaurant_menu</span>
-                            Aygül’s Catering
-                        </div>
-                        <p class="text-[#637588] dark:text-gray-400 text-sm leading-normal">
-                            Melissantstraat 254,<br>3086 XR Rotterdam, Netherlands<br><br>
-                            Family-owned excellence in every bite.
-                        </p>
-                        <div class="flex gap-4 mt-2">
-                            <!-- Social Placeholders -->
-                            <a class="text-[#637588] dark:text-gray-400 hover:text-primary" href="#"><span
-                                    class="material-symbols-outlined">public</span></a>
-                            <a class="text-[#637588] dark:text-gray-400 hover:text-primary" href="#"><span
-                                    class="material-symbols-outlined">alternate_email</span></a>
-                            <a class="text-[#637588] dark:text-gray-400 hover:text-primary" href="#"><span
-                                    class="material-symbols-outlined">share</span></a>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-[#111418] dark:text-white font-bold mb-4">Services</h3>
-                        <ul class="flex flex-col gap-3 text-sm text-[#637588] dark:text-gray-400">
-                            <li><a class="hover:text-primary" href="#">Corporate Catering</a></li>
-                            <li><a class="hover:text-primary" href="#">School Lunches</a></li>
-                            <li><a class="hover:text-primary" href="#">Private Parties</a></li>
-                            <li><a class="hover:text-primary" href="#">Menu Tasting</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-[#111418] dark:text-white font-bold mb-4">Company</h3>
-                        <ul class="flex flex-col gap-3 text-sm text-[#637588] dark:text-gray-400">
-                            <li><a class="hover:text-primary" href="#">About Us</a></li>
-                            <li><a class="hover:text-primary" href="#">Our Team</a></li>
-                            <li><a class="hover:text-primary" href="#">Careers</a></li>
-                            <li><a class="hover:text-primary" href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-[#111418] dark:text-white font-bold mb-4">Newsletter</h3>
-                        <p class="text-[#637588] dark:text-gray-400 text-sm mb-4">Subscribe for seasonal menu updates
-                            and catering tips.</p>
-                        <div class="flex gap-2">
-                            <form id="newsletter-form" class="w-full flex gap-2">
-                                <input id="newsletter-email" required
-                                    class="flex-1 bg-background-light dark:bg-[#1a2632] border border-[#dce0e5] dark:border-gray-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary text-[#111418] dark:text-white"
-                                    placeholder="Enter your email" type="email" />
-                                <button type="submit"
-                                    class="bg-primary hover:bg-primary/90 text-white rounded-lg px-4 py-2 text-sm font-bold">
-                                    <span class="material-symbols-outlined text-sm">send</span>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+    <!-- FAQ Section -->
+    <section class="py-24 bg-[#FAFAFA] dark:bg-[#0d131a]">
+        <div class="max-w-[800px] mx-auto px-4">
+            <div class="text-center mb-16">
+                <span
+                    class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/5 px-4 py-2 rounded-full mb-4 inline-block">Help
+                    Center</span>
+                <h2 class="text-[#1F2937] dark:text-white text-3xl md:text-4xl font-black">Common Questions</h2>
+            </div>
+            <div class="flex flex-col gap-4" id="faq-container">
+                <!-- FAQ Item 1 -->
                 <div
-                    class="border-t border-[#f0f2f4] dark:border-[#2a3441] pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#637588] dark:text-gray-400">
-                    <p>© 2025 Aygül’s Catering. All rights reserved.</p>
-                    <div class="flex gap-6">
-                        <a class="hover:text-[#111418] dark:hover:text-white" href="#">Privacy Policy</a>
-                        <a class="hover:text-[#111418] dark:hover:text-white" href="#">Terms of Service</a>
+                    class="bg-white dark:bg-[#1a2632] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm">
+                    <button
+                        class="w-full px-8 py-6 flex items-center justify-between text-left font-bold text-lg text-[#1F2937] dark:text-white hover:bg-gray-50 dark:hover:bg-[#253240] transition-colors faq-toggle">
+                        Do you accommodate dietary restrictions?
+                        <span
+                            class="material-symbols-outlined text-gray-400 transition-transform duration-300">add_circle</span>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="px-8 pb-8 text-gray-500 dark:text-gray-400 leading-relaxed">
+                            Absolutely! We specialize in creating custom menus that cater to everyone. Whether
+                            it's gluten-free, vegan, nut-free, or specific allergens, we ensure every guest has
+                            a delicious meal safe for them.
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div
+                    class="bg-white dark:bg-[#1a2632] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm">
+                    <button
+                        class="w-full px-8 py-6 flex items-center justify-between text-left font-bold text-lg text-[#1F2937] dark:text-white hover:bg-gray-50 dark:hover:bg-[#253240] transition-colors faq-toggle">
+                        How far in advance do we need to book?
+                        <span
+                            class="material-symbols-outlined text-gray-400 transition-transform duration-300">add_circle</span>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="px-8 pb-8 text-gray-500 dark:text-gray-400 leading-relaxed">
+                            For large corporate events, we recommend booking at least 2 weeks in advance. For
+                            school lunch programs, we typically require 30 days to set up logistics. However,
+                            don't hesitate to reach out for last-minute requests - we'll do our best!
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div
+                    class="bg-white dark:bg-[#1a2632] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm">
+                    <button
+                        class="w-full px-8 py-6 flex items-center justify-between text-left font-bold text-lg text-[#1F2937] dark:text-white hover:bg-gray-50 dark:hover:bg-[#253240] transition-colors faq-toggle">
+                        What is your cancellation policy?
+                        <span
+                            class="material-symbols-outlined text-gray-400 transition-transform duration-300">add_circle</span>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="px-8 pb-8 text-gray-500 dark:text-gray-400 leading-relaxed">
+                            Cancellations made 72 hours prior to the event are fully refundable. Cancellations
+                            within 24-72 hours incur a 50% fee to cover food costs.
+                        </div>
                     </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </section>
+    <!-- CTA Section -->
+    <section id="contact" class="py-20 px-4 md:px-20 bg-primary/5 dark:bg-[#0d131a]">
+        <div class="max-w-[800px] mx-auto text-center flex flex-col items-center gap-6">
+            <h2
+                class="text-[#111418] dark:text-white text-3xl md:text-5xl font-black leading-tight tracking-tight reveal-on-scroll">
+                Ready for a Taste of Aygül’s?
+            </h2>
+            <p class="text-[#637588] dark:text-gray-400 text-lg md:text-xl max-w-[600px] reveal-on-scroll">
+                From Melissantstraat to your table. Let's make your next event delicious.
+            </p>
+            <!-- Interactive Map -->
+            <div
+                class="w-full h-[350px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-[#1F2937] reveal-on-scroll transform hover:scale-[1.02] transition-transform duration-500">
+                <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=4.473000%2C51.874000%2C4.478000%2C51.879000&amp;layer=mapnik&amp;marker=51.876790%2C4.475470"
+                    style="border: none;"></iframe>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full justify-center reveal-on-scroll">
+                <button
+                    class="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-8 bg-primary hover:bg-primary/90 text-white text-lg font-bold shadow-lg transition-transform hover:-translate-y-1 open-quote-modal">
+                    Get a Custom Quote
+                </button>
+                <button
+                    class="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-8 bg-white dark:bg-[#1a2632] border border-gray-200 dark:border-gray-700 text-[#111418] dark:text-white hover:bg-gray-50 dark:hover:bg-[#253240] text-lg font-bold transition-colors">
+                    Contact Us
+                </button>
+            </div>
+        </div>
+    </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-[#111921] border-t border-gray-100 dark:border-gray-800 pt-20 pb-12 px-4 md:px-20">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="flex flex-col gap-6">
+                    <div class="flex items-center gap-3 text-[#1F2937] dark:text-white font-black text-2xl">
+                        <div class="bg-primary/10 p-2 rounded-full text-primary">
+                            <span class="material-symbols-outlined">restaurant_menu</span>
+                        </div>
+                        Aygül’s Catering
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                        Melissantstraat 254,<br>3086 XR Rotterdam, Netherlands<br><br>
+                        Family-owned excellence in every bite.
+                    </p>
+                    <div class="flex gap-4 mt-2">
+                        <a class="size-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-symbols-outlined text-lg">public</span></a>
+                        <a class="size-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-symbols-outlined text-lg">alternate_email</span></a>
+                        <a class="size-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-symbols-outlined text-lg">share</span></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-[#1F2937] dark:text-white font-bold mb-6 text-lg">Services</h3>
+                    <ul class="flex flex-col gap-4 text-sm text-gray-500 dark:text-gray-400 font-medium">
+                        <li><a class="hover:text-primary transition-colors" href="#">Corporate Catering</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">School Lunches</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Private Parties</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Menu Tasting</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-[#1F2937] dark:text-white font-bold mb-6 text-lg">Company</h3>
+                    <ul class="flex flex-col gap-4 text-sm text-gray-500 dark:text-gray-400 font-medium">
+                        <li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Our Team</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-[#1F2937] dark:text-white font-bold mb-6 text-lg">Newsletter</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 leading-relaxed">Subscribe for seasonal menu
+                        updates and catering tips.</p>
+                    <div class="flex gap-2">
+                        <form id="newsletter-form" class="w-full flex gap-2">
+                            <input id="newsletter-email" required
+                                class="flex-1 bg-gray-50 dark:bg-[#1a2632] border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 text-[#1F2937] dark:text-white transition-all"
+                                placeholder="Enter your email" type="email" />
+                            <button type="submit"
+                                class="bg-[#1F2937] hover:bg-black text-white rounded-xl px-4 py-2 transition-all">
+                                <span class="material-symbols-outlined">send</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="border-t border-gray-100 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+                <p>© 2025 Aygül’s Catering. All rights reserved.</p>
+                <div class="flex gap-8 font-medium">
+                    <a class="hover:text-[#1F2937] dark:hover:text-white transition-colors" href="#">Privacy Policy</a>
+                    <a class="hover:text-[#1F2937] dark:hover:text-white transition-colors" href="#">Terms of
+                        Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
     </div>
 
     <!-- Back to Top Button -->
@@ -622,14 +692,7 @@
         <span class="material-symbols-outlined">arrow_upward</span>
     </button>
 
-    <!-- WhatsApp Widget -->
-    <a href="https://wa.me/31600000000" target="_blank"
-        class="fixed bottom-24 left-4 md:bottom-8 md:left-8 z-40 bg-[#25D366] text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 flex items-center justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path
-                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
-        </svg>
-    </a>
+
 
     <!-- Mobile Bottom Navigation -->
     <div
@@ -718,6 +781,15 @@
         </div>
     </div>
 
+    <!-- WhatsApp Widget -->
+    <a href="https://wa.me/31644026829"
+        class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] hover:scale-110 hover:shadow-[0_6px_20px_rgba(37,211,102,0.23)] transition-all duration-300 group"
+        target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .12 5.377.12 11.986c0 2.158.556 4.218 1.518 6.007L0 24l6.19-1.623a11.905 11.905 0 005.86 1.547h.004c6.554 0 11.93-5.378 11.93-11.985a11.823 11.823 0 00-3.535-8.406" />
+        </svg>
+    </a>
 </body>
 
 </html>
