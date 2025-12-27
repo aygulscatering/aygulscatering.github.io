@@ -7,13 +7,29 @@
         content="FreshBite Catering - Premium catering services for corporate events and school lunch programs. Fueling moments and nourishing minds with healthy, delicious meals.">
     <meta name="keywords"
         content="catering, corporate catering, school lunch, meal programs, healthy food, event catering">
-    <title>FreshBite Catering | Corporate & School Meal Solutions</title>
+    <title>Aygül’s Catering | Rotterdam Breakfast & Lunch Delivery</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700;900&amp;display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
+    <style>
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .smooth-shadow {
+            box-shadow: 0 10px 40px -10px rgba(255, 125, 0, 0.15);
+        }
+    </style>
     <script src="js/script.js" defer></script>
 </head>
 
@@ -31,8 +47,8 @@
                 <div class="size-8 text-primary">
                     <span class="material-symbols-outlined text-3xl">restaurant_menu</span>
                 </div>
-                <h2 class="text-[#111418] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">FreshBite
-                    Catering</h2>
+                <h2 class="text-[#111418] dark:text-white text-2xl font-extrabold leading-tight tracking-tight">Aygül’s
+                    <span class="text-primary">Catering</span></h2>
             </div>
             <!-- Dark Mode Toggle -->
             <button id="theme-toggle"
@@ -53,7 +69,7 @@
                         <div class="size-8 text-primary">
                             <span class="material-symbols-outlined text-3xl">restaurant_menu</span>
                         </div>
-                        <h2 class="text-xl font-bold">FreshBite</h2>
+                        <h2 class="text-2xl font-extrabold">Aygül’s</h2>
                     </div>
                     <button id="mobile-menu-close" class="text-[#111418] dark:text-white p-2">
                         <span class="material-symbols-outlined">close</span>
@@ -99,13 +115,13 @@
                             style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAIeWjzXCGuiuTk8qsRUcLD3gT-hs9oSLp7_mixw7AGfSYeGCwu94Rt-1UiyKimaJdwylyyZ-C_Y6MDi6pESg_pL9lBQhJWkezXtSGB7Ksbg6yhRBbjZbicndhz6OBOUugMA3el5KK5ZS-FG3UJpHc0fVqw56vQsxtF-Tr7_OjPe1q4OZce_FJe9MhUu6XKfXUlxbFBU36mAr40v-5YzcfY-4aEMRCcZ_TxDhEn8_SPVxIyVxG2B45steI2yQJkBtm8QH3yiby_-xrZ");'>
                             <div class="flex flex-col gap-4 text-center max-w-[800px] z-10 px-4">
                                 <h1
-                                    class="text-white text-4xl font-black leading-tight tracking-[-0.033em] md:text-6xl drop-shadow-lg">
-                                    Fueling Moments, Nourishing Minds
+                                    class="text-white text-5xl font-black leading-tight tracking-tight md:text-7xl drop-shadow-xl reveal-on-scroll">
+                                    Taste of Home, <br><span class="text-primary">Delivered with Love</span>
                                 </h1>
-                                <h2
-                                    class="text-gray-100 text-lg font-medium leading-normal md:text-xl max-w-[600px] mx-auto drop-shadow-md">
-                                    Premium catering for corporate events and nutritious meal programs for local
-                                    schools.
+                                <h2 class="text-gray-50 text-xl font-medium leading-relaxed md:text-2xl max-w-[600px] mx-auto drop-shadow-md reveal-on-scroll"
+                                    style="transition-delay: 100ms;">
+                                    Family-owned catering in Rotterdam. Start your day with our premium breakfast &
+                                    lunch delivery for schools and offices.
                                 </h2>
                             </div>
                             <div class="flex flex-col sm:flex-row gap-4 mt-4 z-10">
@@ -129,13 +145,13 @@
                     <div class="flex flex-col gap-12">
                         <div class="flex flex-col gap-4 text-center items-center">
                             <h2
-                                class="text-[#111418] dark:text-white tracking-light text-[32px] font-bold leading-tight md:text-4xl">
-                                Tailored Catering Solutions
+                                class="text-[#111418] dark:text-white tracking-tight text-[32px] font-bold leading-tight md:text-4xl reveal-on-scroll">
+                                Catering from the Heart
                             </h2>
                             <p
-                                class="text-[#637588] dark:text-gray-400 text-lg font-normal leading-normal max-w-[720px]">
-                                We specialize in two distinct areas to serve our community better: elevating corporate
-                                events and fueling the next generation.
+                                class="text-[#637588] dark:text-gray-400 text-lg font-normal leading-relaxed max-w-[720px] reveal-on-scroll">
+                                Based in Rotterdam (3086 XR), we bring family warmth to every meal. Specializing in
+                                healthy school lunches and corporate breakfast spreads.
                             </p>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -294,9 +310,8 @@
                                     <div class="relative z-10">
                                         <p
                                             class="text-[#111418] dark:text-gray-200 text-lg leading-relaxed mb-6 italic">
-                                            "FreshBite has completely transformed our school lunch program. The kids
-                                            actually look forward to lunchtime now, and the parents love the nutritional
-                                            focus."
+                                            "Aygül’s Catering has transformed our school lunch program. The home-cooked
+                                            quality is unmatched, and the kids love it!"
                                         </p>
                                         <div class="flex items-center justify-center gap-4">
                                             <div class="size-12 bg-gray-300 rounded-full bg-cover bg-center"
@@ -412,14 +427,13 @@
             <section id="contact" class="py-20 px-4 md:px-20 bg-primary/5 dark:bg-[#0d131a]">
                 <div class="max-w-[800px] mx-auto text-center flex flex-col items-center gap-6">
                     <h2
-                        class="text-[#111418] dark:text-white text-3xl md:text-5xl font-black leading-tight tracking-[-0.033em]">
-                        Ready to plan your menu?
+                        class="text-[#111418] dark:text-white text-3xl md:text-5xl font-black leading-tight tracking-tight reveal-on-scroll">
+                        Ready for a Taste of Aygül’s?
                     </h2>
-                    <p class="text-[#637588] dark:text-gray-400 text-lg md:text-xl max-w-[600px]">
-                        Whether it's a corporate gala or a monthly school meal plan, we're here to serve excellence on
-                        every plate.
+                    <p class="text-[#637588] dark:text-gray-400 text-lg md:text-xl max-w-[600px] reveal-on-scroll">
+                        From Melissantstraat to your table. Let's make your next event delicious.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full justify-center">
+                    <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full justify-center reveal-on-scroll">
                         <button
                             class="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-8 bg-primary hover:bg-primary/90 text-white text-lg font-bold shadow-lg transition-transform hover:-translate-y-1 open-quote-modal">
                             Get a Custom Quote
@@ -440,11 +454,11 @@
                     <div class="flex flex-col gap-4">
                         <div class="flex items-center gap-2 text-[#111418] dark:text-white font-bold text-xl">
                             <span class="material-symbols-outlined text-primary">restaurant_menu</span>
-                            FreshBite
+                            Aygül’s Catering
                         </div>
                         <p class="text-[#637588] dark:text-gray-400 text-sm leading-normal">
-                            Premium catering services tailored for corporate events and educational institutions.
-                            Quality ingredients, exceptional service.
+                            Melissantstraat 254,<br>3086 XR Rotterdam, Netherlands<br><br>
+                            Family-owned excellence in every bite.
                         </p>
                         <div class="flex gap-4 mt-2">
                             <!-- Social Placeholders -->
@@ -493,7 +507,7 @@
                 </div>
                 <div
                     class="border-t border-[#f0f2f4] dark:border-[#2a3441] pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#637588] dark:text-gray-400">
-                    <p>© 2023 FreshBite Catering. All rights reserved.</p>
+                    <p>© 2025 Aygül’s Catering. All rights reserved.</p>
                     <div class="flex gap-6">
                         <a class="hover:text-[#111418] dark:hover:text-white" href="#">Privacy Policy</a>
                         <a class="hover:text-[#111418] dark:hover:text-white" href="#">Terms of Service</a>

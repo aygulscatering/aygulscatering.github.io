@@ -6,14 +6,22 @@ tailwind.config = {
     theme: {
         extend: {
             colors: {
-                "primary": "#197fe6",
-                "background-light": "#f6f7f8",
+                "primary": "#FF7D00", // Vibrant Tangerine
+                "secondary": "#4ECDC4", // Fresh Mint
+                "background-light": "#FFFBF7", // Warm Off-White
                 "background-dark": "#111921",
+                "surface-light": "#FFFFFF",
+                "surface-dark": "#1a2632",
             },
             fontFamily: {
-                "display": ["Work Sans", "sans-serif"]
+                "display": ["Outfit", "sans-serif"],
+                "body": ["Outfit", "sans-serif"]
             },
-            borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+            borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px" },
+            boxShadow: {
+                "soft": "0 10px 40px -10px rgba(255, 125, 0, 0.15)",
+                "card": "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
+            }
         },
     },
 };
@@ -38,7 +46,27 @@ document.addEventListener('DOMContentLoaded', () => {
     initModals();               // 6. Quote Modal & Connects to buttons
     initNewsletter();           // 7. Newsletter
     initCookieConsent();        // 8. Cookie Banner
+    initScrollReveal();         // 11. Scroll Animations
 });
+
+function initScrollReveal() {
+    const reveals = document.querySelectorAll('.reveal-on-scroll');
+    const windowHeight = window.innerHeight;
+    const elementVisible = 100;
+
+    function checkReveal() {
+        reveals.forEach(reveal => {
+            const elementTop = reveal.getBoundingClientRect().top;
+            if (elementTop < windowHeight - elementVisible) {
+                reveal.classList.add('reveal-visible');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', checkReveal);
+    // Trigger once on load
+    checkReveal();
+}
 
 /* --- Feature Implementations --- */
 
