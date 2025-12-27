@@ -546,86 +546,109 @@ function showToast(message) {
 }
 
 function initMusicPlayer() {
-    const audio = document.getElementById('audio-player');
+    let player;
+    let isPlaying = false;
     const toggleBtn = document.getElementById('toggle-music');
     const musicIcon = document.getElementById('music-icon');
     const musicInfo = document.getElementById('music-info');
+    const controls = document.getElementById('music-player-controls');
 
-    if (!audio) return;
+    // Make function global so API can call it
+    window.onYouTubeIframeAPIReady = function () {
+        player = new YT.Player('youtube-player', {
+            height: '1',
+            width: '1',
+            videoId: 'tyoQZc3wkzN', // Aytaç Doğan - Alışamadım
+            playerVars: {
+                'playsinline': 1,
+                'controls': 0,
+                'disablekb': 1,
+                'fs': 0,
+                'loop': 1,
+                'playlist': 'tyoQZc3wkzN',
+                'autoplay': 1,
+                'origin': window.location.origin,
+                'enablejsapi': 1
+            },
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange,
+                'onError': onPlayerError
+            }
+        });
+    };
 
-    let isPlaying = false;
+    // Load YouTube API
+    if (!window.YT) {
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    } else if (window.YT && window.YT.Player) {
+        window.onYouTubeIframeAPIReady();
+    }
 
-    // Helper to update UI
-    function updateUI(playing) {
-        isPlaying = playing;
-        if (musicIcon) {
-            musicIcon.textContent = playing ? 'pause' : 'music_note';
-            if (playing) {
+    function onPlayerReady(event) {
+        event.target.setVolume(20);
+        event.target.playVideo();
+
+        // ----------------------------------------------------
+        // CRITICAL FOR AUTOPLAY:
+        // Browsers block audio until the user interacts.
+        // We add a listener to capture the VERY FIRST interaction
+        // anywhere on the page to unblock the audio.
+        // ----------------------------------------------------
+        const startAudio = () => {
+            if (player && typeof player.playVideo === 'function') {
+                const state = player.getPlayerState();
+                if (state !== YT.PlayerState.PLAYING && state !== YT.PlayerState.BUFFERING) {
+                    player.playVideo();
+                }
+            }
+        };
+
+        const validEvents = ['click', 'touchstart', 'scroll', 'keydown'];
+        validEvents.forEach(evt => {
+            document.body.addEventListener(evt, startAudio, { once: true, passive: true });
+        });
+    }
+
+    function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.PLAYING) {
+            isPlaying = true;
+            if (musicIcon) {
+                musicIcon.textContent = 'pause';
                 musicIcon.parentElement.classList.add('animate-spin-slow');
                 if (toggleBtn) toggleBtn.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
                 musicInfo?.classList.remove('translate-y-10', 'opacity-0');
-            } else {
+            }
+        } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+            isPlaying = false;
+            if (musicIcon) {
+                musicIcon.textContent = 'music_note';
                 musicIcon.parentElement.classList.remove('animate-spin-slow');
                 if (toggleBtn) toggleBtn.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
             }
         }
     }
 
-    // Attempt autoplay
-    function tryPlay() {
-        audio.volume = 0.3; // Set nice background volume
-
-        // We handle the promise to avoid uncaught exceptions in console
-        const playPromise = audio.play();
-
-        if (playPromise !== undefined) {
-            playPromise.then(() => {
-                // Auto-play started!
-                updateUI(true);
-            }).catch(error => {
-                // Auto-play was prevented.
-                console.log("Autoplay prevented by browser, waiting for interaction.");
-                updateUI(false);
-
-                // OPTIONAL: Show a toast or small hint
-                if (typeof showToast === 'function') {
-                    // showToast('Klik ergens om muziek te starten 🎵'); 
-                    // Kept commented to avoid annoyance, but logic is here
-                }
-
-                // Add one-time listener to start on first interaction
-                const validEvents = ['click', 'touchstart', 'scroll', 'keydown'];
-                const playOnInteraction = () => {
-                    audio.play().then(() => {
-                        updateUI(true);
-                    }).catch(e => console.error("Play failed:", e));
-                };
-
-                validEvents.forEach(evt => {
-                    document.body.addEventListener(evt, playOnInteraction, { once: true, passive: true });
-                });
-            });
-        }
+    function onPlayerError(event) {
+        console.error('YouTube Player Error:', event.data);
+        if (controls) controls.style.display = 'none';
     }
 
-    // Toggle Button
+    // Toggle Button Logic (Stop/Start on request)
     if (toggleBtn) {
-        toggleBtn.addEventListener('click', () => {
-            if (audio.paused) {
-                audio.play();
-                updateUI(true);
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Don't trigger the global "first click" logic again if clicking this
+            if (!player) return;
+
+            if (isPlaying) {
+                player.pauseVideo();
             } else {
-                audio.pause();
-                updateUI(false);
+                player.playVideo();
             }
         });
     }
-
-    // Events
-    audio.addEventListener('play', () => updateUI(true));
-    audio.addEventListener('pause', () => updateUI(false));
-    audio.addEventListener('ended', () => updateUI(false)); // Should loop, but just in case
-
-    // Start
-    tryPlay();
 }
+
