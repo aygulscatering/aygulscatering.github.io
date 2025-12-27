@@ -24,6 +24,12 @@ SOFTWARE.
 
 'use strict';
 
+function safeGa() {
+    if (typeof ga === 'function') {
+        ga.apply(null, arguments);
+    }
+}
+
 const promoPopup = {};
 const promoPopupClose = {};
 
@@ -127,7 +133,7 @@ function getWebGLContext(canvas) {
         formatR = getSupportedFormat(gl, gl.RGBA, gl.RGBA, halfFloatTexType);
     }
 
-    ga('send', 'event', isWebGL2 ? 'webgl2' : 'webgl', formatRGBA == null ? 'not supported' : 'supported');
+    safeGa('send', 'event', isWebGL2 ? 'webgl2' : 'webgl', formatRGBA == null ? 'not supported' : 'supported');
 
     return {
         gl,
@@ -212,7 +218,7 @@ function startGUI() {
     let github = gui.add({
         fun: () => {
             window.open('https://github.com/PavelDoGreat/WebGL-Fluid-Simulation');
-            ga('send', 'event', 'link button', 'github');
+            safeGa('send', 'event', 'link button', 'github');
         }
     }, 'fun').name('Github');
     github.__li.className = 'cr function bigFont';
@@ -934,7 +940,8 @@ let bloomFramebuffers = [];
 let sunrays;
 let sunraysTemp;
 
-let ditheringTexture = createTextureAsync('LDR_LLL1_0.png');
+// let ditheringTexture = createTextureAsync('LDR_LLL1_0.png');
+let ditheringTexture = { texture: null, width: 1, height: 1, attach: () => 0 };
 
 const blurProgram = new Program(blurVertexShader, blurShader);
 const copyProgram = new Program(baseVertexShader, copyShader);
@@ -1438,8 +1445,9 @@ function correctRadius(radius) {
 }
 
 window.addEventListener('mousedown', e => {
-    let posX = scaleByPixelRatio(e.clientX);
-    let posY = scaleByPixelRatio(e.clientY);
+    const rect = canvas.getBoundingClientRect();
+    let posX = scaleByPixelRatio(e.clientX - rect.left);
+    let posY = scaleByPixelRatio(e.clientY - rect.top);
     let pointer = pointers.find(p => p.id == -1);
     if (pointer == null)
         pointer = new pointerPrototype();
@@ -1448,9 +1456,10 @@ window.addEventListener('mousedown', e => {
 
 window.addEventListener('mousemove', e => {
     let pointer = pointers[0];
+    const rect = canvas.getBoundingClientRect();
     // if (!pointer.down) return;
-    let posX = scaleByPixelRatio(e.clientX);
-    let posY = scaleByPixelRatio(e.clientY);
+    let posX = scaleByPixelRatio(e.clientX - rect.left);
+    let posY = scaleByPixelRatio(e.clientY - rect.top);
     updatePointerMoveData(pointer, posX, posY);
 });
 
@@ -1539,9 +1548,9 @@ function correctDeltaY(delta) {
 
 function generateColor() {
     let c = HSVtoRGB(Math.random(), 1.0, 1.0);
-    c.r *= 0.15;
-    c.g *= 0.15;
-    c.b *= 0.15;
+    c.r *= 0.4;
+    c.g *= 0.4;
+    c.b *= 0.4;
     return c;
 }
 
