@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initStatusBadge();
     initCounters();
     initFilters();
+    initMusicPlayer();
 });
 
 function initScrollReveal() {
@@ -527,4 +528,79 @@ function showToast(message) {
             toast.remove();
         }, 300);
     }, 3000);
+}
+
+function initMusicPlayer() {
+    // Load YouTube API
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    let player;
+    let isPlaying = false;
+    const toggleBtn = document.getElementById('toggle-music');
+    const musicIcon = document.getElementById('music-icon');
+    const musicInfo = document.getElementById('music-info');
+
+    // Make function global so API can call it
+    window.onYouTubeIframeAPIReady = function () {
+        player = new YT.Player('youtube-player', {
+            height: '0',
+            width: '0',
+            videoId: 'tyoQZc3wkzN', // Aytaç Doğan - Alışamadım
+            playerVars: {
+                'playsinline': 1,
+                'controls': 0,
+                'disablekb': 1,
+                'fs': 0,
+                'loop': 1,
+                'autoplay': 1, // Attempt autoplay
+                'modestbranding': 1
+            },
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            }
+        });
+    };
+
+    function onPlayerReady(event) {
+        event.target.playVideo();
+
+        // Browser Autoplay Policy Fallback:
+        // formatting: automatically try to play on the first click anywhere on the page
+        document.body.addEventListener('click', function () {
+            if (!isPlaying) {
+                player.playVideo();
+            }
+        }, { once: true });
+
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', togglePlay);
+        }
+    }
+
+    function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.PLAYING) {
+            isPlaying = true;
+            musicIcon.textContent = 'pause';
+            musicIcon.parentElement.classList.add('animate-spin-slow');
+            toggleBtn.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
+            musicInfo.classList.remove('translate-y-10', 'opacity-0');
+        } else {
+            isPlaying = false;
+            musicIcon.textContent = 'music_note';
+            musicIcon.parentElement.classList.remove('animate-spin-slow');
+            toggleBtn.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
+        }
+    }
+
+    function togglePlay() {
+        if (isPlaying) {
+            player.pauseVideo();
+        } else {
+            player.playVideo();
+        }
+    }
 }
