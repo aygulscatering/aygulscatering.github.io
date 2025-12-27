@@ -5,13 +5,13 @@
   --surface: #f8fafc;
   --surface-2: #eef2f6;
   --border: #e2e8f0;
-  --brand: #0f766e;
-  --brand-strong: #0b5f59;
+  --brand: #197fe6;
+  --brand-strong: #1464b5;
   --radius: 16px;
   --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
   --max: 1120px;
   --pad: 16px;
-  --focus: 3px solid rgba(15, 118, 110, 0.6);
+  --focus: 3px solid rgba(25, 127, 230, 0.6);
 }
 
 *,
@@ -110,7 +110,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--brand), #22c55e);
+  background: linear-gradient(135deg, var(--brand), #60a5fa);
   color: #ffffff;
   font-size: 14px;
 }
@@ -642,4 +642,3 @@ textarea:focus-visible {
     transition: none !important;
   }
 }
-
