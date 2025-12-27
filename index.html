@@ -104,7 +104,6 @@
     }
     </script>
 
-    <script src="js/script.js" defer></script>
 </head>
 
 <body
@@ -199,6 +198,10 @@
             <!-- New Split Hero Section -->
             <div
                 class="relative w-full overflow-hidden bg-gradient-to-br from-orange-50 via-white to-orange-50/30 dark:from-[#111921] dark:via-[#1a2632] dark:to-[#111921]">
+                <!-- Fluid Background Canvas -->
+                <canvas id="fluid-canvas"
+                    class="absolute inset-0 w-full h-full z-0 pointer-events-auto opacity-60 mix-blend-multiply dark:mix-blend-screen"></canvas>
+
                 <!-- Decorative Blobs -->
                 <div
                     class="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 mix-blend-multiply dark:bg-primary/10 dark:mix-blend-normal">
@@ -208,9 +211,9 @@
                 </div>
 
                 <div
-                    class="max-w-[1400px] mx-auto px-4 md:px-10 min-h-[90vh] grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                    class="max-w-[1400px] mx-auto px-4 md:px-10 min-h-[90vh] grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 pointer-events-none">
                     <!-- Left Content -->
-                    <div class="flex flex-col justify-center py-12 lg:py-0 order-2 lg:order-1">
+                    <div class="flex flex-col justify-center py-12 lg:py-0 order-2 lg:order-1 pointer-events-auto">
                         <div
                             class="inline-flex items-center gap-2 self-start bg-white dark:bg-white/5 border border-orange-100 dark:border-white/10 px-4 py-2 rounded-full mb-8 shadow-sm reveal-on-scroll backdrop-blur-sm">
                             <span class="relative flex h-2 w-2">
@@ -290,7 +293,8 @@
                     </div>
 
                     <!-- Right Image - Floating Organic -->
-                    <div class="relative h-[500px] lg:h-[700px] order-1 lg:order-2 flex items-center justify-center">
+                    <div
+                        class="relative h-[500px] lg:h-[700px] order-1 lg:order-2 flex items-center justify-center pointer-events-auto">
                         <div
                             class="relative w-full h-[85%] rounded-[3rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-[1.5s] ease-in-out group">
                             <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1600&q=80"
