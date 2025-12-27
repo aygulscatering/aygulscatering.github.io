@@ -385,4 +385,5 @@ function initLightbox() {
         if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
             closeLightbox();
         }
-    }
+    });
+}
