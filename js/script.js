@@ -546,12 +546,14 @@ function showToast(message) {
 }
 
 function initMusicPlayer() {
-    let player;
-    let isPlaying = false;
+    const audio = document.getElementById('audio-player');
     const toggleBtn = document.getElementById('toggle-music');
     const musicIcon = document.getElementById('music-icon');
     const musicInfo = document.getElementById('music-info');
-    const controls = document.getElementById('music-player-controls');
+
+    if (!audio) return;
+
+    let isPlaying = false;
 
     // Helper to update UI
     function updateUI(playing) {
@@ -560,96 +562,62 @@ function initMusicPlayer() {
             musicIcon.textContent = playing ? 'pause' : 'music_note';
             if (playing) {
                 musicIcon.parentElement.classList.add('animate-spin-slow');
-                toggleBtn.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
+                if (toggleBtn) toggleBtn.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
                 musicInfo?.classList.remove('translate-y-10', 'opacity-0');
             } else {
                 musicIcon.parentElement.classList.remove('animate-spin-slow');
-                toggleBtn.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
+                if (toggleBtn) toggleBtn.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
             }
         }
     }
 
-    function onPlayerReady(event) {
-        console.log("Player ready");
-        // Attempt immediate play
-        event.target.playVideo();
-        event.target.setVolume(20);
+    // Attempt autoplay
+    function tryPlay() {
+        audio.volume = 0.3; // Set nice background volume
+        const playPromise = audio.play();
 
-        // Fallback: Play on FIRST interaction
-        const validEvents = ['click', 'touchstart', 'scroll', 'keydown'];
-        const tryPlay = () => {
-            if (player && typeof player.playVideo === 'function') {
-                // If not playing, or buffering, or cued
-                const state = player.getPlayerState();
-                if (state !== YT.PlayerState.PLAYING && state !== YT.PlayerState.BUFFERING) {
-                    player.playVideo();
-                }
-            }
-        };
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                // Auto-play started!
+                updateUI(true);
+            }).catch(error => {
+                // Auto-play was prevented.
+                console.log("Autoplay prevented by browser, waiting for interaction.");
+                updateUI(false);
 
-        validEvents.forEach(evt => {
-            document.body.addEventListener(evt, tryPlay, { once: true, passive: true });
-        });
-    }
+                // Add one-time listener to start on first interaction
+                const validEvents = ['click', 'touchstart', 'scroll', 'keydown'];
+                const playOnInteraction = () => {
+                    audio.play().then(() => {
+                        updateUI(true);
+                    }).catch(e => console.error("Play failed:", e));
+                };
 
-    function onPlayerStateChange(event) {
-        if (event.data === YT.PlayerState.PLAYING) {
-            updateUI(true);
-        } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
-            updateUI(false);
+                validEvents.forEach(evt => {
+                    document.body.addEventListener(evt, playOnInteraction, { once: true, passive: true });
+                });
+            });
         }
     }
 
-    function onPlayerError(event) {
-        console.error('YouTube Player Error:', event.data);
-        // Error 150/101 = restricted from embed. 
-        // We can try to hide controls but keep them if it's a temporary network error
-        if (event.data === 150 || event.data === 101) {
-            if (controls) controls.style.display = 'none';
-        }
-    }
-
-    function initPlayer() {
-        player = new YT.Player('youtube-player', {
-            height: '1', // MUST be > 0 for some browsers
-            width: '1',
-            videoId: 'tyoQZc3wkzN',
-            playerVars: {
-                'playsinline': 1,
-                'controls': 0,
-                'disablekb': 1,
-                'fs': 0,
-                'loop': 1,
-                'playlist': 'tyoQZc3wkzN',
-                'autoplay': 1,
-                'origin': window.location.origin, // Critical for GitHub Pages
-                'enablejsapi': 1
-            },
-            events: {
-                'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange,
-                'onError': onPlayerError
-            }
-        });
-    }
-
-    // Toggle Button Logic
+    // Toggle Button
     if (toggleBtn) {
         toggleBtn.addEventListener('click', () => {
-            if (!player) return;
-            if (isPlaying) player.pauseVideo();
-            else player.playVideo();
+            if (audio.paused) {
+                audio.play();
+                updateUI(true);
+            } else {
+                audio.pause();
+                updateUI(false);
+            }
         });
     }
 
-    // Initialize API
-    if (typeof YT !== 'undefined' && YT.Player) {
-        initPlayer();
-    } else {
-        window.onYouTubeIframeAPIReady = initPlayer;
-        const tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        const firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    }
+    // Events
+    audio.addEventListener('play', () => updateUI(true));
+    audio.addEventListener('pause', () => updateUI(false));
+    audio.addEventListener('ended', () => updateUI(false)); // Should loop, but just in case
+
+    // Start
+    tryPlay();
 }
