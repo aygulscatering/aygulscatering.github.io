@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "category": "Ontbijt",
+        "name": "Klassiek Ontbijtbuffet",
+        "description": "Vers gebakken broodjes, croissants, kaas, vleeswaren, jam, boter, fruit en sappen",
+        "price": "€12,50",
+        "pricePerPerson": 12.50,
+        "dietary": ["vegetarisch-optie"],
+        "image": "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": 2,
+        "category": "Ontbijt",
+        "name": "Gezond Ontbijtpakket",
+        "description": "Yoghurt met granola, vers fruit, volkoren brood, hummus en avocado",
+        "price": "€14,00",
+        "pricePerPerson": 14.00,
+        "dietary": ["vegetarisch", "veganistisch-optie"],
+        "image": "https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": 3,
+        "category": "Lunch",
+        "name": "Broodjes Lunchbuffet",
+        "description": "Diverse luxe broodjes belegd met premium ingrediënten, soep en salade",
+        "price": "€16,50",
+        "pricePerPerson": 16.50,
+        "dietary": ["halal", "vegetarisch-optie"],
+        "image": "https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": 4,
+        "category": "Lunch",
+        "name": "Verse Salade Bar",
+        "description": "Griekse salade, Caesar salade, quinoa bowl, diverse dressings",
+        "price": "€15,00",
+        "pricePerPerson": 15.00,
+        "dietary": ["vegetarisch", "veganistisch", "glutenvrij"],
+        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": 5,
+        "category": "Lunch",
+        "name": "Warme Lunch Schotel",
+        "description": "Lasagne, kipsaté, rijst, groenten en brood",
+        "price": "€18,50",
+        "pricePerPerson": 18.50,
+        "dietary": ["halal"],
+        "image": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": 6,
+        "category": "Diner",
+        "name": "3-Gangen Diner",
+        "description": "Voorgerecht, hoofdgerecht naar keuze, dessert",
+        "price": "€35,00",
+        "pricePerPerson": 35.00,
+        "dietary": ["halal", "vegetarisch-optie"],
+        "image": "https://images.unsplash.com/photo-1414235077470-43092c4c3127?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": 7,
+        "category": "Diner",
+        "name": "BBQ Buffet",
+        "description": "Gegrild vlees, vis, groenten, salades en bijgerechten",
+        "price": "€32,00",
+        "pricePerPerson": 32.00,
+        "dietary": ["halal", "glutenvrij-optie"],
+        "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": 8,
+        "category": "Hapjes",
+        "name": "Luxe Borrelhapjes",
+        "description": "24 stuks per persoon - mini-quiches, sushi, bruschettas",
+        "price": "€19,50",
+        "pricePerPerson": 19.50,
+        "dietary": ["vegetarisch-optie"],
+        "image": "https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": 9,
+        "category": "Hapjes",
+        "name": "Mediterraans Voorgerecht",
+        "description": "Mezze platter met hummus, falafel, tzatziki, olijven en pita",
+        "price": "€14,50",
+        "pricePerPerson": 14.50,
+        "dietary": ["vegetarisch", "veganistisch-optie", "halal"],
+        "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": 10,
+        "category": "Schoollunch",
+        "name": "Gezonde Kinderlunch",
+        "description": "Volkoren broodje, fruit, groenten, yoghurt en drinken",
+        "price": "€6,50",
+        "pricePerPerson": 6.50,
+        "dietary": ["notenvrij", "vegetarisch-optie"],
+        "image": "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": 11,
+        "category": "Schoollunch",
+        "name": "Warme Maaltijd Kids",
+        "description": "Pasta of rijst met groenten, brood en fruit",
+        "price": "€8,00",
+        "pricePerPerson": 8.00,
+        "dietary": ["notenvrij", "halal"],
+        "image": "https://images.unsplash.com/photo-1551248429-40975aa4de74?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "id": 12,
+        "category": "Dessert",
+        "name": "Taartenbuffet",
+        "description": "Assortiment van 6 verschillende taarten en gebak",
+        "price": "€8,50",
+        "pricePerPerson": 8.50,
+        "dietary": ["vegetarisch"],
+        "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80"
+    }
+]

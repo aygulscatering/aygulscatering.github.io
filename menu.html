@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description"
+        content="Bekijk ons complete catering menu met prijzen. Van ontbijt tot diner, schoollunches tot luxe evenementen.">
+    <title>Menu & Prijzen - Aygül's Catering | Rotterdam</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: { extend: { colors: { "primary": "#FF7D00", "secondary": "#4ECDC4" }, fontFamily: { "display": ["Outfit", "sans-serif"] } } }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="js/script.js" defer></script>
+</head>
+
+<body class="bg-[#FAFAFA] dark:bg-[#111921] text-[#1F2937] dark:text-gray-100 font-display antialiased">
+    <header
+        class="sticky top-0 z-50 flex items-center justify-between border-b border-gray-100 dark:border-gray-800 bg-white/80 dark:bg-[#111921]/90 backdrop-blur-md px-4 py-3 md:px-10">
+        <a href="index.html" class="flex items-center gap-4">
+            <div class="size-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-2xl">restaurant_menu</span>
+            </div>
+            <h2 class="text-2xl font-black">Aygül's <span class="text-primary">Catering</span></h2>
+        </a>
+        <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+            <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+            <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+        </button>
+    </header>
+
+    <main class="max-w-[1400px] mx-auto px-4 py-12">
+        <a href="index.html"
+            class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold mb-8 transition-colors">
+            <span class="material-symbols-outlined">arrow_back</span> Terug naar Home
+        </a>
+
+        <div class="text-center mb-12">
+            <span
+                class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/5 px-4 py-2 rounded-full mb-4 inline-block">Ons
+                Aanbod</span>
+            <h1 class="text-4xl md:text-5xl font-black mb-4 text-[#1F2937] dark:text-white">Menu & Prijzen</h1>
+            <p class="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">Vers bereid met lokale ingrediënten.
+                Alle prijzen zijn per persoon, minimaal 10 personen.</p>
+        </div>
+
+        <!-- Dietary Filters -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+            <button class="filter-dietary active px-5 py-2.5 rounded-full text-sm font-bold bg-primary text-white"
+                data-filter="all">
+                Alles
+            </button>
+            <button
+                class="filter-dietary px-5 py-2.5 rounded-full text-sm font-bold bg-white dark:bg-[#1a2632] border border-gray-200 dark:border-gray-700"
+                data-filter="vegetarisch">
+                🥗 Vegetarisch
+            </button>
+            <button
+                class="filter-dietary px-5 py-2.5 rounded-full text-sm font-bold bg-white dark:bg-[#1a2632] border border-gray-200 dark:border-gray-700"
+                data-filter="veganistisch">
+                🌱 Veganistisch
+            </button>
+            <button
+                class="filter-dietary px-5 py-2.5 rounded-full text-sm font-bold bg-white dark:bg-[#1a2632] border border-gray-200 dark:border-gray-700"
+                data-filter="glutenvrij">
+                🌾 Glutenvrij
+            </button>
+            <button
+                class="filter-dietary px-5 py-2.5 rounded-full text-sm font-bold bg-white dark:bg-[#1a2632] border border-gray-200 dark:border-gray-700"
+                data-filter="halal">
+                ☪️ Halal
+            </button>
+        </div>
+
+        <!-- Menu Grid -->
+        <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <!-- Will be populated by JavaScript -->
+        </div>
+
+        <!-- CTA Section -->
+        <div class="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl p-12 text-center">
+            <h2 class="text-3xl font-black mb-4 text-[#1F2937] dark:text-white">Ziet u niet wat u zoekt?</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">Wij stellen graag een maatwerk menu samen dat
+                perfect past bij uw evenement.</p>
+            <a href="booking.html"
+                class="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg transition-all transform hover:-translate-y-1">
+                Vraag Offerte Aan
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+        </div>
+    </main>
+
+    <footer class="bg-white dark:bg-[#111921] border-t border-gray-100 dark:border-gray-800 mt-20 py-12 px-4">
+        <div class="max-w-[1200px] mx-auto text-center text-gray-500 dark:text-gray-400">
+            <p>&copy; 2025 Aygül's Catering. Alle rechten voorbehouden.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Load and display menu
+        async function loadMenu() {
+            try {
+                const response = await fetch('data/menu.json');
+                const menuItems = await response.json();
+                displayMenu(menuItems);
+                setupFilters(menuItems);
+            } catch (error) {
+                console.error('Error loading menu:', error);
+            }
+        }
+
+        function displayMenu(items) {
+            const grid = document.getElementById('menu-grid');
+            grid.innerHTML = items.map(item => `
+                <div class="menu-item bg-white dark:bg-[#1a2632] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" data-dietary="${item.dietary.join(' ')}">
+                    <div class="h-56 overflow-hidden">
+                        <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-bold text-primary uppercase tracking-wider">${item.category}</span>
+                                <h3 class="text-xl font-bold text-[#1F2937] dark:text-white mt-1">${item.name}</h3>
+                            </div>
+                            <span class="text-2xl font-black text-primary">${item.price}</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">${item.description}</p>
+                        <div class="flex flex-wrap gap-2">
+                            ${item.dietary.map(diet => `
+                                <span class="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 px-3 py-1 rounded-full">${diet}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function setupFilters(allItems) {
+            const filterBtns = document.querySelectorAll('.filter-dietary');
+            const menuItems = document.querySelectorAll('.menu-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-primary', 'text-white');
+                        b.classList.add('bg-white', 'dark:bg-[#1a2632]', 'border', 'border-gray-200', 'dark:border-gray-700');
+                    });
+                    btn.classList.add('active', 'bg-primary', 'text-white');
+                    btn.classList.remove('bg-white', 'dark:bg-[#1a2632]', 'border');
+
+                    const filter = btn.dataset.filter;
+                    menuItems.forEach(item => {
+                        if (filter === 'all' || item.dataset.dietary.includes(filter)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        }
+
+        loadMenu();
+    </script>
+</body>
+
+</html>

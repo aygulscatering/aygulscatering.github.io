@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description"
+        content="Aygül’s Catering - Ambachtelijke familie-catering in Rotterdam. Ontbijt, lunch en bedrijfsevenementen. Vers, gezond en met liefde bezorgd.">
+    <meta name="keywords"
+        content="catering, bedrijfscatering, schoollunch, maaltijdprogramma, gezond eten, evenementen catering, rotterdam">
+    <title>Aygül’s Catering | Rotterdam Ontbijt & Lunch Service</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF7D00", // Vibrant Tangerine
+                        "secondary": "#4ECDC4", // Fresh Mint
+                        "background-light": "#FFFBF7", // Warm Off-White
+                        "background-dark": "#111921",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1a2632",
+                    },
+                    fontFamily: {
+                        "display": ["Outfit", "sans-serif"],
+                        "body": ["Outfit", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px" },
+                    boxShadow: {
+                        "soft": "0 10px 40px -10px rgba(255, 125, 0, 0.15)",
+                        "card": "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
+                    }
+                },
+            },
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        .reveal-on-scroll {
+            opacity: 1;
+            /* Default visible to prevent blank page */
+            transform: translateY(0);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal-hidden {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .smooth-shadow {
+            box-shadow: 0 10px 40px -10px rgba(255, 125, 0, 0.15);
+        }
+    </style>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://aygulscatering.github.io",
+        "name": "Aygül's Catering",
+        "description": "Ambachtelijke familie-catering in Rotterdam. Gespecialiseerd in schoollunches en bedrijfsevenementen.",
+        "image": "https://aygulscatering.github.io/logo.png",
+        "url": "https://aygulscatering.github.io",
+        "telephone": "+31644026829",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Melissantstraat 254",
+            "addressLocality": "Rotterdam",
+            "postalCode": "3086 XR",
+            "addressCountry": "NL"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "51.8938",
+            "longitude": "4.5395"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:00",
+                "closes": "18:00"
+            }
+        ],
+        "priceRange": "€€",
+        "servesCuisine": "Catering",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "48"
+        }
+    }
+    </script>
+
+    <script src="js/script.js" defer></script>
+</head>
+
+<body
+    class="bg-[#FAFAFA] text-[#1F2937] dark:text-gray-100 font-display overflow-x-hidden antialiased selection:bg-primary/20 selection:text-primary">
+    <!-- Preloader -->
+    <div id="preloader"
+        class="fixed inset-0 z-[100] bg-white dark:bg-[#111921] flex items-center justify-center transition-opacity duration-500">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-primary"></div>
+    </div>
+    <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+        <!-- Navbar -->
+        <header
+            class="sticky top-0 z-50 flex items-center justify-between border-b border-gray-100 dark:border-gray-800 bg-white/80 dark:bg-[#111921]/90 backdrop-blur-md px-4 py-3 md:px-10 transition-all duration-300">
+            <div class="flex items-center gap-4 text-[#1F2937] dark:text-white">
+                <div class="size-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-2xl">restaurant_menu</span>
+                </div>
+                <h2 class="text-[#1F2937] dark:text-white text-2xl font-black tracking-tight">Aygül’s
+                    <span class="text-primary">Catering</span>
+                </h2>
+                <div id="status-badge"
+                    class="hidden sm:flex items-center gap-1.5 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 text-[11px] uppercase tracking-wide px-2.5 py-1 rounded-full font-bold border border-green-200 dark:border-green-800">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    <span data-i18n="open_now">Nu Geopend</span>
+                </div>
+            </div>
+            <!-- Dark Mode Toggle -->
+            <button id="theme-toggle"
+                class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors mr-2 text-[#1F2937] dark:text-white">
+                <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+                <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+            </button>
+            <!-- Mobile Menu -->
+            <div class="flex items-center gap-3">
+                <button id="mobile-menu-btn" class="md:hidden text-[#1F2937] dark:text-white p-2">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Overlay -->
+            <div id="mobile-menu"
+                class="hidden fixed inset-0 z-[100] bg-white dark:bg-[#111921] px-4 py-3 flex flex-col gap-6 overflow-y-auto">
+                <div class="flex items-center justify-between border-b border-gray-100 dark:border-gray-800 pb-4">
+                    <div class="flex items-center gap-4 text-[#1F2937] dark:text-white">
+                        <div class="size-8 text-primary">
+                            <span class="material-symbols-outlined text-3xl">restaurant_menu</span>
+                        </div>
+                        <h2 class="text-2xl font-black">Aygül’s</h2>
+                    </div>
+                    <button id="mobile-menu-close" class="text-[#1F2937] dark:text-white p-2">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <div class="flex flex-col gap-6 text-lg font-medium">
+                    <a class="text-[#1F2937] dark:text-white hover:text-primary transition-colors" href="#">Services</a>
+                    <a class="text-[#1F2937] dark:text-white hover:text-primary transition-colors" href="#">Menu</a>
+                    <a class="text-[#1F2937] dark:text-white hover:text-primary transition-colors" href="#">About</a>
+                    <a class="text-[#1F2937] dark:text-white hover:text-primary transition-colors" href="#">Contact</a>
+                </div>
+                <button
+                    class="flex w-full cursor-pointer items-center justify-center rounded-xl h-14 bg-primary text-white font-bold text-lg shadow-lg shadow-primary/20 transition-transform active:scale-95">
+                    Request a Quote
+                </button>
+            </div>
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex flex-1 justify-end gap-8">
+                <div class="flex items-center gap-8">
+                    <a class="text-[#4B5563] dark:text-gray-300 text-sm font-semibold hover:text-primary transition-colors"
+                        href="#services" aria-label="Ga naar diensten sectie">Diensten</a>
+                    <a class="text-[#4B5563] dark:text-gray-300 text-sm font-semibold hover:text-primary transition-colors"
+                        href="menu.html" aria-label="Bekijk ons menu">Menu</a>
+                    <a class="text-[#4B5563] dark:text-gray-300 text-sm font-semibold hover:text-primary transition-colors"
+                        href="price-calculator.html" aria-label="Bereken prijs">Prijzen</a>
+                    <a class="text-[#4B5563] dark:text-gray-300 text-sm font-semibold hover:text-primary transition-colors"
+                        href="blog.html" aria-label="Lees ons blog">Blog</a>
+                    <a class="text-[#4B5563] dark:text-gray-300 text-sm font-semibold hover:text-primary transition-colors"
+                        href="#contact" aria-label="Neem contact op">Contact</a>
+                </div>
+                <a href="booking.html"
+                    class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-11 px-6 bg-[#1F2937] hover:bg-black dark:bg-white dark:hover:bg-gray-100 dark:text-black transition-all text-white text-sm font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                    aria-label="Boek nu online">
+                    <span class="truncate">Boek Nu</span>
+                </a>
+            </div>
+        </header>
+        <!-- Main Content -->
+        <main class="flex-1">
+            <!-- New Split Hero Section -->
+            <div class="relative w-full overflow-hidden bg-[#FAFAFA] dark:bg-[#111921]">
+                <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[90vh]">
+                    <!-- Left Content -->
+                    <div
+                        class="flex flex-col justify-center px-6 md:px-20 py-12 lg:py-0 order-2 lg:order-1 z-10 relative">
+                        <!-- Decorative Blob -->
+                        <div
+                            class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl mix-blend-multiply dark:bg-primary/10">
+                        </div>
+
+                        <div
+                            class="inline-flex items-center gap-2 self-start bg-orange-50 dark:bg-orange-900/20 text-primary border border-orange-100 dark:border-orange-800/30 px-4 py-2 rounded-full mb-8 reveal-on-scroll">
+                            <span class="relative flex h-2 w-2">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                            </span>
+                            <span class="text-xs font-bold uppercase tracking-wider">Top Beoordeeld in Rotterdam</span>
+                        </div>
+
+                        <h1
+                            class="text-[#1F2937] dark:text-white text-5xl md:text-7xl font-black leading-[1.1] tracking-tight mb-6 reveal-on-scroll">
+                            Smaak van Thuis, <br><span class="text-primary relative inline-block">
+                                Met Liefde Bezorgd
+                                <svg class="absolute w-full h-3 -bottom-1 left-0 text-primary/20" viewBox="0 0 100 10"
+                                    preserveAspectRatio="none">
+                                    <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="8" fill="none" />
+                                </svg>
+                            </span>
+                        </h1>
+
+                        <p class="text-[#6B7280] dark:text-gray-400 text-lg md:text-xl font-medium leading-relaxed max-w-lg mb-10 reveal-on-scroll"
+                            style="transition-delay: 100ms;">
+                            Ambachtelijke familie-catering in Rotterdam. Van gezonde schoollunches tot elegante
+                            bedrijfsevenementen, wij brengen warmte op elke tafel.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row gap-4 reveal-on-scroll" style="transition-delay: 200ms;">
+                            <button
+                                class="flex cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-primary hover:bg-[#ff8f26] text-white text-base font-bold shadow-xl shadow-primary/25 transition-all transform hover:-translate-y-1 open-quote-modal">
+                                Offerte Aanvragen
+                            </button>
+                            <button
+                                class="flex cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-white dark:bg-[#1f2937] border-2 border-gray-100 dark:border-gray-700 hover:border-primary/30 text-[#1F2937] dark:text-white text-base font-bold transition-all hover:bg-gray-50 dark:hover:bg-gray-800"
+                                onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">
+                                Bekijk Menu's
+                            </button>
+                        </div>
+
+                        <div class="mt-12 flex items-center gap-4 text-sm font-semibold text-[#6B7280] dark:text-gray-500 reveal-on-scroll"
+                            style="transition-delay: 300ms;">
+                            <div class="flex -space-x-3">
+                                <img src="https://i.pravatar.cc/100?img=1"
+                                    class="w-10 h-10 rounded-full border-2 border-white dark:border-[#111921]"
+                                    alt="User">
+                                <img src="https://i.pravatar.cc/100?img=5"
+                                    class="w-10 h-10 rounded-full border-2 border-white dark:border-[#111921]"
+                                    alt="User">
+                                <img src="https://i.pravatar.cc/100?img=8"
+                                    class="w-10 h-10 rounded-full border-2 border-white dark:border-[#111921]"
+                                    alt="User">
+                            </div>
+                            <p>Trusted by 50+ Schools & Companies</p>
+                        </div>
+                    </div>
+
+                    <!-- Right Image -->
+                    <div
+                        class="relative h-[50vh] lg:h-auto order-1 lg:order-2 overflow-hidden rounded-b-[3rem] lg:rounded-bl-[4rem] lg:rounded-br-none lg:rounded-tr-none shadow-2xl lg:shadow-none">
+                        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1600&q=80"
+                            alt="Fresh gourmet catering spread"
+                            class="absolute inset-0 w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-[2s]">
+
+                        <!-- Floating Badge -->
+                        <div
+                            class="absolute bottom-10 left-10 bg-white/90 dark:bg-black/80 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/50 max-w-[200px] hidden md:block animate-bounce-slow">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="bg-primary/20 p-2 rounded-full text-primary">
+                                    <span class="material-symbols-outlined">verified</span>
+                                </div>
+                                <span class="font-bold text-sm">Certified Fresh</span>
+                            </div>
+                            <p class="text-xs text-gray-500">Locally sourced ingredients daily.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Animated Stats Section -->
+            <section class="py-10 bg-primary/5 dark:bg-primary/10 border-b border-primary/10">
+                <div class="max-w-[1200px] mx-auto px-4 md:px-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="flex flex-col items-center">
+                        <span class="text-3xl md:text-4xl font-black text-primary counter" data-target="10">0</span>
+                        <p class="text-sm text-[#637588] dark:text-gray-400 font-bold uppercase tracking-wider mt-1">
+                            Jaar Ervaring</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-3xl md:text-4xl font-black text-primary counter" data-target="500">0</span>
+                        <p class="text-sm text-[#637588] dark:text-gray-400 font-bold uppercase tracking-wider mt-1">
+                            Dagelijkse Maaltijden</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-3xl md:text-4xl font-black text-primary counter" data-target="50">0</span>
+                        <p class="text-sm text-[#637588] dark:text-gray-400 font-bold uppercase tracking-wider mt-1">
+                            Partner Scholen</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-3xl md:text-4xl font-black text-primary counter" data-target="100">0</span>
+                        <p class="text-sm text-[#637588] dark:text-gray-400 font-bold uppercase tracking-wider mt-1">
+                            Tevredenheid</p>
+                    </div>
+                </div>
+            </section>
+            <!-- Features / Services Splitter -->
+            <section id="services" class="py-24 px-4 md:px-20 bg-white dark:bg-[#111921]">
+                <div class="max-w-[1200px] mx-auto">
+                    <div class="flex flex-col gap-16">
+                        <div class="flex flex-col gap-6 text-center items-center">
+                            <span
+                                class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/5 px-4 py-2 rounded-full">Onze
+                                Expertise</span>
+                            <h2
+                                class="text-[#1F2937] dark:text-white tracking-tight text-4xl md:text-5xl font-black leading-tight reveal-on-scroll">
+                                Catering vanuit het Hart
+                            </h2>
+                            <p
+                                class="text-gray-500 dark:text-gray-400 text-lg md:text-xl font-medium leading-relaxed max-w-2xl reveal-on-scroll">
+                                Gevestigd in Rotterdam (3086 XR), brengen wij familiewarmte in elke maaltijd.
+                                Gespecialiseerd in gezonde schoollunches en uitgebreide bedrijfsontbijtjes.
+                            </p>
+                        </div>
+
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- Service 1 -->
+                            <div
+                                class="group flex flex-col gap-6 p-8 rounded-[2.5rem] bg-gray-50 dark:bg-[#1a2632] transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:-translate-y-2 border border-gray-100 dark:border-gray-800">
+                                <div class="w-full h-72 bg-center bg-no-repeat bg-cover rounded-[1.5rem] overflow-hidden relative shadow-sm"
+                                    data-alt="Elegant corporate event buffet setup"
+                                    style='background-image: url("https://images.unsplash.com/photo-1414235077470-43092c4c3127?auto=format&fit=crop&w=800&q=80");'>
+                                </div>
+                                <div class="flex flex-col gap-3 px-2">
+                                    <div class="flex items-center gap-2 text-primary">
+                                        <div class="bg-white dark:bg-black/20 p-2 rounded-full shadow-sm">
+                                            <span class="material-symbols-outlined text-xl">camera_alt</span>
+                                        </div>
+                                        <p class="text-xs font-bold uppercase tracking-wider">Event Catering</p>
+                                    </div>
+                                    <h3
+                                        class="text-[#1F2937] dark:text-white text-2xl font-bold leading-tight group-hover:text-primary transition-colors">
+                                        Zakelijk &amp; Evenementen
+                                    </h3>
+                                    <p class="text-gray-500 dark:text-gray-400 text-base font-medium leading-relaxed">
+                                        Snelle, betrouwbare service voor fotografie-sets, zakelijke bijeenkomsten en
+                                        privéfeesten. Wij zorgen dat uw team goed gevoed, tevreden en op schema blijft.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Service 2 -->
+                            <div
+                                class="group flex flex-col gap-6 p-8 rounded-[2.5rem] bg-gray-50 dark:bg-[#1a2632] transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:-translate-y-2 border border-gray-100 dark:border-gray-800">
+                                <div class="w-full h-72 bg-center bg-no-repeat bg-cover rounded-[1.5rem] overflow-hidden relative shadow-sm"
+                                    data-alt="Healthy colorful school lunch tray"
+                                    style='background-image: url("https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80");'>
+                                </div>
+                                <div class="flex flex-col gap-3 px-2">
+                                    <div class="flex items-center gap-2 text-primary">
+                                        <div class="bg-white dark:bg-black/20 p-2 rounded-full shadow-sm">
+                                            <span class="material-symbols-outlined text-xl">school</span>
+                                        </div>
+                                        <p class="text-xs font-bold uppercase tracking-wider">Schoolvoeding</p>
+                                    </div>
+                                    <h3
+                                        class="text-[#1F2937] dark:text-white text-2xl font-bold leading-tight group-hover:text-primary transition-colors">
+                                        Schoollunch Programma's
+                                    </h3>
+                                    <p class="text-gray-500 dark:text-gray-400 text-base font-medium leading-relaxed">
+                                        Gezonde, heerlijke en verantwoorde lunchoplossingen voor studenten. Wij werken
+                                        samen met lokale scholen om evenwichtige maaltijden te bieden waar kinderen dol
+                                        op zijn.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Gallery Grid -->
+            <section id="menu" class="py-24 bg-[#FAFAFA] dark:bg-[#0d131a]">
+                <div class="layout-content-container max-w-[1200px] mx-auto px-4 md:px-20">
+                    <div class="flex justify-between items-end mb-12">
+                        <div>
+                            <span
+                                class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/5 px-4 py-2 rounded-full">Menu
+                                Showcase</span>
+                            <h2 class="text-[#1F2937] dark:text-white text-4xl font-black leading-tight mt-4">
+                                Onze Creaties
+                            </h2>
+                        </div>
+                        <button
+                            class="hidden md:flex bg-white dark:bg-[#1a2632] text-[#1F2937] dark:text-white border border-gray-200 dark:border-gray-700 font-bold px-6 py-3 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors items-center gap-2 shadow-sm">
+                            Bekijk Volledige Galerij <span
+                                class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </button>
+                    </div>
+
+                    <!-- Menu Filters -->
+                    <div class="flex flex-wrap gap-2 mb-10" id="menu-filters">
+                        <button
+                            class="filter-btn active px-6 py-2.5 rounded-full text-sm font-bold bg-primary text-white shadow-lg shadow-primary/20 transition-all transform hover:scale-105"
+                            data-filter="all">Alles</button>
+                        <button
+                            class="filter-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white dark:bg-[#1a2632] text-gray-500 dark:text-gray-300 border border-gray-100 dark:border-gray-700 hover:border-gray-300 transition-all hover:bg-gray-50"
+                            data-filter="breakfast">Ontbijt</button>
+                        <button
+                            class="filter-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white dark:bg-[#1a2632] text-gray-500 dark:text-gray-300 border border-gray-100 dark:border-gray-700 hover:border-gray-300 transition-all hover:bg-gray-50"
+                            data-filter="lunch">Lunch</button>
+                        <button
+                            class="filter-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white dark:bg-[#1a2632] text-gray-500 dark:text-gray-300 border border-gray-100 dark:border-gray-700 hover:border-gray-300 transition-all hover:bg-gray-50"
+                            data-filter="events">Evenementen</button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Item 1 -->
+                        <div class="group cursor-pointer gallery-img reveal-on-scroll" data-category="events"
+                            data-title="Wedding Canapés" data-desc="Spring Collection - Exquisite bite-sized delights."
+                            style="transition-delay: 100ms;">
+                            <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
+                                <img loading="lazy"
+                                    src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=800&q=80"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="Canapes">
+                                <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all">
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-[#1F2937] dark:text-white pl-2">Wedding Canapés</h3>
+                            <p class="text-sm text-gray-500 pl-2">Spring Collection</p>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="group cursor-pointer gallery-img reveal-on-scroll" data-category="lunch"
+                            data-title="Fresh Salad Bowl" data-desc="Organic, farm-to-table vegetables."
+                            style="transition-delay: 200ms;">
+                            <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
+                                <img loading="lazy"
+                                    src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="Salad">
+                                <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all">
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-[#1F2937] dark:text-white pl-2">Fresh Salad Bowl</h3>
+                            <p class="text-sm text-gray-500 pl-2">Farm-to-Table</p>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="group cursor-pointer gallery-img reveal-on-scroll" data-category="events"
+                            data-title="Plated Salmon" data-desc="Pan-seared salmon with lemon butter sauce."
+                            style="transition-delay: 300ms;">
+                            <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
+                                <img loading="lazy"
+                                    src="https://images.unsplash.com/photo-1467003909585-2f8a72700ce9?auto=format&fit=crop&w=800&q=80"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="Salmon">
+                                <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all">
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-[#1F2937] dark:text-white pl-2">Plated Salmon</h3>
+                            <p class="text-sm text-gray-500 pl-2">Executive Dinner</p>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="group cursor-pointer gallery-img reveal-on-scroll" data-category="lunch"
+                            data-title="School Partnership" data-desc="Nutritious lunch program for students."
+                            style="transition-delay: 400ms;">
+                            <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
+                                <img loading="lazy"
+                                    src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=800&q=80"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="School Lunch">
+                                <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all">
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-[#1F2937] dark:text-white pl-2">School Partnership</h3>
+                            <p class="text-sm text-gray-500 pl-2">Healthy Kids Program</p>
+                        </div>
+                    </div>
+                </div>
+            </section> <button
+                class="md:hidden w-full mt-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg text-[#111418] dark:text-white font-medium flex justify-center items-center gap-2">
+                View Full Gallery <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+    </div>
+    </section>
+    <!-- Testimonials -->
+    <section id="about" class="py-24 bg-white dark:bg-[#111921]">
+        <div class="max-w-[960px] mx-auto px-4 md:px-20 text-center">
+            <span
+                class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/5 px-4 py-2 rounded-full mb-8 inline-block">Community
+                Love</span>
+            <h2 class="text-[#1F2937] dark:text-white text-4xl font-black mb-16">Trusted by Rotterdam</h2>
+
+            <!-- Testimonial Slider Container -->
+            <div class="relative overflow-hidden group">
+                <div id="testimonial-slider" class="flex transition-transform duration-500 ease-in-out">
+                    <!-- Testimonial 1 -->
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div
+                            class="p-12 rounded-[2.5rem] bg-[#FAFAFA] dark:bg-[#1a2632] relative max-w-3xl mx-auto border border-gray-100 dark:border-gray-800">
+                            <span
+                                class="material-symbols-outlined text-primary/10 text-8xl absolute top-8 left-8">format_quote</span>
+                            <div class="relative z-10 flex flex-col items-center">
+                                <p
+                                    class="text-[#1F2937] dark:text-gray-200 text-xl md:text-2xl font-medium leading-relaxed mb-8 italic">
+                                    "Aygül’s Catering has transformed our school lunch program. The home-cooked quality
+                                    is unmatched, and the kids actually look forward to lunchtime now!"
+                                </p>
+                                <div class="flex flex-col items-center gap-2">
+                                    <div class="size-16 bg-gray-200 rounded-full bg-cover bg-center shadow-md border-2 border-white dark:border-gray-700"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDifXClhvWVLfbgR8KF-gcxfZiZxVn7HsvRZSJYGRf1OeLXICcy2ZOLarQfGaZTRapx_dBxfliyzaLtCbz3rgfNhQ3ih4DsCIUHnzfIE5GH71k6AG5idqHzIDlXEEhQ-oD5zQrWIYEhq3jxE7t68zO9Yw_UVx0WG2V141i-yhwuLCE5kSVgLJ0KV8_t73kWXdhnUsDBfmW3820AFCFVZJFdAhc0dF4Rl1B_rrtyzY-6BZU4PQpKELJ_zNl0RS_CbkD04uiIgCoRwXEm");'>
+                                    </div>
+                                    <div class="text-center mt-2">
+                                        <p class="font-bold text-[#1F2937] dark:text-white text-lg">Principal Skinner
+                                        </p>
+                                        <p class="text-sm text-primary font-bold tracking-wide uppercase">Springfield
+                                            Elementary</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div
+                            class="p-12 rounded-[2.5rem] bg-[#FAFAFA] dark:bg-[#1a2632] relative max-w-3xl mx-auto border border-gray-100 dark:border-gray-800">
+                            <span
+                                class="material-symbols-outlined text-primary/10 text-8xl absolute top-8 left-8">format_quote</span>
+                            <div class="relative z-10 flex flex-col items-center">
+                                <p
+                                    class="text-[#1F2937] dark:text-gray-200 text-xl md:text-2xl font-medium leading-relaxed mb-8 italic">
+                                    "Absolutely seamless service for our production set. They handled dietary
+                                    restrictions effortlessly and the presentation was impeccable. Highly recommended."
+                                </p>
+                                <div class="flex flex-col items-center gap-2">
+                                    <div class="size-16 bg-gray-200 rounded-full bg-cover bg-center shadow-md border-2 border-white dark:border-gray-700"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDv2UbjlBcoQ66LSoBAviOvSFNdhNDmtKrIVhX4f-ytLjHIwM1WAkEDuNz0gFJedhiHD_QoB4ZsUxQoKNqPD5cQt6KhEKlzwSq-SqFJ2QUYpMN6BBxyK7VRjYeeSGsirVmhBK87DSFbi3_4fTsbYLbDfJtX4kp6MVisi9rw29UIr_PgMX1WjH-4WBhir35BLua2k3gpGdHh8itmS4tsEEixPIpEP1wm5R87pgumJxIwUI_V3VIGlUkbD4KtMAQ7QcjdgZOvjzGeeDFh");'>
+                                    </div>
+                                    <div class="text-center mt-2">
+                                        <p class="font-bold text-[#1F2937] dark:text-white text-lg">Sarah Jenkins</p>
+                                        <p class="text-sm text-primary font-bold tracking-wide uppercase">Event
+                                            Coordinator, Studio X</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider Controls -->
+                <button id="prev-testimonial"
+                    class="absolute left-0 top-1/2 -translate-y-1/2 p-4 bg-white/80 dark:bg-black/50 rounded-full shadow-lg text-primary hover:bg-primary hover:text-white transition-all hover:scale-110 ml-4 hidden md:block">
+                    <span class="material-symbols-outlined">west</span>
+                </button>
+                <button id="next-testimonial"
+                    class="absolute right-0 top-1/2 -translate-y-1/2 p-4 bg-white/80 dark:bg-black/50 rounded-full shadow-lg text-primary hover:bg-primary hover:text-white transition-all hover:scale-110 mr-4 hidden md:block">
+                    <span class="material-symbols-outlined">east</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-[#FAFAFA] dark:bg-[#0d131a]">
+        <div class="max-w-[800px] mx-auto px-4">
+            <div class="text-center mb-16">
+                <span
+                    class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/5 px-4 py-2 rounded-full mb-4 inline-block">Klantenservice</span>
+                <h2 class="text-[#1F2937] dark:text-white text-3xl md:text-4xl font-black">Veelgestelde Vragen</h2>
+            </div>
+            <div class="flex flex-col gap-4" id="faq-container">
+                <!-- FAQ Item 1 -->
+                <div
+                    class="bg-white dark:bg-[#1a2632] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm">
+                    <button
+                        class="w-full px-8 py-6 flex items-center justify-between text-left font-bold text-lg text-[#1F2937] dark:text-white hover:bg-gray-50 dark:hover:bg-[#253240] transition-colors faq-toggle">
+                        Houden jullie rekening met dieetwensen?
+                        <span
+                            class="material-symbols-outlined text-gray-400 transition-transform duration-300">add_circle</span>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="px-8 pb-8 text-gray-500 dark:text-gray-400 leading-relaxed">
+                            Absoluut! Wij zijn gespecialiseerd in het samenstellen van maatwerk menu's voor iedereen. Of
+                            het nu glutenvrij, veganistisch, notenvrij of andere allergieën betreft, wij zorgen dat elke
+                            gast een heerlijke en veilige maaltijd krijgt.
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div
+                    class="bg-white dark:bg-[#1a2632] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm">
+                    <button
+                        class="w-full px-8 py-6 flex items-center justify-between text-left font-bold text-lg text-[#1F2937] dark:text-white hover:bg-gray-50 dark:hover:bg-[#253240] transition-colors faq-toggle">
+                        Hoe ver van tevoren moeten we boeken?
+                        <span
+                            class="material-symbols-outlined text-gray-400 transition-transform duration-300">add_circle</span>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="px-8 pb-8 text-gray-500 dark:text-gray-400 leading-relaxed">
+                            Voor grote zakelijke evenementen raden we aan minimaal 2 weken vooraf te boeken. Voor
+                            schoollunchprogramma's hebben we doorgaans 30 dagen nodig voor de logistiek. Neem echter
+                            gerust contact op voor last-minute verzoeken - we doen ons best!
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div
+                    class="bg-white dark:bg-[#1a2632] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm">
+                    <button
+                        class="w-full px-8 py-6 flex items-center justify-between text-left font-bold text-lg text-[#1F2937] dark:text-white hover:bg-gray-50 dark:hover:bg-[#253240] transition-colors faq-toggle">
+                        Wat zijn de annuleringsvoorwaarden?
+                        <span
+                            class="material-symbols-outlined text-gray-400 transition-transform duration-300">add_circle</span>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="px-8 pb-8 text-gray-500 dark:text-gray-400 leading-relaxed">
+                            Annuleringen tot 72 uur voor het evenement zijn volledig restitueerbaar. Bij annuleringen
+                            binnen 24-72 uur wordt 50% van de kosten in rekening gebracht ter dekking van de inkoop.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Section -->
+    <section class="py-24 bg-white dark:bg-[#111921]">
+        <div class="max-w-[1200px] mx-auto px-4">
+            <div class="text-center mb-12">
+                <span
+                    class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/5 px-4 py-2 rounded-full mb-4 inline-block">Volg
+                    Ons</span>
+                <h2 class="text-[#1F2937] dark:text-white text-3xl md:text-4xl font-black mb-4">@AygulsCatering op
+                    Instagram</h2>
+                <p class="text-gray-500 dark:text-gray-400 text-lg">Dagelijkse impressies van onze creaties</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div class="aspect-square rounded-2xl overflow-hidden group cursor-pointer relative">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=400&q=80"
+                        alt="Instagram"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
+                        <span
+                            class="material-symbols-outlined text-white text-4xl opacity-0 group-hover:opacity-100">favorite</span>
+                    </div>
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden group cursor-pointer relative">
+                    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=400&q=80"
+                        alt="Instagram"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
+                        <span
+                            class="material-symbols-outlined text-white text-4xl opacity-0 group-hover:opacity-100">favorite</span>
+                    </div>
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden group cursor-pointer relative">
+                    <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80"
+                        alt="Instagram"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
+                        <span
+                            class="material-symbols-outlined text-white text-4xl opacity-0 group-hover:opacity-100">favorite</span>
+                    </div>
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden group cursor-pointer relative">
+                    <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=400&q=80"
+                        alt="Instagram"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
+                        <span
+                            class="material-symbols-outlined text-white text-4xl opacity-0 group-hover:opacity-100">favorite</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="https://instagram.com/aygulscatering" target="_blank" rel="noopener"
+                    class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-full font-bold hover:shadow-xl transition-all transform hover:-translate-y-1">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                    Volg Ons op Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Reviews Section -->
+    <section class="py-24 bg-[#FAFAFA] dark:bg-[#0d131a]">
+        <div class="max-w-[1200px] mx-auto px-4">
+            <div class="text-center mb-12">
+                <span
+                    class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/5 px-4 py-2 rounded-full mb-4 inline-block">Beoordelingen</span>
+                <h2 class="text-[#1F2937] dark:text-white text-3xl md:text-4xl font-black mb-4">Wat Klanten Zeggen</h2>
+                <div class="flex items-center justify-center gap-2 mb-6">
+                    <div class="flex gap-1">
+                        <span class="material-symbols-outlined text-yellow-400 text-3xl"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-yellow-400 text-3xl"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-yellow-400 text-3xl"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-yellow-400 text-3xl"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-yellow-400 text-3xl"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <span class="text-2xl font-black text-[#1F2937] dark:text-white">4.9</span>
+                    <span class="text-gray-500 dark:text-gray-400">(48 reviews)</span>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white dark:bg-[#1a2632] rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+                    <div class="flex gap-1 mb-4">
+                        <span class="material-symbols-outlined text-yellow-400 text-lg"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-yellow-400 text-lg"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-yellow-400 text-lg"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-yellow-400 text-lg"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-yellow-400 text-lg"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">"Perfecte service voor ons bedrijfsevenement! Het
+                        eten was heerlijk en de presentatie was prachtig."</p>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                            M</div>
+                        <div>
+                            <p class="font-bold text-[#1F2937] dark:text-white text-sm">Marieke V.</p>
+                            <p class="text-xs text-gray-500">2 weken geleden</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-[#1a2632] rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+                    <div class="flex gap-1 mb-4">
+                        <span class="material-symbols-outlined text-yellow-400 text-lg"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-yellow-400 text-lg"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-yellow-400 text-lg"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-yellow-400 text-lg"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-yellow-400 text-lg"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">"De schoollunches zijn geweldig! Mijn kinderen
+                        vinden het heerlijk en ik weet dat ze gezond eten."</p>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                            L</div>
+                        <div>
+                            <p class="font-bold text-[#1F2937] dark:text-white text-sm">Lisa de J.</p>
+                            <p class="text-xs text-gray-500">1 maand geleden</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-[#1a2632] rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+                    <div class="flex gap-1 mb-4">
+                        <span class="material-symbols-outlined text-yellow-400 text-lg"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-yellow-400 text-lg"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-yellow-400 text-lg"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-yellow-400 text-lg"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-yellow-400 text-lg"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">"Top kwaliteit en zeer betrouwbaar. Aygül denkt mee
+                        en levert altijd meer dan verwacht!"</p>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                            R</div>
+                        <div>
+                            <p class="font-bold text-[#1F2937] dark:text-white text-sm">Robert K.</p>
+                            <p class="text-xs text-gray-500">3 weken geleden</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="https://g.page/r/YOUR_GOOGLE_PLACE_ID/review" target="_blank" rel="noopener"
+                    class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-bold transition-colors">
+                    Bekijk alle reviews op Google
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-20 px-4 md:px-20 bg-primary/5 dark:bg-[#0d131a]">
+        <div class="max-w-[800px] mx-auto text-center flex flex-col items-center gap-6">
+            <h2
+                class="text-[#111418] dark:text-white text-3xl md:text-5xl font-black leading-tight tracking-tight reveal-on-scroll">
+                Klaar om te Proeven?
+            </h2>
+            <p class="text-[#637588] dark:text-gray-400 text-lg md:text-xl max-w-[600px] reveal-on-scroll">
+                Van Melissantstraat naar uw tafel. Laten we uw volgende evenement onvergetelijk maken.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full justify-center reveal-on-scroll">
+                <button
+                    class="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-8 bg-primary hover:bg-primary/90 text-white text-lg font-bold shadow-lg transition-transform hover:-translate-y-1 open-quote-modal">
+                    Vraag Offerte Aan
+                </button>
+                <button
+                    class="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-8 bg-white dark:bg-[#1a2632] border border-gray-200 dark:border-gray-700 text-[#111418] dark:text-white hover:bg-gray-50 dark:hover:bg-[#253240] text-lg font-bold transition-colors">
+                    Neem Contact Op
+                </button>
+            </div>
+        </div>
+    </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-[#111921] border-t border-gray-100 dark:border-gray-800 pt-20 pb-12 px-4 md:px-20">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="flex flex-col gap-6">
+                    <div class="flex items-center gap-3 text-[#1F2937] dark:text-white font-black text-2xl">
+                        <div class="bg-primary/10 p-2 rounded-full text-primary">
+                            <span class="material-symbols-outlined">restaurant_menu</span>
+                        </div>
+                        Aygül’s Catering
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                        Melissantstraat 254,<br>3086 XR Rotterdam, Nederland<br><br>
+                        Gezin en passie in elke hap.
+                    </p>
+                    <div class="flex gap-4 mt-2">
+                        <a class="size-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-symbols-outlined text-lg">public</span></a>
+                        <a class="size-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-symbols-outlined text-lg">alternate_email</span></a>
+                        <a class="size-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-symbols-outlined text-lg">share</span></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-[#1F2937] dark:text-white font-bold mb-6 text-lg">Diensten</h3>
+                    <ul class="flex flex-col gap-4 text-sm text-gray-500 dark:text-gray-400 font-medium">
+                        <li><a class="hover:text-primary transition-colors" href="#">Zakelijke Catering</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Schoollunches</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Privéfeesten</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Menu Proeverij</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-[#1F2937] dark:text-white font-bold mb-6 text-lg">Bedrijf</h3>
+                    <ul class="flex flex-col gap-4 text-sm text-gray-500 dark:text-gray-400 font-medium">
+                        <li><a class="hover:text-primary transition-colors" href="#">Over Ons</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Ons Team</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Vacatures</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-[#1F2937] dark:text-white font-bold mb-6 text-lg">Nieuwsbrief</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 leading-relaxed">Schrijf u in voor
+                        seizoensmenu updates en catering tips.</p>
+                    <div class="flex gap-2">
+                        <form id="newsletter-form" class="w-full flex gap-2">
+                            <input id="newsletter-email" required
+                                class="flex-1 bg-gray-50 dark:bg-[#1a2632] border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 text-[#1F2937] dark:text-white transition-all"
+                                placeholder="Uw emailadres" type="email" />
+                            <button type="submit"
+                                class="bg-[#1F2937] hover:bg-black text-white rounded-xl px-4 py-2 transition-all">
+                                <span class="material-symbols-outlined">send</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="border-t border-gray-100 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+                <p>© 2025 Aygül’s Catering. Alle rechten voorbehouden.</p>
+                <div class="flex gap-8 font-medium">
+                    <a class="hover:text-[#1F2937] dark:hover:text-white transition-colors" href="#">Privacy Beleid</a>
+                    <a class="hover:text-[#1F2937] dark:hover:text-white transition-colors" href="#">Algemene
+                        Voorwaarden</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+        class="fixed bottom-24 right-4 md:bottom-8 md:right-8 z-40 bg-white/80 dark:bg-black/80 backdrop-blur text-primary p-3 rounded-full shadow-lg translate-y-20 opacity-0 transition-all duration-300 hover:bg-white hover:scale-110 border border-primary/20">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </button>
+
+
+
+    <!-- Mobile Bottom Navigation -->
+    <div
+        class="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-[#111921] border-t border-gray-200 dark:border-gray-800 md:hidden flex justify-around items-center safe-area-bottom shadow-[0_-5px_10px_rgba(0,0,0,0.05)]">
+        <a href="#" class="flex flex-col items-center p-3 text-primary">
+            <span class="material-symbols-outlined">home</span>
+            <span class="text-[10px] font-bold">Home</span>
+        </a>
+        <a href="#menu" class="flex flex-col items-center p-3 text-gray-500 dark:text-gray-400 hover:text-primary">
+            <span class="material-symbols-outlined">restaurant</span>
+            <span class="text-[10px] font-bold">Menu</span>
+        </a>
+        <button
+            class="open-quote-modal flex flex-col items-center p-3 text-gray-500 dark:text-gray-400 hover:text-primary">
+            <span class="material-symbols-outlined">request_quote</span>
+            <span class="text-[10px] font-bold">Quote</span>
+        </button>
+        <a href="tel:+31600000000"
+            class="flex flex-col items-center p-3 text-gray-500 dark:text-gray-400 hover:text-primary">
+            <span class="material-symbols-outlined">call</span>
+            <span class="text-[10px] font-bold">Call</span>
+        </a>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-24 right-4 z-[80] flex flex-col gap-2"></div>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner"
+        class="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-[#1a2632] shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] p-4 transform translate-y-full transition-transform duration-500">
+        <div class="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-[#637588] dark:text-gray-400 text-center md:text-left">
+                We use cookies to enhance your experience. By continuing to visit this site you agree to our use of
+                cookies.
+            </p>
+            <button id="accept-cookies"
+                class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg text-sm font-bold whitespace-nowrap">
+                Got it
+            </button>
+        </div>
+    </div>
+
+    <!-- Request Quote Modal -->
+    <div id="quote-modal" class="fixed inset-0 z-[70] bg-black/50 hidden flex items-center justify-center p-4">
+        <div
+            class="bg-white dark:bg-[#111921] rounded-2xl w-full max-w-md p-6 relative shadow-2xl scale-95 opacity-0 transition-all duration-300">
+            <button class="close-modal absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-white">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <h3 class="text-2xl font-bold text-[#111418] dark:text-white mb-2">Get a Quote</h3>
+            <p class="text-[#637588] dark:text-gray-400 mb-6">Tell us about your event and we'll be in touch!</p>
+            <form id="quote-form" class="flex flex-col gap-4">
+                <div class="flex flex-col gap-1">
+                    <label class="text-sm font-bold text-[#111418] dark:text-white">Name</label>
+                    <input required type="text"
+                        class="rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-[#1a2632] px-3 py-2 text-[#111418] dark:text-white focus:ring-2 focus:ring-primary focus:outline-none">
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label class="text-sm font-bold text-[#111418] dark:text-white">Email</label>
+                    <input required type="email"
+                        class="rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-[#1a2632] px-3 py-2 text-[#111418] dark:text-white focus:ring-2 focus:ring-primary focus:outline-none">
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label class="text-sm font-bold text-[#111418] dark:text-white">Event Type</label>
+                    <select
+                        class="rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-[#1a2632] px-3 py-2 text-[#111418] dark:text-white focus:ring-2 focus:ring-primary focus:outline-none">
+                        <option>Corporate Event</option>
+                        <option>School Lunch Program</option>
+                        <option>Private Party</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label class="text-sm font-bold text-[#111418] dark:text-white">Date & Time</label>
+                    <div class="flex gap-2">
+                        <input type="date" required
+                            class="flex-1 rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-[#1a2632] px-3 py-2 text-[#111418] dark:text-white focus:ring-2 focus:ring-primary focus:outline-none">
+                        <input type="time" required
+                            class="w-1/3 rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-[#1a2632] px-3 py-2 text-[#111418] dark:text-white focus:ring-2 focus:ring-primary focus:outline-none">
+                    </div>
+                </div>
+                <button type="submit"
+                    class="bg-primary hover:bg-primary/90 text-white h-12 rounded-lg font-bold mt-2 shadow-lg">Send
+                    Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- WhatsApp Widget -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
+        <a href="https://wa.me/31644026829"
+            class="bg-[#25D366] text-white p-4 rounded-full shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] hover:scale-110 hover:shadow-[0_6px_20px_rgba(37,211,102,0.23)] transition-all duration-300 group flex items-center justify-center w-14 h-14"
+            target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+            <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .12 5.377.12 11.986c0 2.158.556 4.218 1.518 6.007L0 24l6.19-1.623a11.905 11.905 0 005.86 1.547h.004c6.554 0 11.93-5.378 11.93-11.985a11.823 11.823 0 00-3.535-8.406" />
+            </svg>
+        </a>
+    </div>
+
+    <!-- Music Player Controls -->
+    <div id="music-player-controls" class="fixed bottom-6 left-6 z-50 flex items-center gap-3">
+        <button id="toggle-music"
+            class="w-12 h-12 rounded-full bg-white/80 dark:bg-black/60 backdrop-blur-md shadow-lg flex items-center justify-center text-[#1F2937] dark:text-white hover:scale-110 transition-transform duration-300 border border-white/20">
+            <span class="material-symbols-outlined" id="music-icon">music_note</span>
+        </button>
+        <div id="music-info"
+            class="hidden md:flex flex-col bg-white/80 dark:bg-black/60 backdrop-blur-md px-4 py-2 rounded-xl border border-white/20 shadow-lg">
+            <span class="text-xs font-bold text-primary uppercase tracking-wider">Now Playing</span>
+            <span class="text-sm font-medium text-[#1F2937] dark:text-white">Alışamadım - Aytaç Doğan</span>
+        </div>
+        <!-- Hidden YouTube Player Div -->
+        <div id="youtube-player" class="hidden"></div>
+    </div>
+</body>
+
+</html>
