@@ -546,19 +546,15 @@ function showToast(message) {
 }
 
 function initMusicPlayer() {
-    // Load YouTube API
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
     let player;
     let isPlaying = false;
     const toggleBtn = document.getElementById('toggle-music');
     const musicIcon = document.getElementById('music-icon');
     const musicInfo = document.getElementById('music-info');
+    const controls = document.getElementById('music-player-controls');
 
     // Make function global so API can call it
+    // Define BEFORE injecting script to avoid race conditions
     window.onYouTubeIframeAPIReady = function () {
         player = new YT.Player('youtube-player', {
             height: '0',
@@ -570,27 +566,35 @@ function initMusicPlayer() {
                 'disablekb': 1,
                 'fs': 0,
                 'loop': 1,
+                'playlist': 'tyoQZc3wkzN', // Required for loop to work in iframe
                 'autoplay': 1, // Attempt autoplay
                 'modestbranding': 1
             },
             events: {
                 'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange
+                'onStateChange': onPlayerStateChange,
+                'onError': onPlayerError
             }
         });
     };
 
+    // Load YouTube API
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
     function onPlayerReady(event) {
         event.target.playVideo();
+        // Set volume to reasonable level (optional)
+        event.target.setVolume(25);
 
         // Browser Autoplay Policy Fallback:
-        // formatting: automatically try to play on any first interaction
+        // automatically try to play on any first interaction
         const validEvents = ['click', 'touchstart', 'scroll', 'keydown'];
         const tryPlay = () => {
             if (!isPlaying && player && typeof player.playVideo === 'function') {
                 player.playVideo();
-                // We don't remove immediately just in case; 
-                // the playerStateChange will eventually confirm it's playing
             }
         };
 
@@ -606,19 +610,29 @@ function initMusicPlayer() {
     function onPlayerStateChange(event) {
         if (event.data === YT.PlayerState.PLAYING) {
             isPlaying = true;
-            musicIcon.textContent = 'pause';
-            musicIcon.parentElement.classList.add('animate-spin-slow');
-            toggleBtn.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
-            musicInfo.classList.remove('translate-y-10', 'opacity-0');
+            if (musicIcon) {
+                musicIcon.textContent = 'pause';
+                musicIcon.parentElement.classList.add('animate-spin-slow');
+            }
+            if (toggleBtn) toggleBtn.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
+            if (musicInfo) musicInfo.classList.remove('translate-y-10', 'opacity-0');
         } else {
             isPlaying = false;
-            musicIcon.textContent = 'music_note';
-            musicIcon.parentElement.classList.remove('animate-spin-slow');
-            toggleBtn.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
+            if (musicIcon) {
+                musicIcon.textContent = 'music_note';
+                musicIcon.parentElement.classList.remove('animate-spin-slow');
+            }
+            if (toggleBtn) toggleBtn.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
         }
     }
 
+    function onPlayerError(event) {
+        console.error('YouTube Player Error:', event.data);
+        if (controls) controls.style.display = 'none';
+    }
+
     function togglePlay() {
+        if (!player) return;
         if (isPlaying) {
             player.pauseVideo();
         } else {
