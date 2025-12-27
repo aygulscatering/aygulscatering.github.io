@@ -24,16 +24,13 @@ SOFTWARE.
 
 'use strict';
 
-
+const promoPopup = {};
+const promoPopupClose = {};
 
 // Simulation section
 
 const canvas = document.getElementById('fluid-canvas');
-if (!canvas) {
-    console.warn('Fluid canvas not found, skipping fluid simulation.');
-} else {
-    resizeCanvas();
-}
+resizeCanvas();
 
 let config = {
     SIM_RESOLUTION: 128,
@@ -58,7 +55,7 @@ let config = {
     BLOOM_INTENSITY: 0.8,
     BLOOM_THRESHOLD: 0.6,
     BLOOM_SOFT_KNEE: 0.7,
-    SUNRAYS: false,
+    SUNRAYS: true,
     SUNRAYS_RESOLUTION: 196,
     SUNRAYS_WEIGHT: 1.0,
 }
@@ -80,20 +77,16 @@ let pointers = [];
 let splatStack = [];
 pointers.push(new pointerPrototype());
 
-let gl, ext;
+const { gl, ext } = getWebGLContext(canvas);
 
-if (canvas) {
-    ({ gl, ext } = getWebGLContext(canvas));
-
-    if (isMobile()) {
-        config.DYE_RESOLUTION = 512;
-    }
-    if (!ext.supportLinearFiltering) {
-        config.DYE_RESOLUTION = 512;
-        config.SHADING = false;
-        config.BLOOM = false;
-        config.SUNRAYS = false;
-    }
+if (isMobile()) {
+    config.DYE_RESOLUTION = 512;
+}
+if (!ext.supportLinearFiltering) {
+    config.DYE_RESOLUTION = 512;
+    config.SHADING = false;
+    config.BLOOM = false;
+    config.SUNRAYS = false;
 }
 
 // startGUI();
@@ -134,7 +127,7 @@ function getWebGLContext(canvas) {
         formatR = getSupportedFormat(gl, gl.RGBA, gl.RGBA, halfFloatTexType);
     }
 
-    // ga('send', 'event', isWebGL2 ? 'webgl2' : 'webgl', formatRGBA == null ? 'not supported' : 'supported');
+    ga('send', 'event', isWebGL2 ? 'webgl2' : 'webgl', formatRGBA == null ? 'not supported' : 'supported');
 
     return {
         gl,
@@ -1294,8 +1287,8 @@ function render(target) {
 
     if (!config.TRANSPARENT)
         drawColor(target, normalizeColor(config.BACK_COLOR));
-    if (target == null && config.TRANSPARENT)
-        drawCheckerboard(target);
+    // if (target == null && config.TRANSPARENT)
+    //    drawCheckerboard(target);
     drawDisplay(target);
 }
 
@@ -1444,20 +1437,20 @@ function correctRadius(radius) {
     return radius;
 }
 
-canvas.addEventListener('mousedown', e => {
-    let posX = scaleByPixelRatio(e.offsetX);
-    let posY = scaleByPixelRatio(e.offsetY);
+window.addEventListener('mousedown', e => {
+    let posX = scaleByPixelRatio(e.clientX);
+    let posY = scaleByPixelRatio(e.clientY);
     let pointer = pointers.find(p => p.id == -1);
     if (pointer == null)
         pointer = new pointerPrototype();
     updatePointerDownData(pointer, -1, posX, posY);
 });
 
-canvas.addEventListener('mousemove', e => {
+window.addEventListener('mousemove', e => {
     let pointer = pointers[0];
-    if (!pointer.down) return;
-    let posX = scaleByPixelRatio(e.offsetX);
-    let posY = scaleByPixelRatio(e.offsetY);
+    // if (!pointer.down) return;
+    let posX = scaleByPixelRatio(e.clientX);
+    let posY = scaleByPixelRatio(e.clientY);
     updatePointerMoveData(pointer, posX, posY);
 });
 
@@ -1465,7 +1458,7 @@ window.addEventListener('mouseup', () => {
     updatePointerUpData(pointers[0]);
 });
 
-canvas.addEventListener('touchstart', e => {
+window.addEventListener('touchstart', e => {
     e.preventDefault();
     const touches = e.targetTouches;
     while (touches.length >= pointers.length)
