@@ -9,6 +9,32 @@
         content="catering, corporate catering, school lunch, meal programs, healthy food, event catering">
     <title>Aygül’s Catering | Rotterdam Breakfast & Lunch Delivery</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF7D00", // Vibrant Tangerine
+                        "secondary": "#4ECDC4", // Fresh Mint
+                        "background-light": "#FFFBF7", // Warm Off-White
+                        "background-dark": "#111921",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1a2632",
+                    },
+                    fontFamily: {
+                        "display": ["Outfit", "sans-serif"],
+                        "body": ["Outfit", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px" },
+                    boxShadow: {
+                        "soft": "0 10px 40px -10px rgba(255, 125, 0, 0.15)",
+                        "card": "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
+                    }
+                },
+            },
+        };
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link
@@ -16,9 +42,15 @@
         rel="stylesheet" />
     <style>
         .reveal-on-scroll {
+            opacity: 1;
+            /* Default visible to prevent blank page */
+            transform: translateY(0);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal-hidden {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
         }
 
         .reveal-visible {
@@ -48,7 +80,8 @@
                     <span class="material-symbols-outlined text-3xl">restaurant_menu</span>
                 </div>
                 <h2 class="text-[#111418] dark:text-white text-2xl font-extrabold leading-tight tracking-tight">Aygül’s
-                    <span class="text-primary">Catering</span></h2>
+                    <span class="text-primary">Catering</span>
+                </h2>
             </div>
             <!-- Dark Mode Toggle -->
             <button id="theme-toggle"

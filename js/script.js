@@ -1,32 +1,4 @@
 /**
- * Tailwind CSS Configuration
- */
-tailwind.config = {
-    darkMode: "class",
-    theme: {
-        extend: {
-            colors: {
-                "primary": "#FF7D00", // Vibrant Tangerine
-                "secondary": "#4ECDC4", // Fresh Mint
-                "background-light": "#FFFBF7", // Warm Off-White
-                "background-dark": "#111921",
-                "surface-light": "#FFFFFF",
-                "surface-dark": "#1a2632",
-            },
-            fontFamily: {
-                "display": ["Outfit", "sans-serif"],
-                "body": ["Outfit", "sans-serif"]
-            },
-            borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px" },
-            boxShadow: {
-                "soft": "0 10px 40px -10px rgba(255, 125, 0, 0.15)",
-                "card": "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
-            }
-        },
-    },
-};
-
-/**
  * Main Application Logic
  */
 document.addEventListener('DOMContentLoaded', () => {
@@ -51,13 +23,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initScrollReveal() {
     const reveals = document.querySelectorAll('.reveal-on-scroll');
+
+    // Initially hide elements that haven't been revealed yet
+    // This runs after JS loads, preventing "flash of invisible content" if JS fails
+    reveals.forEach(el => el.classList.add('reveal-hidden'));
+
     const windowHeight = window.innerHeight;
-    const elementVisible = 100;
+    const elementVisible = 50; // Triggers sooner
 
     function checkReveal() {
         reveals.forEach(reveal => {
             const elementTop = reveal.getBoundingClientRect().top;
             if (elementTop < windowHeight - elementVisible) {
+                reveal.classList.remove('reveal-hidden');
                 reveal.classList.add('reveal-visible');
             }
         });
