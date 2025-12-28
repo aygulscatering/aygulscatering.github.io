@@ -1220,6 +1220,22 @@
     </div>
 
 
+    <!-- Music Player Controls -->
+    <div id="music-player-controls" class="fixed bottom-6 left-6 z-50 flex items-center gap-3">
+        <button id="toggle-music"
+            class="w-12 h-12 rounded-full bg-white/80 dark:bg-black/60 backdrop-blur-md shadow-lg flex items-center justify-center text-[#1F2937] dark:text-white hover:scale-110 transition-transform duration-300 border border-white/20">
+            <span class="material-symbols-outlined" id="music-icon">music_note</span>
+        </button>
+        <div id="music-info"
+            class="hidden md:flex flex-col bg-white/80 dark:bg-black/60 backdrop-blur-md px-4 py-2 rounded-xl border border-white/20 shadow-lg">
+            <span class="text-xs font-bold text-primary uppercase tracking-wider">Now Playing</span>
+            <span class="text-sm font-medium text-[#1F2937] dark:text-white">Alışamadım - Aytaç Doğan</span>
+        </div>
+        <audio id="audio-player" loop preload="auto">
+            <source src="assets/music/preview.m4a" type="audio/mp4">
+        </audio>
+    </div>
+
     <!-- Fluid Simulation -->
     <script src="js/webgl-fluid.js"></script>
 </body>
