@@ -337,27 +337,56 @@
             </div>
 
             <!-- Animated Stats Section -->
-            <section class="py-10 bg-primary/5 dark:bg-primary/10 border-b border-primary/10 backdrop-blur-sm">
-                <div class="max-w-[1200px] mx-auto px-4 md:px-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                    <div class="flex flex-col items-center">
-                        <span class="text-3xl md:text-4xl font-black text-primary counter" data-target="25">0</span>
-                        <p class="text-sm text-[#637588] dark:text-gray-400 font-bold uppercase tracking-wider mt-1">
+            <!-- Animated Stats Section -->
+            <section class="py-16 border-y border-white/10 backdrop-blur-md bg-white/5 dark:bg-black/20">
+                <div class="max-w-[1200px] mx-auto px-4 md:px-20 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+                    <div class="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
+                        <div
+                            class="mb-3 text-primary p-3 rounded-full bg-primary/10 group-hover:bg-primary group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-3xl">verified</span>
+                        </div>
+                        <span class="text-4xl md:text-5xl font-black text-[#1F2937] dark:text-white counter"
+                            data-target="25">0</span>
+                        <p class="text-sm text-gray-500 dark:text-gray-300 font-bold uppercase tracking-widest mt-2">
                             Jaar Ervaring</p>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <span class="text-3xl md:text-4xl font-black text-primary counter" data-target="150">0</span>
-                        <p class="text-sm text-[#637588] dark:text-gray-400 font-bold uppercase tracking-wider mt-1">
-                            Dagelijkse Maaltijden</p>
+                    <div class="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
+                        <div
+                            class="mb-3 text-primary p-3 rounded-full bg-primary/10 group-hover:bg-primary group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-3xl">soup_kitchen</span>
+                        </div>
+                        <div class="flex items-baseline justify-center">
+                            <span class="text-4xl md:text-5xl font-black text-[#1F2937] dark:text-white counter"
+                                data-target="500">0</span>
+                            <span class="text-2xl font-bold text-primary ml-1">+</span>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-300 font-bold uppercase tracking-widest mt-2">
+                            Maaltijden / Dag</p>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <span class="text-3xl md:text-4xl font-black text-primary counter" data-target="10">0</span>
-                        <p class="text-sm text-[#637588] dark:text-gray-400 font-bold uppercase tracking-wider mt-1">
-                            Partner Scholen</p>
+                    <div class="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
+                        <div
+                            class="mb-3 text-primary p-3 rounded-full bg-primary/10 group-hover:bg-primary group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-3xl">school</span>
+                        </div>
+                        <div class="flex items-baseline justify-center">
+                            <span class="text-4xl md:text-5xl font-black text-[#1F2937] dark:text-white counter"
+                                data-target="20">0</span>
+                            <span class="text-2xl font-bold text-primary ml-1">+</span>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-300 font-bold uppercase tracking-widest mt-2">
+                            Partners</p>
                     </div>
-                    <div class="flex flex-col items-center">
-                        <span class="text-3xl md:text-4xl font-black text-primary counter" data-target="100">0</span>
-                        <p class="text-sm text-[#637588] dark:text-gray-400 font-bold uppercase tracking-wider mt-1">
-                            Tevredenheid</p>
+                    <div class="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
+                        <div
+                            class="mb-3 text-primary p-3 rounded-full bg-primary/10 group-hover:bg-primary group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-3xl">star</span>
+                        </div>
+                        <div class="flex items-baseline justify-center">
+                            <span class="text-4xl md:text-5xl font-black text-[#1F2937] dark:text-white">4.9</span>
+                            <span class="text-lg font-bold text-gray-400 ml-1">/5</span>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-300 font-bold uppercase tracking-widest mt-2">
+                            Klantbeoordeling</p>
                     </div>
                 </div>
             </section>
@@ -784,7 +813,24 @@
                             style="font-variation-settings: 'FILL' 1;">star</span>
                     </div>
                     <p class="text-gray-600 dark:text-gray-400 mb-4">"Perfecte service voor ons bedrijfsevenement! Het
-                        eten was heerlijk en de presentatie was prachtig."</p>
+                        return hash;
+                        };
+
+                        // Scroll Interaction - Adds random splats on scroll to make page feel alive top-to-bottom
+                        let lastScrollY = window.scrollY;
+                        let scrollSpeed = 0;
+
+                        window.addEventListener('scroll', () => {
+                        const currentScrollY = window.scrollY;
+                        const diff = Math.abs(currentScrollY - lastScrollY);
+                        scrollSpeed += diff;
+                        lastScrollY = currentScrollY;
+
+                        if (scrollSpeed > 300) { // Threshold to trigger splash
+                        splatStack.push(parseInt(Math.random() * 20) + 5);
+                        scrollSpeed = 0;
+                        }
+                        }, { passive: true }); heerlijk en de presentatie was prachtig."</p>
                     <div class="flex items-center gap-3">
                         <div
                             class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
