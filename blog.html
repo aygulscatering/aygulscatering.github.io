@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Catering tips, recepten en nieuws van Aygül's Catering Rotterdam.">
+    <title>Blog - Aygül's Catering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary": "#FF7D00" }, fontFamily: { "display": ["Outfit", "sans-serif"] } } } };</script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="js/script.js" defer></script>
+</head>
+
+<body class="bg-[#FAFAFA] dark:bg-[#111921] font-display antialiased">
+    <header
+        class="sticky top-0 z-50 flex items-center justify-between border-b border-gray-100 dark:border-gray-800 bg-white/80 dark:bg-[#111921]/90 backdrop-blur-md px-4 py-3 md:px-10">
+        <a href="index.html" class="flex items-center gap-4">
+            <div class="size-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-2xl">restaurant_menu</span>
+            </div>
+            <h2 class="text-2xl font-black text-[#1F2937] dark:text-white">Aygül's <span
+                    class="text-primary">Catering</span></h2>
+        </a>
+        <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+            <span class="material-symbols-outlined dark:hidden text-[#1F2937]">dark_mode</span>
+            <span class="material-symbols-outlined hidden dark:block text-white">light_mode</span>
+        </button>
+    </header>
+
+    <main class="max-w-[1200px] mx-auto px-4 py-12">
+        <a href="index.html"
+            class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold mb-8 transition-colors">
+            <span class="material-symbols-outlined">arrow_back</span> Terug
+        </a>
+
+        <div class="text-center mb-12">
+            <span
+                class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/5 px-4 py-2 rounded-full mb-4 inline-block">Verhalen
+                & Tips</span>
+            <h1 class="text-4xl md:text-5xl font-black mb-4 text-[#1F2937] dark:text-white">Ons Blog</h1>
+            <p class="text-lg text-gray-500 dark:text-gray-400">Recepten, catering tips en bedrijfsnieuws</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Blog Post 1 -->
+            <article
+                class="bg-white dark:bg-[#1a2632] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80"
+                    alt="Catering tips" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-bold text-primary uppercase">Catering Tips</span>
+                    <h2 class="text-xl font-bold text-[#1F2937] dark:text-white mt-2 mb-3">10 Tips voor een Geslaagd
+                        Bedrijfsevenement</h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Ontdek hoe u uw zakelijke bijeenkomst
+                        onvergetelijk maakt met de juiste catering keuzes...</p>
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span>5 min lezen</span>
+                        <span>22 Dec 2024</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 2 -->
+            <article
+                class="bg-white dark:bg-[#1a2632] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all">
+                <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=800&q=80"
+                    alt="Healthy lunch" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-bold text-primary uppercase">Gezondheid</span>
+                    <h2 class="text-xl font-bold text-[#1F2937] dark:text-white mt-2 mb-3">Waarom Gezonde Schoollunches
+                        Belangrijk Zijn</h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">De impact van voedzame maaltijden op de
+                        prestaties en concentratie van kinderen...</p>
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span>4 min lezen</span>
+                        <span>18 Dec 2024</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 3 -->
+            <article
+                class="bg-white dark:bg-[#1a2632] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80"
+                    alt="Recipe" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-bold text-primary uppercase">Recepten</span>
+                    <h2 class="text-xl font-bold text-[#1F2937] dark:text-white mt-2 mb-3">Ons Geheime Recept: Turkse
+                        Boreksalade</h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Een familiereceptdirect uit Aygül's keuken.
+                        Perfect voor elke lunch of borrel...</p>
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span>6 min lezen</span>
+                        <span>15 Dec 2024</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 4 -->
+            <article
+                class="bg-white dark:bg-[#1a2632] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80"
+                    alt="Sustainability" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-bold text-primary uppercase">Duurzaamheid</span>
+                    <h2 class="text-xl font-bold text-[#1F2937] dark:text-white mt-2 mb-3">Lokaal & Seizoensgebonden:
+                        Onze Filosofie</h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Waarom wij kiezen voor lokale leveranciers
+                        en seizoensproducten uit Rotterdam...</p>
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span>5 min lezen</span>
+                        <span>10 Dec 2024</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 5 -->
+            <article
+                class="bg-white dark:bg-[#1a2632] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all">
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80"
+                    alt="Event planning" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-bold text-primary uppercase">Evenementen</span>
+                    <h2 class="text-xl font-bold text-[#1F2937] dark:text-white mt-2 mb-3">Checklist: Bruiloft Catering
+                        Plannen</h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Van het eerste gesprek tot de grote dag -
+                        alles wat u moet weten...</p>
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span>7 min lezen</span>
+                        <span>5 Dec 2024</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 6 -->
+            <article
+                class="bg-white dark:bg-[#1a2632] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all">
+                <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=80"
+                    alt="Team" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-bold text-primary uppercase">Bedrijfsnieuws</span>
+                    <h2 class="text-xl font-bold text-[#1F2937] dark:text-white mt-2 mb-3">Ons Team Groeit: Welkom
+                        Nieuwe Chefs!</h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Maak kennis met de nieuwste aanwinsten in
+                        onze keuken...</p>
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span>3 min lezen</span>
+                        <span>1 Dec 2024</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="bg-white dark:bg-[#111921] border-t border-gray-100 dark:border-gray-800 mt-20 py-12 px-4">
+        <div class="max-w-[1200px] mx-auto text-center text-gray-500 dark:text-gray-400">
+            <p>&copy; 2025 Aygül's Catering. Alle rechten voorbehouden.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
