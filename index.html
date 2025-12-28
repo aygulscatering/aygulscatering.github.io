@@ -114,10 +114,6 @@
         class="fixed inset-0 z-[100] bg-white dark:bg-[#111921] flex items-center justify-center transition-opacity duration-500">
         <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-primary"></div>
     </div>
-    <!-- Background Music -->
-    <audio id="background-music"
-        src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/7b/2e/5e/7b2e5e6a-6c2e-5c73-0c2b-8c9d9c1a1e5b/mzaf_1234567890123456789.plus.aac.p.m4a"
-        loop preload="auto"></audio>
     <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
         <!-- Navbar -->
         <header
@@ -262,273 +258,288 @@
                             </button>
                         </div>
 
-                        <div class="mt-12 flex items-center gap-4 text-sm font-semibold text-[#6B7280] dark:text-gray-500 reveal-on-scroll"
-                            style="transition-delay: 300ms;">
-                            <div class="flex -space-x-3">
-                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80"
-                                    class="w-10 h-10 rounded-full border-2 border-white dark:border-[#111921]"
-                                    alt="User" />
-                                <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=100&q=80"
-                                    class="w-10 h-10 rounded-full border-2 border-white dark:border-[#111921]"
-                                    alt="User" />
-                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80"
-                                    class="w-10 h-10 rounded-full border-2 border-white dark:border-[#111921]"
-                                    alt="User" />
+                        <div class="mt-16 flex items-center gap-4 reveal-on-scroll" style="transition-delay: 300ms;">
+                            <div class="flex -space-x-4">
+                                <img src="https://i.pravatar.cc/100?img=1"
+                                    class="w-12 h-12 rounded-full border-4 border-white dark:border-[#111921] shadow-md"
+                                    alt="User">
+                                <img src="https://i.pravatar.cc/100?img=5"
+                                    class="w-12 h-12 rounded-full border-4 border-white dark:border-[#111921] shadow-md"
+                                    alt="User">
+                                <img src="https://i.pravatar.cc/100?img=8"
+                                    class="w-12 h-12 rounded-full border-4 border-white dark:border-[#111921] shadow-md"
+                                    alt="User">
+                                <div
+                                    class="w-12 h-12 rounded-full border-4 border-white dark:border-[#111921] bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-xs font-bold text-gray-600 dark:text-gray-300 shadow-md">
+                                    50+</div>
                             </div>
-                            <p>Vertrouwd door 50+ Scholen & Bedrijven</p>
+                            <div>
+                                <div class="flex gap-0.5 text-yellow-500 mb-0.5">
+                                    <span class="material-symbols-outlined text-sm"
+                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined text-sm"
+                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined text-sm"
+                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined text-sm"
+                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined text-sm"
+                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                </div>
+                                <p class="text-sm font-semibold text-gray-400">Vertrouwd door Scholen
+                                    & Bedrijven</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Image - Floating Organic -->
+                    <div class="relative h-[500px] lg:h-[700px] order-1 lg:order-2 flex items-center justify-center">
+                        <div
+                            class="relative w-full h-[85%] rounded-[3rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-[1.5s] ease-in-out group">
+                            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1600&q=80"
+                                alt="Fresh gourmet catering spread"
+                                class="absolute inset-0 w-full h-full object-cover object-center transform scale-105 group-hover:scale-110 transition-transform duration-[2s]">
+
+                            <!-- Overlay Gradient for Text readability if needed, kept subtle -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+
+                        <!-- Floating Badge 1 -->
+                        <div class="absolute top-10 right-0 md:right-10 bg-white/90 dark:bg-[#1a2632]/90 backdrop-blur-md p-4 rounded-2xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white/50 dark:border-white/10 animate-bounce-slow"
+                            style="animation-delay: 0s;">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="bg-green-100 dark:bg-green-900/30 p-2.5 rounded-full text-green-600 dark:text-green-400">
+                                    <span class="material-symbols-outlined text-xl">verified</span>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-[#1F2937] dark:text-white leading-tight">100% Vers</p>
+                                    <p class="text-xs text-gray-500">Gegarandeerd</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Badge 2 -->
+                        <div class="absolute bottom-10 left-0 md:left-10 bg-white/90 dark:bg-[#1a2632]/90 backdrop-blur-md p-4 rounded-2xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white/50 dark:border-white/10 animate-bounce-slow"
+                            style="animation-delay: 1.5s;">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-orange-100 dark:bg-orange-900/30 p-2.5 rounded-full text-primary">
+                                    <span class="material-symbols-outlined text-xl">workspace_premium</span>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-[#1F2937] dark:text-white leading-tight">Top Service</p>
+                                    <p class="text-xs text-gray-500">5 Sterren</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Right Image - Floating Organic -->
-                <div class="relative h-[500px] lg:h-[700px] order-1 lg:order-2 flex items-center justify-center">
-                    <div
-                        class="relative w-full h-[85%] rounded-[3rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-[1.5s] ease-in-out group">
-                        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1600&q=80"
-                            alt="Fresh gourmet catering spread"
-                            class="absolute inset-0 w-full h-full object-cover object-center transform scale-105 group-hover:scale-110 transition-transform duration-[2s]">
-
-                        <!-- Overlay Gradient for Text readability if needed, kept subtle -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            <!-- Animated Stats Section -->
+            <section class="py-10 bg-primary/5 dark:bg-primary/10 border-b border-primary/10">
+                <div class="max-w-[1200px] mx-auto px-4 md:px-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="flex flex-col items-center">
+                        <span class="text-3xl md:text-4xl font-black text-primary counter" data-target="5">0</span>
+                        <p class="text-sm text-[#637588] dark:text-gray-400 font-bold uppercase tracking-wider mt-1">
+                            Jaar Ervaring</p>
                     </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-3xl md:text-4xl font-black text-primary counter" data-target="150">0</span>
+                        <p class="text-sm text-[#637588] dark:text-gray-400 font-bold uppercase tracking-wider mt-1">
+                            Dagelijkse Maaltijden</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-3xl md:text-4xl font-black text-primary counter" data-target="10">0</span>
+                        <p class="text-sm text-[#637588] dark:text-gray-400 font-bold uppercase tracking-wider mt-1">
+                            Partner Scholen</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-3xl md:text-4xl font-black text-primary counter" data-target="100">0</span>
+                        <p class="text-sm text-[#637588] dark:text-gray-400 font-bold uppercase tracking-wider mt-1">
+                            Tevredenheid</p>
+                    </div>
+                </div>
+            </section>
+            <!-- Features / Services Splitter -->
+            <section id="services" class="py-24 px-4 md:px-20 bg-white dark:bg-[#111921]">
+                <div class="max-w-[1200px] mx-auto">
+                    <div class="flex flex-col gap-16">
+                        <div class="flex flex-col gap-6 text-center items-center">
+                            <span
+                                class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/5 px-4 py-2 rounded-full">Onze
+                                Expertise</span>
+                            <h2
+                                class="text-[#1F2937] dark:text-white tracking-tight text-4xl md:text-5xl font-black leading-tight reveal-on-scroll">
+                                Catering vanuit het Hart
+                            </h2>
+                            <p
+                                class="text-gray-500 dark:text-gray-400 text-lg md:text-xl font-medium leading-relaxed max-w-2xl reveal-on-scroll">
+                                Gevestigd in Rotterdam (3086 XR), brengen wij familiewarmte in elke maaltijd.
+                                Gespecialiseerd in gezonde schoollunches en uitgebreide bedrijfsontbijtjes.
+                            </p>
+                        </div>
 
-                    <!-- Floating Badge 1 -->
-                    <div class="absolute top-10 right-0 md:right-10 bg-white/90 dark:bg-[#1a2632]/90 backdrop-blur-md p-4 rounded-2xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white/50 dark:border-white/10 animate-bounce-slow"
-                        style="animation-delay: 0s;">
-                        <div class="flex items-center gap-3">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- Service 1 -->
                             <div
-                                class="bg-green-100 dark:bg-green-900/30 p-2.5 rounded-full text-green-600 dark:text-green-400">
-                                <span class="material-symbols-outlined text-xl">verified</span>
-                            </div>
-                            <div>
-                                <p class="font-bold text-[#1F2937] dark:text-white leading-tight">100% Vers</p>
-                                <p class="text-xs text-gray-500">Gegarandeerd</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Floating Badge 2 -->
-                    <div class="absolute bottom-10 left-0 md:left-10 bg-white/90 dark:bg-[#1a2632]/90 backdrop-blur-md p-4 rounded-2xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] border border-white/50 dark:border-white/10 animate-bounce-slow"
-                        style="animation-delay: 1.5s;">
-                        <div class="flex items-center gap-3">
-                            <div class="bg-orange-100 dark:bg-orange-900/30 p-2.5 rounded-full text-primary">
-                                <span class="material-symbols-outlined text-xl">workspace_premium</span>
-                            </div>
-                            <div>
-                                <p class="font-bold text-[#1F2937] dark:text-white leading-tight">Top Service</p>
-                                <p class="text-xs text-gray-500">5 Sterren</p>
-                            </div>
-                            <span class="font-bold text-sm">Gecertificeerd Vers</span>
-                        </div>
-                        <p class="text-xs text-gray-400">Dagelijks lokale ingrediënten.</p>
-                    </div>
-                </div>
-            </div>
-    </div>
-
-    <!-- Animated Stats Section -->
-    <section class="py-10 bg-primary/5 dark:bg-primary/10 border-b border-primary/10">
-        <div class="max-w-[1200px] mx-auto px-4 md:px-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div class="flex flex-col items-center">
-                <span class="text-3xl md:text-4xl font-black text-primary counter" data-target="25">0</span>
-                <p class="text-sm text-[#637588] dark:text-gray-400 font-bold uppercase tracking-wider mt-1">
-                    Jaar Ervaring</p>
-            </div>
-            <div class="flex flex-col items-center">
-                <span class="text-3xl md:text-4xl font-black text-primary counter" data-target="150">0</span>
-                <p class="text-sm text-[#637588] dark:text-gray-400 font-bold uppercase tracking-wider mt-1">
-                    Dagelijkse Maaltijden</p>
-            </div>
-            <div class="flex flex-col items-center">
-                <span class="text-3xl md:text-4xl font-black text-primary counter" data-target="10">0</span>
-                <p class="text-sm text-[#637588] dark:text-gray-400 font-bold uppercase tracking-wider mt-1">
-                    Partner Scholen</p>
-            </div>
-            <div class="flex flex-col items-center">
-                <span class="text-3xl md:text-4xl font-black text-primary counter" data-target="100">0</span>
-                <p class="text-sm text-[#637588] dark:text-gray-400 font-bold uppercase tracking-wider mt-1">
-                    Tevredenheid</p>
-            </div>
-        </div>
-    </section>
-    <!-- Features / Services Splitter -->
-    <section id="services" class="py-24 px-4 md:px-20 bg-white dark:bg-[#111921]">
-        <div class="max-w-[1200px] mx-auto">
-            <div class="flex flex-col gap-16">
-                <div class="flex flex-col gap-6 text-center items-center">
-                    <span
-                        class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/5 px-4 py-2 rounded-full">Onze
-                        Expertise</span>
-                    <h2
-                        class="text-[#1F2937] dark:text-white tracking-tight text-4xl md:text-5xl font-black leading-tight reveal-on-scroll">
-                        Catering vanuit het Hart
-                    </h2>
-                    <p
-                        class="text-gray-500 dark:text-gray-400 text-lg md:text-xl font-medium leading-relaxed max-w-2xl reveal-on-scroll">
-                        Gevestigd in Rotterdam (3086 XR), brengen wij familiewarmte in elke maaltijd.
-                        Gespecialiseerd in gezonde schoollunches en uitgebreide bedrijfsontbijtjes.
-                    </p>
-                </div>
-
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Service 1 -->
-                    <div
-                        class="group flex flex-col gap-6 p-8 rounded-[2.5rem] bg-gray-50 dark:bg-[#1a2632] transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:-translate-y-2 border border-gray-100 dark:border-gray-800">
-                        <div class="w-full h-72 bg-center bg-no-repeat bg-cover rounded-[1.5rem] overflow-hidden relative shadow-sm"
-                            data-alt="Elegant corporate event buffet setup"
-                            style='background-image: url("https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80");'>
-                        </div>
-                        <div class="flex flex-col gap-3 px-2">
-                            <div class="flex items-center gap-2 text-primary">
-                                <div class="bg-white dark:bg-black/20 p-2 rounded-full shadow-sm">
-                                    <span class="material-symbols-outlined text-xl">camera_alt</span>
+                                class="group flex flex-col gap-6 p-8 rounded-[2.5rem] bg-gray-50 dark:bg-[#1a2632] transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:-translate-y-2 border border-gray-100 dark:border-gray-800">
+                                <div class="w-full h-72 bg-center bg-no-repeat bg-cover rounded-[1.5rem] overflow-hidden relative shadow-sm"
+                                    data-alt="Elegant corporate event buffet setup"
+                                    style='background-image: url("https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80");'>
                                 </div>
-                                <p class="text-xs font-bold uppercase tracking-wider">Evenementen Catering</p>
-                            </div>
-                            <h3
-                                class="text-[#1F2937] dark:text-white text-2xl font-bold leading-tight group-hover:text-primary transition-colors">
-                                Zakelijk &amp; Evenementen
-                            </h3>
-                            <p class="text-gray-500 dark:text-gray-400 text-base font-medium leading-relaxed">
-                                Snelle, betrouwbare service voor fotografie-sets, zakelijke bijeenkomsten en
-                                privéfeesten. Wij zorgen dat uw team goed gevoed, tevreden en op schema blijft.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Service 2 -->
-                    <div
-                        class="group flex flex-col gap-6 p-8 rounded-[2.5rem] bg-gray-50 dark:bg-[#1a2632] transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:-translate-y-2 border border-gray-100 dark:border-gray-800">
-                        <div class="w-full h-72 bg-center bg-no-repeat bg-cover rounded-[1.5rem] overflow-hidden relative shadow-sm"
-                            data-alt="Healthy colorful school lunch tray"
-                            style='background-image: url("https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80");'>
-                        </div>
-                        <div class="flex flex-col gap-3 px-2">
-                            <div class="flex items-center gap-2 text-primary">
-                                <div class="bg-white dark:bg-black/20 p-2 rounded-full shadow-sm">
-                                    <span class="material-symbols-outlined text-xl">school</span>
+                                <div class="flex flex-col gap-3 px-2">
+                                    <div class="flex items-center gap-2 text-primary">
+                                        <div class="bg-white dark:bg-black/20 p-2 rounded-full shadow-sm">
+                                            <span class="material-symbols-outlined text-xl">camera_alt</span>
+                                        </div>
+                                        <p class="text-xs font-bold uppercase tracking-wider">Evenementen Catering</p>
+                                    </div>
+                                    <h3
+                                        class="text-[#1F2937] dark:text-white text-2xl font-bold leading-tight group-hover:text-primary transition-colors">
+                                        Zakelijk &amp; Evenementen
+                                    </h3>
+                                    <p class="text-gray-500 dark:text-gray-400 text-base font-medium leading-relaxed">
+                                        Snelle, betrouwbare service voor fotografie-sets, zakelijke bijeenkomsten en
+                                        privéfeesten. Wij zorgen dat uw team goed gevoed, tevreden en op schema blijft.
+                                    </p>
                                 </div>
-                                <p class="text-xs font-bold uppercase tracking-wider">Schoolvoeding</p>
                             </div>
-                            <h3
-                                class="text-[#1F2937] dark:text-white text-2xl font-bold leading-tight group-hover:text-primary transition-colors">
-                                Schoollunch Programma's
-                            </h3>
-                            <p class="text-gray-500 dark:text-gray-400 text-base font-medium leading-relaxed">
-                                Gezonde, heerlijke en verantwoorde lunchoplossingen voor studenten. Wij werken
-                                samen met lokale scholen om evenwichtige maaltijden te bieden waar kinderen dol
-                                op zijn.
-                            </p>
+                            <!-- Service 2 -->
+                            <div
+                                class="group flex flex-col gap-6 p-8 rounded-[2.5rem] bg-gray-50 dark:bg-[#1a2632] transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:-translate-y-2 border border-gray-100 dark:border-gray-800">
+                                <div class="w-full h-72 bg-center bg-no-repeat bg-cover rounded-[1.5rem] overflow-hidden relative shadow-sm"
+                                    data-alt="Healthy colorful school lunch tray"
+                                    style='background-image: url("https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80");'>
+                                </div>
+                                <div class="flex flex-col gap-3 px-2">
+                                    <div class="flex items-center gap-2 text-primary">
+                                        <div class="bg-white dark:bg-black/20 p-2 rounded-full shadow-sm">
+                                            <span class="material-symbols-outlined text-xl">school</span>
+                                        </div>
+                                        <p class="text-xs font-bold uppercase tracking-wider">Schoolvoeding</p>
+                                    </div>
+                                    <h3
+                                        class="text-[#1F2937] dark:text-white text-2xl font-bold leading-tight group-hover:text-primary transition-colors">
+                                        Schoollunch Programma's
+                                    </h3>
+                                    <p class="text-gray-500 dark:text-gray-400 text-base font-medium leading-relaxed">
+                                        Gezonde, heerlijke en verantwoorde lunchoplossingen voor studenten. Wij werken
+                                        samen met lokale scholen om evenwichtige maaltijden te bieden waar kinderen dol
+                                        op zijn.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <!-- Gallery Grid -->
-    <section id="menu" class="py-24 bg-[#FAFAFA] dark:bg-[#0d131a]">
-        <div class="layout-content-container max-w-[1200px] mx-auto px-4 md:px-20">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <span
-                        class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/5 px-4 py-2 rounded-full">Ons
-                        Menu</span>
-                    <h2 class="text-[#1F2937] dark:text-white text-4xl font-black leading-tight mt-4">
-                        Onze Creaties
-                    </h2>
-                </div>
-                <button
-                    class="hidden md:flex bg-white dark:bg-[#1a2632] text-[#1F2937] dark:text-white border border-gray-200 dark:border-gray-700 font-bold px-6 py-3 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors items-center gap-2 shadow-sm">
-                    Bekijk Volledige Galerij <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                </button>
-            </div>
+            </section>
+            <!-- Gallery Grid -->
+            <section id="menu" class="py-24 bg-[#FAFAFA] dark:bg-[#0d131a]">
+                <div class="layout-content-container max-w-[1200px] mx-auto px-4 md:px-20">
+                    <div class="flex justify-between items-end mb-12">
+                        <div>
+                            <span
+                                class="text-primary font-bold tracking-widest text-xs uppercase bg-primary/5 px-4 py-2 rounded-full">Ons
+                                Menu</span>
+                            <h2 class="text-[#1F2937] dark:text-white text-4xl font-black leading-tight mt-4">
+                                Onze Creaties
+                            </h2>
+                        </div>
+                        <button
+                            class="hidden md:flex bg-white dark:bg-[#1a2632] text-[#1F2937] dark:text-white border border-gray-200 dark:border-gray-700 font-bold px-6 py-3 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors items-center gap-2 shadow-sm">
+                            Bekijk Volledige Galerij <span
+                                class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </button>
+                    </div>
 
-            <!-- Menu Filters -->
-            <div class="flex flex-wrap gap-2 mb-10" id="menu-filters">
-                <button
-                    class="filter-btn active px-6 py-2.5 rounded-full text-sm font-bold bg-primary text-white shadow-lg shadow-primary/20 transition-all transform hover:scale-105"
-                    data-filter="all">Alles</button>
-                <button
-                    class="filter-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white dark:bg-[#1a2632] text-gray-500 dark:text-gray-300 border border-gray-100 dark:border-gray-700 hover:border-gray-300 transition-all hover:bg-gray-50"
-                    data-filter="breakfast">Ontbijt</button>
-                <button
-                    class="filter-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white dark:bg-[#1a2632] text-gray-500 dark:text-gray-300 border border-gray-100 dark:border-gray-700 hover:border-gray-300 transition-all hover:bg-gray-50"
-                    data-filter="lunch">Lunch</button>
-                <button
-                    class="filter-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white dark:bg-[#1a2632] text-gray-500 dark:text-gray-300 border border-gray-100 dark:border-gray-700 hover:border-gray-300 transition-all hover:bg-gray-50"
-                    data-filter="events">Evenementen</button>
-            </div>
+                    <!-- Menu Filters -->
+                    <div class="flex flex-wrap gap-2 mb-10" id="menu-filters">
+                        <button
+                            class="filter-btn active px-6 py-2.5 rounded-full text-sm font-bold bg-primary text-white shadow-lg shadow-primary/20 transition-all transform hover:scale-105"
+                            data-filter="all">Alles</button>
+                        <button
+                            class="filter-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white dark:bg-[#1a2632] text-gray-500 dark:text-gray-300 border border-gray-100 dark:border-gray-700 hover:border-gray-300 transition-all hover:bg-gray-50"
+                            data-filter="breakfast">Ontbijt</button>
+                        <button
+                            class="filter-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white dark:bg-[#1a2632] text-gray-500 dark:text-gray-300 border border-gray-100 dark:border-gray-700 hover:border-gray-300 transition-all hover:bg-gray-50"
+                            data-filter="lunch">Lunch</button>
+                        <button
+                            class="filter-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white dark:bg-[#1a2632] text-gray-500 dark:text-gray-300 border border-gray-100 dark:border-gray-700 hover:border-gray-300 transition-all hover:bg-gray-50"
+                            data-filter="events">Evenementen</button>
+                    </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Item 1 -->
-                <div class="group cursor-pointer gallery-img reveal-on-scroll" data-category="events"
-                    data-title="Luxe Borrelhapjes" data-desc="Verfijnde hapjes voor elke gelegenheid."
-                    style="transition-delay: 100ms;">
-                    <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
-                        <img loading="lazy"
-                            src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=800&q=80"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            alt="Canapes">
-                        <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Item 1 -->
+                        <div class="group cursor-pointer gallery-img reveal-on-scroll" data-category="events"
+                            data-title="Luxe Borrelhapjes" data-desc="Verfijnde hapjes voor elke gelegenheid."
+                            style="transition-delay: 100ms;">
+                            <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
+                                <img loading="lazy"
+                                    src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=800&q=80"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="Canapes">
+                                <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all">
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-[#1F2937] dark:text-white pl-2">Luxe Borrelhapjes</h3>
+                            <p class="text-sm text-gray-500 pl-2">Lente Collectie</p>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="group cursor-pointer gallery-img reveal-on-scroll" data-category="lunch"
+                            data-title="Verse Salade Bowl" data-desc="Biologische groenten direct van de boer."
+                            style="transition-delay: 200ms;">
+                            <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
+                                <img loading="lazy"
+                                    src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="Salad">
+                                <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all">
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-[#1F2937] dark:text-white pl-2">Verse Salade Bowl</h3>
+                            <p class="text-sm text-gray-500 pl-2">Van de Boer</p>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="group cursor-pointer gallery-img reveal-on-scroll" data-category="events"
+                            data-title="Zalmfilet op Bord" data-desc="Gebakken zalm met citroenbotersaus."
+                            style="transition-delay: 300ms;">
+                            <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
+                                <img loading="lazy"
+                                    src="https://images.pexels.com/photos/3763847/pexels-photo-3763847.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="Salmon">
+                                <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all">
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-[#1F2937] dark:text-white pl-2">Zalmfilet op Bord</h3>
+                            <p class="text-sm text-gray-500 pl-2">Zakelijk Diner</p>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="group cursor-pointer gallery-img reveal-on-scroll" data-category="lunch"
+                            data-title="School Samenwerking" data-desc="Voedzaam lunchprogramma voor studenten."
+                            style="transition-delay: 400ms;">
+                            <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
+                                <img loading="lazy"
+                                    src="https://images.pexels.com/photos/6995261/pexels-photo-6995261.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="School Lunch">
+                                <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all">
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-[#1F2937] dark:text-white pl-2">School Samenwerking</h3>
+                            <p class="text-sm text-gray-500 pl-2">Gezond Kids Programma</p>
                         </div>
                     </div>
-                    <h3 class="text-lg font-bold text-[#1F2937] dark:text-white pl-2">Luxe Borrelhapjes</h3>
-                    <p class="text-sm text-gray-500 pl-2">Lente Collectie</p>
                 </div>
-
-                <!-- Item 2 -->
-                <div class="group cursor-pointer gallery-img reveal-on-scroll" data-category="lunch"
-                    data-title="Verse Salade Bowl" data-desc="Biologische groenten direct van de boer."
-                    style="transition-delay: 200ms;">
-                    <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
-                        <img loading="lazy"
-                            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            alt="Salad">
-                        <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all">
-                        </div>
-                    </div>
-                    <h3 class="text-lg font-bold text-[#1F2937] dark:text-white pl-2">Verse Salade Bowl</h3>
-                    <p class="text-sm text-gray-500 pl-2">Van de Boer</p>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="group cursor-pointer gallery-img reveal-on-scroll" data-category="events"
-                    data-title="Zalmfilet op Bord" data-desc="Gebakken zalm met citroenbotersaus."
-                    style="transition-delay: 300ms;">
-                    <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
-                        <img loading="lazy"
-                            src="https://images.pexels.com/photos/3763847/pexels-photo-3763847.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            alt="Salmon">
-                        <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all">
-                        </div>
-                    </div>
-                    <h3 class="text-lg font-bold text-[#1F2937] dark:text-white pl-2">Zalmfilet op Bord</h3>
-                    <p class="text-sm text-gray-500 pl-2">Zakelijk Diner</p>
-                </div>
-
-                <!-- Item 4 -->
-                <div class="group cursor-pointer gallery-img reveal-on-scroll" data-category="lunch"
-                    data-title="School Samenwerking" data-desc="Voedzaam lunchprogramma voor studenten."
-                    style="transition-delay: 400ms;">
-                    <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
-                        <img loading="lazy"
-                            src="https://images.pexels.com/photos/6995261/pexels-photo-6995261.jpeg?auto=compress&cs=tinysrgb&w=800"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            alt="School Lunch">
-                        <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all">
-                        </div>
-                    </div>
-                    <h3 class="text-lg font-bold text-[#1F2937] dark:text-white pl-2">School Samenwerking</h3>
-                    <p class="text-sm text-gray-500 pl-2">Gezond Kids Programma</p>
-                </div>
-            </div>
-        </div>
-    </section> <button
-        class="md:hidden w-full mt-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg text-[#111418] dark:text-white font-medium flex justify-center items-center gap-2">
-        Bekijk Volledige Galerij <span class="material-symbols-outlined">arrow_forward</span>
-    </button>
+            </section> <button
+                class="md:hidden w-full mt-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg text-[#111418] dark:text-white font-medium flex justify-center items-center gap-2">
+                Bekijk Volledige Galerij <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
     </div>
     </section>
     <!-- Testimonials -->
