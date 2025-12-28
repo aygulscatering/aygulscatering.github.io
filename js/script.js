@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounters();
     initFilters();
     initMusicPlayer();
+    initAppleMusic();
 });
 
 function initScrollReveal() {
@@ -626,3 +627,19 @@ function initMusicPlayer() {
         }
     }
 }
+
+function initAppleMusic() {
+    const audio = document.getElementById('background-music');
+    if (!audio) return;
+    const tryPlay = () => {
+        audio.play().catch(() => { });
+    };
+    // Attempt autoplay on load
+    tryPlay();
+    // Fallback on first user interaction
+    const events = ['click', 'touchstart', 'scroll', 'keydown'];
+    events.forEach(evt => {
+        document.body.addEventListener(evt, tryPlay, { once: true, passive: true });
+    });
+}
+
