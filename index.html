@@ -65,6 +65,55 @@
         .smooth-shadow {
             box-shadow: 0 10px 40px -10px rgba(255, 125, 0, 0.15);
         }
+
+        /* Food Photo Animations */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 4px 20px rgba(255, 125, 0, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 4px 30px rgba(255, 125, 0, 0.4);
+            }
+        }
+
+        @keyframes gentle-rotate {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(2deg);
+            }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .animate-gentle-rotate {
+            animation: gentle-rotate 4s ease-in-out infinite;
+        }
     </style>
 
     <!-- Schema.org Structured Data -->
@@ -504,7 +553,8 @@
                         <div class="group cursor-pointer gallery-img reveal-on-scroll" data-category="events"
                             data-title="Luxe Borrelhapjes" data-desc="Verfijnde hapjes voor elke gelegenheid."
                             style="transition-delay: 100ms;">
-                            <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
+                            <div
+                                class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md animate-float">
                                 <img loading="lazy"
                                     src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=800&q=80"
                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -520,7 +570,8 @@
                         <div class="group cursor-pointer gallery-img reveal-on-scroll" data-category="lunch"
                             data-title="Verse Salade Bowl" data-desc="Biologische groenten direct van de boer."
                             style="transition-delay: 200ms;">
-                            <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
+                            <div
+                                class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md animate-pulse-glow">
                                 <img loading="lazy"
                                     src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -536,7 +587,8 @@
                         <div class="group cursor-pointer gallery-img reveal-on-scroll" data-category="events"
                             data-title="Zalmfilet op Bord" data-desc="Gebakken zalm met citroenbotersaus."
                             style="transition-delay: 300ms;">
-                            <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
+                            <div
+                                class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md animate-gentle-rotate">
                                 <img loading="lazy"
                                     src="https://images.pexels.com/photos/3763847/pexels-photo-3763847.jpeg?auto=compress&cs=tinysrgb&w=800"
                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -552,7 +604,8 @@
                         <div class="group cursor-pointer gallery-img reveal-on-scroll" data-category="lunch"
                             data-title="School Samenwerking" data-desc="Voedzaam lunchprogramma voor studenten."
                             style="transition-delay: 400ms;">
-                            <div class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md">
+                            <div
+                                class="w-full aspect-square rounded-[2rem] overflow-hidden mb-4 relative shadow-md animate-float">
                                 <img loading="lazy"
                                     src="https://images.pexels.com/photos/6995261/pexels-photo-6995261.jpeg?auto=compress&cs=tinysrgb&w=800"
                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
