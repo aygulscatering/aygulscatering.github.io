@@ -1547,13 +1547,13 @@ function correctDeltaY(delta) {
 }
 
 function generateColor() {
-    // Ultra-light warm neutral palette for smooth, elegant appearance
+    // Light, vibrant colors - no purple, beige, or grey
     const colors = [
-        { r: 1.0, g: 0.95, b: 0.90 },  // Warm Cream
-        { r: 0.98, g: 0.92, b: 0.85 },  // Light Beige
-        { r: 1.0, g: 0.88, b: 0.75 },   // Soft Peach Cream
-        { r: 0.95, g: 0.90, b: 0.88 },  // Pale Rose Beige
-        { r: 1.0, g: 0.93, b: 0.82 }    // Light Apricot
+        { r: 0.5, g: 0.85, b: 1.0 },   // Sky Blue
+        { r: 0.6, g: 1.0, b: 0.85 },   // Mint Green
+        { r: 1.0, g: 0.7, b: 0.65 },   // Coral Pink
+        { r: 1.0, g: 1.0, b: 0.6 },    // Lemon Yellow
+        { r: 0.6, g: 0.95, b: 0.95 }   // Aqua
     ];
     return colors[Math.floor(Math.random() * colors.length)];
 }
