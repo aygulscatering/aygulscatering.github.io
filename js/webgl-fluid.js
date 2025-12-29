@@ -1547,13 +1547,13 @@ function correctDeltaY(delta) {
 }
 
 function generateColor() {
-    // Light pastel palette for visibility
+    // Ultra-light warm neutral palette for smooth, elegant appearance
     const colors = [
-        { r: 1.0, g: 0.85, b: 0.6 },  // Soft Peach
-        { r: 0.95, g: 0.75, b: 0.85 }, // Soft Pink
-        { r: 0.85, g: 0.9, b: 1.0 },   // Soft Blue
-        { r: 1.0, g: 0.9, b: 0.7 },    // Soft Yellow
-        { r: 0.9, g: 0.95, b: 0.85 }   // Soft Mint
+        { r: 1.0, g: 0.95, b: 0.90 },  // Warm Cream
+        { r: 0.98, g: 0.92, b: 0.85 },  // Light Beige
+        { r: 1.0, g: 0.88, b: 0.75 },   // Soft Peach Cream
+        { r: 0.95, g: 0.90, b: 0.88 },  // Pale Rose Beige
+        { r: 1.0, g: 0.93, b: 0.82 }    // Light Apricot
     ];
     return colors[Math.floor(Math.random() * colors.length)];
 }
