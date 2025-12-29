@@ -53,7 +53,7 @@ let config = {
     COLORFUL: true,
     COLOR_UPDATE_SPEED: 10,
     PAUSED: false,
-    BACK_COLOR: { r: 8, g: 0, b: 15 },
+    BACK_COLOR: { r: 250, g: 250, b: 250 },
     TRANSPARENT: false,
     BLOOM: true,
     BLOOM_ITERATIONS: 8,
@@ -1547,11 +1547,13 @@ function correctDeltaY(delta) {
 }
 
 function generateColor() {
-    // Neon Purples, Pinks, and Blues palette
+    // Light pastel palette for visibility
     const colors = [
-        { r: 0.66, g: 0.33, b: 0.97 }, // #A855F7 (Purple)
-        { r: 0.93, g: 0.28, b: 0.60 }, // #EC4899 (Pink)
-        { r: 0.23, g: 0.51, b: 0.96 }  // #3B82F6 (Blue)
+        { r: 1.0, g: 0.85, b: 0.6 },  // Soft Peach
+        { r: 0.95, g: 0.75, b: 0.85 }, // Soft Pink
+        { r: 0.85, g: 0.9, b: 1.0 },   // Soft Blue
+        { r: 1.0, g: 0.9, b: 0.7 },    // Soft Yellow
+        { r: 0.9, g: 0.95, b: 0.85 }   // Soft Mint
     ];
     return colors[Math.floor(Math.random() * colors.length)];
 }
