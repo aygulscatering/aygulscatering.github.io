@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Schrijf een Review | Aygül’s Catering</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF7D00",
+                        "background-light": "#FFFBF7",
+                        "background-dark": "#111921",
+                    },
+                    fontFamily: {
+                        "display": ["Outfit", "sans-serif"],
+                        "body": ["Outfit", "sans-serif"]
+                    }
+                },
+            },
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="js/script.js" defer></script>
+</head>
+
+<body class="bg-[#FAFAFA] dark:bg-[#111921] text-[#1F2937] dark:text-gray-100 font-display">
+    <div class="min-h-screen flex flex-col">
+        <!-- Minimal Header -->
+        <header class="p-6 flex justify-between items-center max-w-[1200px] mx-auto w-full">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div
+                    class="size-10 bg-primary/10 rounded-full flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </div>
+                <span class="font-bold">Terug naar Home</span>
+            </a>
+            <div class="flex items-center gap-4">
+                <h2 class="text-xl font-black">Aygül’s <span class="text-primary">Catering</span></h2>
+            </div>
+        </header>
+
+        <main class="flex-1 flex items-center justify-center p-4">
+            <div
+                class="w-full max-w-2xl bg-white dark:bg-[#1a2632] rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-gray-100 dark:border-gray-800">
+                <div class="text-center mb-10">
+                    <h1 class="text-4xl font-black mb-4">Deel je Ervaring</h1>
+                    <p class="text-gray-500 dark:text-gray-400">Jouw feedback helpt ons om nog beter te worden!</p>
+                </div>
+
+                <form id="review-form" class="space-y-8">
+                    <!-- Star Rating -->
+                    <div class="flex flex-col items-center gap-4">
+                        <p class="font-bold text-lg">Hoe was je ervaring?</p>
+                        <div class="flex gap-2" id="star-rating">
+                            <button type="button" data-value="1"
+                                class="star-btn text-4xl text-gray-300 hover:text-yellow-400 transition-colors">
+                                <span class="material-symbols-outlined text-5xl">star</span>
+                            </button>
+                            <button type="button" data-value="2"
+                                class="star-btn text-4xl text-gray-300 hover:text-yellow-400 transition-colors">
+                                <span class="material-symbols-outlined text-5xl">star</span>
+                            </button>
+                            <button type="button" data-value="3"
+                                class="star-btn text-4xl text-gray-300 hover:text-yellow-400 transition-colors">
+                                <span class="material-symbols-outlined text-5xl">star</span>
+                            </button>
+                            <button type="button" data-value="4"
+                                class="star-btn text-4xl text-gray-300 hover:text-yellow-400 transition-colors">
+                                <span class="material-symbols-outlined text-5xl">star</span>
+                            </button>
+                            <button type="button" data-value="5"
+                                class="star-btn text-4xl text-gray-300 hover:text-yellow-400 transition-colors">
+                                <span class="material-symbols-outlined text-5xl">star</span>
+                            </button>
+                        </div>
+                        <input type="hidden" name="rating" id="rating-input" required value="0">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="font-bold text-sm block">Naam</label>
+                            <input type="text" name="name" required placeholder="Je naam"
+                                class="w-full bg-gray-50 dark:bg-black/20 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:outline-none transition-all">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="font-bold text-sm block">Email (wordt niet getoond)</label>
+                            <input type="email" name="email" required placeholder="je@email.nl"
+                                class="w-full bg-gray-50 dark:bg-black/20 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:outline-none transition-all">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="font-bold text-sm block">Je Review</label>
+                        <textarea name="comment" required rows="4" placeholder="Wat vond je van het eten en de service?"
+                            class="w-full bg-gray-50 dark:bg-black/20 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:outline-none transition-all resize-none"></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 transition-all transform hover:-translate-y-1">
+                        Review Versturen
+                    </button>
+                </form>
+
+                <!-- Success Message (Hidden) -->
+                <div id="review-success" class="hidden text-center py-10 space-y-6">
+                    <div
+                        class="size-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
+                        <span class="material-symbols-outlined text-5xl">check_circle</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-black mb-2">Bedankt!</h2>
+                        <p class="text-gray-500">Je review is verzonden en zal na controle worden geplaatst.</p>
+                    </div>
+                    <a href="index.html"
+                        class="inline-block bg-[#1F2937] text-white px-8 py-3 rounded-full font-bold">Terug naar
+                        Homepage</a>
+                </div>
+            </div>
+        </main>
+
+        <footer class="p-8 text-center text-sm text-gray-400">
+            © 2025 Aygül’s Catering. Alle rechten voorbehouden.
+        </footer>
+    </div>
+</body>
+
+</html>

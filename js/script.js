@@ -9,8 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initBackToTop();
     initDarkMode();
-    initTestimonialSlider();
     initFAQ();
+    initReviews();
+    initReviewForm();
     initModals();
     initNewsletter();
     initCookieConsent();
@@ -54,21 +55,15 @@ function initScrollReveal() {
 function initPreloader() {
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        const fadeOut = () => {
+        window.addEventListener('load', () => {
             setTimeout(() => {
                 preloader.style.opacity = '0';
                 setTimeout(() => {
                     preloader.style.display = 'none';
                     document.body.classList.remove('overflow-hidden');
                 }, 500);
-            }, 500);
-        };
-
-        if (document.readyState === 'complete') {
-            fadeOut();
-        } else {
-            window.addEventListener('load', fadeOut);
-        }
+            }, 500); // Min display time
+        });
     }
 }
 
@@ -633,4 +628,107 @@ function initMusicPlayer() {
 
     // Start
     tryPlay();
+}
+
+/**
+ * Dynamic Reviews Loading
+ */
+async function initReviews() {
+    const grid = document.getElementById('reviews-grid');
+    if (!grid) return;
+
+    try {
+        const response = await fetch('data/reviews.json');
+        const reviews = await response.json();
+
+        if (reviews.length === 0) {
+            grid.innerHTML = '<p class="col-span-full text-center text-gray-500 py-10 italic">Nog geen reviews. Wees de eerste!</p>';
+            return;
+        }
+
+        grid.innerHTML = reviews.map(review => `
+            <div class="bg-white dark:bg-[#1a2632] rounded-2xl p-6 border border-gray-100 dark:border-gray-800 reveal-on-scroll shadow-card">
+                <div class="flex gap-1 mb-4">
+                    ${Array(5).fill(0).map((_, i) => `
+                        <span class="material-symbols-outlined ${i < review.rating ? 'text-yellow-400' : 'text-gray-200'} text-lg" 
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                    `).join('')}
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">"${review.comment}"</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                        ${review.name.charAt(0).toUpperCase()}
+                    </div>
+                    <div>
+                        <p class="font-bold text-[#1F2937] dark:text-white text-sm">${review.name}</p>
+                        <p class="text-xs text-gray-500">Geverifieerde Klant</p>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        // Re-init scroll reveal for new elements
+        if (typeof initScrollReveal === 'function') initScrollReveal();
+
+    } catch (error) {
+        console.error('Error loading reviews:', error);
+        grid.innerHTML = '<p class="col-span-full text-center text-red-500 py-10">Fout bij het laden van reviews.</p>';
+    }
+}
+
+/**
+ * Review Form Logic
+ */
+function initReviewForm() {
+    const form = document.getElementById('review-form');
+    const starBtns = document.querySelectorAll('.star-btn');
+    const ratingInput = document.getElementById('rating-input');
+    const successMsg = document.getElementById('review-success');
+
+    if (!form) return;
+
+    // Star Rating Interaction
+    starBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const val = btn.dataset.value;
+            ratingInput.value = val;
+
+            // Update UI
+            starBtns.forEach(sb => {
+                const sIcon = sb.querySelector('.material-symbols-outlined');
+                if (parseInt(sb.dataset.value) <= parseInt(val)) {
+                    sIcon.style.fontVariationSettings = "'FILL' 1";
+                    sb.classList.add('text-yellow-400');
+                    sb.classList.remove('text-gray-300');
+                } else {
+                    sIcon.style.fontVariationSettings = "'FILL' 0";
+                    sb.classList.remove('text-yellow-400');
+                    sb.classList.add('text-gray-300');
+                }
+            });
+        });
+    });
+
+    // Form Submission
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        if (ratingInput.value === "0") {
+            showToast('Selecteer a.u.b. een aantal sterren ⭐');
+            return;
+        }
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        console.log('Review submitted:', data);
+
+        // Here you would normally send this to a backend or a service like Formspree
+        // For now, we simulate success and show the message
+
+        form.classList.add('hidden');
+        if (successMsg) successMsg.classList.remove('hidden');
+
+        showToast('Bedankt voor je review! 🎉');
+    });
 }
