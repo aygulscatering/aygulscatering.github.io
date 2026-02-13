@@ -638,10 +638,23 @@ async function initReviews() {
     if (!grid) return;
 
     try {
-        const response = await fetch('data/reviews.json');
-        const reviews = await response.json();
+        // Fallback for when Supabase is not configured
+        if (typeof supabase === 'undefined' || !supabase.supabaseUrl || supabase.supabaseUrl.includes('YOUR_SUPABASE')) {
+            console.warn('Supabase not configured. Please add your URL and Key in index.html');
+            grid.innerHTML = '<p class="col-span-full text-center text-gray-500 py-10 italic">Wachtend op database configuratie...</p>';
+            return;
+        }
 
-        if (reviews.length === 0) {
+        // Fetch only approved reviews, ordered by latest
+        const { data: reviews, error } = await supabase
+            .from('reviews')
+            .select('*')
+            .eq('approved', true)
+            .order('created_at', { ascending: false });
+
+        if (error) throw error;
+
+        if (!reviews || reviews.length === 0) {
             grid.innerHTML = '<p class="col-span-full text-center text-gray-500 py-10 italic">Nog geen reviews. Wees de eerste!</p>';
             return;
         }
@@ -710,7 +723,7 @@ function initReviewForm() {
     });
 
     // Form Submission
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         if (ratingInput.value === "0") {
@@ -721,14 +734,44 @@ function initReviewForm() {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
 
-        console.log('Review submitted:', data);
+        // Ensure rating is an integer
+        data.rating = parseInt(data.rating);
 
-        // Here you would normally send this to a backend or a service like Formspree
-        // For now, we simulate success and show the message
+        try {
+            // Check if Supabase is configured
+            if (typeof supabase === 'undefined' || !supabase.supabaseUrl || supabase.supabaseUrl.includes('YOUR_SUPABASE')) {
+                throw new Error('Supabase configuration missing');
+            }
 
-        form.classList.add('hidden');
-        if (successMsg) successMsg.classList.remove('hidden');
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Versturen...';
+            btn.disabled = true;
 
-        showToast('Bedankt voor je review! 🎉');
+            const { error } = await supabase
+                .from('reviews')
+                .insert([
+                    {
+                        name: data.name,
+                        email: data.email,
+                        rating: data.rating,
+                        comment: data.comment,
+                        approved: false // New reviews need approval
+                    }
+                ]);
+
+            if (error) throw error;
+
+            form.classList.add('hidden');
+            if (successMsg) successMsg.classList.remove('hidden');
+            showToast('Bedankt voor je review! 🎉');
+
+        } catch (error) {
+            console.error('Error submitting review:', error);
+            showToast('Fout bij versturen. Probeer het later opnieuw. ❌');
+            const btn = form.querySelector('button[type="submit"]');
+            btn.innerHTML = 'Review Versturen';
+            btn.disabled = false;
+        }
     });
 }
